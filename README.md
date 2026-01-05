@@ -61,7 +61,3 @@ Cada pasta representa um projeto independente.
 Este repositório está em **constante desenvolvimento**.  
 Novos projetos, melhorias e ajustes serão adicionados conforme o aprendizado e a evolução dos estudos em IoT e automação.
 
-## 🤝 Contribuições
-
-Sugestões, melhorias e ideias são sempre bem-vindas!  
-Sinta-se à vontade para abrir **issues** ou **pull requests**.
