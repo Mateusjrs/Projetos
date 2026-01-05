@@ -1,38 +1,70 @@
-# Projetos- Arduino
- **Repositório de Projetos - Arduino** 
+🚀 Projetos com Arduino & ESP32 | IoT e Automação
 
- # Titulo
- ## Titulo
- ### Titulo
-*** 
-Lista numerada
-1. Teste
-2. Teste2
-   1. teste
-4. Teste3
+Bem-vindo(a) ao meu repositório!
+Aqui você encontrará projetos focados no desenvolvimento de soluções utilizando Arduino, ESP32, IoT (Internet das Coisas) e automação, unindo eletrônica, programação e conectividade.
 
-Lista Demarcada
-* Teste
-* Teste
-   * Teste
- 
-Lista de Tarefas
+🎯 Objetivo
 
-- [x] Comprar pao
-- [ ] Procuarar a manteiga
+Este repositório tem como objetivo:
 
-![LOGO GITHUB](https://github.com/Mateusjrs/Projetos/assets/153927248/59c3da0c-77be-47b0-8e6d-2a6c43d450fe)
+Desenvolver e documentar projetos práticos com Arduino e ESP32
 
-[Acesse meu Github](https://mateusjrs.github.io)
+Explorar conceitos de IoT, como:
 
-# Tabelas
-Num|Nome|Nota
----|---|---|
-1|Mateus|10,00
-2|Jose|10,00
+Comunicação via Wi-Fi / MQTT
 
-Oha o meu comando 
-```
-Serial.println("Olá mundo")
-```
-> Será que vai chover?
+Integração com servidores e dashboards
+
+Envio e recebimento de dados em tempo real
+
+Criar soluções de automação, como:
+
+Controle de iluminação
+
+Sensores (temperatura, presença, etc.)
+
+Atuadores (relés, motores, feeders, LEDs)
+
+Compartilhar aprendizado e boas práticas em projetos embarcados
+
+🧠 Tecnologias e Conceitos Utilizados
+
+Microcontroladores
+
+Arduino
+
+ESP32
+
+Comunicação
+
+Wi-Fi
+
+MQTT
+
+HTTP
+
+IoT
+
+Sensores e atuadores
+
+Integração com servidores
+
+Automação baseada em tempo e eventos
+
+Programação
+
+C/C++ (Arduino IDE)
+
+Estruturação de código
+
+Uso de bibliotecas e timers
+
+Hardware
+
+Relés
+
+LEDs
+
+Sensores diversos
+
+Módulos RTC, displays, entre outros
