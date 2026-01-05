@@ -1,70 +1,67 @@
-🚀 Projetos com Arduino & ESP32 | IoT e Automação
+# 🚀 Projetos com Arduino & ESP32 | IoT e Automação
 
-Bem-vindo(a) ao meu repositório!
-Aqui você encontrará projetos focados no desenvolvimento de soluções utilizando Arduino, ESP32, IoT (Internet das Coisas) e automação, unindo eletrônica, programação e conectividade.
+Bem-vindo(a) ao meu repositório!  
+Aqui você encontrará projetos focados no desenvolvimento de soluções utilizando **Arduino**, **ESP32**, **IoT (Internet das Coisas)** e **automação**, unindo eletrônica, programação e conectividade.
 
-🎯 Objetivo
+## 🎯 Objetivo
 
 Este repositório tem como objetivo:
 
-Desenvolver e documentar projetos práticos com Arduino e ESP32
+- Desenvolver e documentar projetos práticos com **Arduino e ESP32**
+- Explorar conceitos de **IoT**, como:
+  - Comunicação via **Wi-Fi / MQTT**
+  - Integração com servidores e dashboards
+  - Envio e recebimento de dados em tempo real
+- Criar soluções de **automação**, como:
+  - Controle de iluminação
+  - Sensores (temperatura, presença, etc.)
+  - Atuadores (relés, motores, feeders, LEDs)
+- Compartilhar aprendizado e boas práticas em projetos embarcados
 
-Explorar conceitos de IoT, como:
+## 🧠 Tecnologias e Conceitos Utilizados
 
-Comunicação via Wi-Fi / MQTT
+### Microcontroladores
+- Arduino
+- ESP32
 
-Integração com servidores e dashboards
+### Comunicação
+- Wi-Fi
+- MQTT
+- HTTP
 
-Envio e recebimento de dados em tempo real
+### IoT
+- Sensores e atuadores
+- Integração com servidores
+- Automação baseada em tempo e eventos
 
-Criar soluções de automação, como:
+### Programação
+- C/C++ (Arduino IDE)
+- Estruturação de código
+- Uso de bibliotecas e timers
 
-Controle de iluminação
+### Hardware
+- Relés
+- LEDs
+- Sensores diversos
+- Módulos RTC, displays, entre outros
 
-Sensores (temperatura, presença, etc.)
+## 📁 Organização do Repositório
 
-Atuadores (relés, motores, feeders, LEDs)
+Os projetos estão organizados de forma clara, contendo:
 
-Compartilhar aprendizado e boas práticas em projetos embarcados
+- Código-fonte
+- Descrição do funcionamento
+- Lista de componentes utilizados
+- Observações importantes sobre o projeto
 
-🧠 Tecnologias e Conceitos Utilizados
+Cada pasta representa um projeto independente.
 
-Microcontroladores
+## 🔧 Em constante evolução
 
-Arduino
+Este repositório está em **constante desenvolvimento**.  
+Novos projetos, melhorias e ajustes serão adicionados conforme o aprendizado e a evolução dos estudos em IoT e automação.
 
-ESP32
+## 🤝 Contribuições
 
-Comunicação
-
-Wi-Fi
-
-MQTT
-
-HTTP
-
-IoT
-
-Sensores e atuadores
-
-Integração com servidores
-
-Automação baseada em tempo e eventos
-
-Programação
-
-C/C++ (Arduino IDE)
-
-Estruturação de código
-
-Uso de bibliotecas e timers
-
-Hardware
-
-Relés
-
-LEDs
-
-Sensores diversos
-
-Módulos RTC, displays, entre outros
+Sugestões, melhorias e ideias são sempre bem-vindas!  
+Sinta-se à vontade para abrir **issues** ou **pull requests**.
