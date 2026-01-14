@@ -17,6 +17,7 @@ Este guia rápido apresenta os comandos mais utilizados do Git Bash e as conven�
 | `git merge` | Combina o histórico de uma *branch* em outra. | `git merge branch-a-combinar` |
 | `git pull` | Baixa o conteúdo do repositório remoto e o mescla automaticamente no repositório local. | `git pull origin main` |
 | `git push` | Envia os commits locais para o repositório remoto. | `git push origin nome-da-branch` |
+| `git switch` | Faz a alteração entre as branch. | `git switch main` |
 
 ## 2. Convenção de Commits (Conventional Commits)
 
