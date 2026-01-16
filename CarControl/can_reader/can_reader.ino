@@ -20,15 +20,24 @@ const char* CAN_SPEED_NAMES[] = {
   "125 kbps"
 };
 
+char vehicleVin[18];   // 17 + '\0'
+bool vinReceived = false;
+
+
 uint8_t detectedCanSpeed = CAN_500KBPS;
 bool canDetected = false;
 
 
 // Definição dos pinos SPI para o ESP32
-const int SPI_CS_PIN = 5;
+const int SPI_CS_PIN = 14;
 
 // Inicializa o objeto MCP_CAN
 MCP_CAN CAN(SPI_CS_PIN);
+
+#define MAX_DTC 10
+
+String dtcList[MAX_DTC];
+uint8_t dtcCount = 0;
 
 // Array para armazenar o último valor decodificado de cada sinal proprietário
 float last_prop_values[NUM_CAN_SIGNALS];
@@ -46,13 +55,6 @@ const long obd_request_interval = 200; // Solicita um PID a cada 100ms
 size_t current_obd_pid_index = 0;
 
 
-#define ISOTP_BUFFER_SIZE 64
-
-uint8_t isotp_buffer[ISOTP_BUFFER_SIZE];
-uint16_t isotp_len = 0;
-uint16_t isotp_offset = 0;
-bool isotp_active = false;
-uint8_t isotp_expected_sn = 1;
 
 #define MAX_SUPPORTED_PIDS 64
 
@@ -77,6 +79,60 @@ unsigned long last_obd_response_time = 0;
 bool obd_response_received = false;
 
 #define OBD_RESPONSE_TIMEOUT 300 // ms
+
+
+#define ISOTP_BUFFER_SIZE 64
+
+struct IsoTpSession {
+  uint16_t rxId;
+  uint16_t txId;
+
+  uint8_t buffer[ISOTP_BUFFER_SIZE];
+  uint16_t length;
+  uint16_t offset;
+
+  uint8_t expected_sn;
+  uint8_t block_size;
+  uint8_t block_counter;
+  uint8_t stmin;
+
+  unsigned long lastFrameTime;
+  bool active;
+};
+
+IsoTpSession isotp;
+bool dtcReceived = false;
+
+
+void requestVin() {
+  memset(vehicleVin, 0, sizeof(vehicleVin));
+  vinReceived = false;
+
+  uint8_t req[3] = {
+    0x02,
+    0x09,
+    0x02
+  };
+
+  sendObdWithFallback(req, 3);
+}
+
+
+enum ObdState {
+  OBD_IDLE,
+  OBD_REQUEST_VIN,
+  OBD_REQUEST_DTC
+};
+
+ObdState obdState = OBD_IDLE;
+
+void clearDtcList() {
+  for (uint8_t i = 0; i < MAX_DTC; i++) {
+    dtcList[i] = "";
+  }
+  dtcCount = 0;
+}
+
 
 
 void setup() {
@@ -106,7 +162,10 @@ void setup() {
   CAN.init_Filt(1, 0, 0x0F6);
 
   CAN.init_Mask(1, 0, 0x7F8);
+  CAN.init_Mask(1, 0, 0x7F8);
   CAN.init_Filt(2, 1, 0x7E8);
+  CAN.init_Filt(3, 1, 0x7E9);
+  CAN.init_Filt(4, 1, 0x7EA);
 
   CAN.setMode(MCP_NORMAL);
 }
@@ -190,6 +249,14 @@ void sendPidDiscoveryRequest() {
 }
 
 
+unsigned long stminToMicros(uint8_t stmin) {
+  if (stmin <= 0x7F) return stmin * 1000UL;
+  if (stmin >= 0xF1 && stmin <= 0xF9)
+    return (stmin - 0xF0) * 100UL;
+  return 0;
+}
+
+
 void sendIsoTp(long txId, const uint8_t *payload, uint16_t length) {
 
   uint8_t frame[8] = {0};
@@ -217,7 +284,7 @@ void sendIsoTp(long txId, const uint8_t *payload, uint16_t length) {
   uint16_t offset = firstLen;
   uint8_t seq = 1;
 
-  delay(5); // tempo mínimo antes de CF (simples)
+
 
   // ===============================
   // CONSECUTIVE FRAMES
@@ -234,47 +301,82 @@ void sendIsoTp(long txId, const uint8_t *payload, uint16_t length) {
     offset += chunk;
     seq++;
 
-    delay(5); // STmin simples
   }
 }
 
 
 void sendObdWithFallback(const uint8_t *payload, uint8_t length) {
 
-    uint16_t txId = OBD_REQUEST_IDS[obd_addr_index];
+  uint16_t txId = OBD_REQUEST_IDS[obd_addr_index];
 
-    sendIsoTp(txId, payload, length);
+  sendIsoTp(txId, payload, length);
 
-    Serial.print("OBD request enviado para ID 0x");
-    Serial.println(txId, HEX);
+  Serial.print("OBD request enviado para ID 0x");
+  Serial.println(txId, HEX);
 }
 
 
 void updateObdAddressFallback() {
 
-    if (obd_response_received) return;
+  if (obd_response_received) return;
 
-    if (millis() - last_obd_response_time > OBD_RESPONSE_TIMEOUT) {
+  if (millis() - last_obd_response_time > OBD_RESPONSE_TIMEOUT) {
 
-        obd_addr_index++;
+    obd_addr_index++;
 
-        if (obd_addr_index >=
-            sizeof(OBD_REQUEST_IDS) / sizeof(OBD_REQUEST_IDS[0])) {
+    if (obd_addr_index >=
+        sizeof(OBD_REQUEST_IDS) / sizeof(OBD_REQUEST_IDS[0])) {
 
-            obd_addr_index = 0; // volta para broadcast
-        }
-
-        last_obd_response_time = millis();
-
-        Serial.print("🔁 Fallback para OBD ID 0x");
-        Serial.println(OBD_REQUEST_IDS[obd_addr_index], HEX);
+      obd_addr_index = 0; // volta para broadcast
     }
+
+    last_obd_response_time = millis();
+
+    Serial.print("🔁 Fallback para OBD ID 0x");
+    Serial.println(OBD_REQUEST_IDS[obd_addr_index], HEX);
+  }
 }
 
 
 // =================================================================
 // LÓGICA DE PROCESSAMENTO DE MENSAGENS
 // =================================================================
+void requestDTCs() {
+  dtcReceived = false;
+  clearDtcList();   // 🔹 limpa DTCs antigos
+
+  uint8_t req[2] = {
+    0x01,
+    0x03
+  };
+
+  sendObdWithFallback(req, 2);
+}
+
+
+
+
+String decodeDtc(uint8_t a, uint8_t b) {
+  if (a == 0 && b == 0) return "";
+
+  char type;
+  switch ((a >> 6) & 0x03) {
+    case 0: type = 'P'; break;
+    case 1: type = 'C'; break;
+    case 2: type = 'B'; break;
+    case 3: type = 'U'; break;
+  }
+
+  uint16_t code =
+    ((a & 0x3F) << 8) | b;
+
+  char buffer[6];
+  snprintf(buffer, sizeof(buffer), "%c%04X", type, code);
+
+  return String(buffer);
+}
+
+
 
 bool processIsoTpFrame(long rxId, const uint8_t *data, uint8_t len) {
 
@@ -285,8 +387,13 @@ bool processIsoTpFrame(long rxId, const uint8_t *data, uint8_t len) {
   // ===============================
   if (pciType == 0x0) {
     uint8_t payloadLen = data[0] & 0x0F;
-    memcpy(isotp_buffer, &data[1], payloadLen);
-    isotp_len = payloadLen;
+
+    memcpy(isotp.buffer, &data[1], payloadLen);
+
+    isotp.length = payloadLen;
+    isotp.offset = payloadLen;
+    isotp.active = false;
+
     return true;
   }
 
@@ -294,24 +401,31 @@ bool processIsoTpFrame(long rxId, const uint8_t *data, uint8_t len) {
   // FIRST FRAME
   // ===============================
   if (pciType == 0x1) {
-    isotp_len = ((data[0] & 0x0F) << 8) | data[1];
-    isotp_offset = len - 2;
 
-    memcpy(isotp_buffer, &data[2], isotp_offset);
+    isotp.rxId = rxId;
+    isotp.txId = rxId - 0x8;
 
-    isotp_expected_sn = 1;
-    isotp_active = true;
+    isotp.length = ((data[0] & 0x0F) << 8) | data[1];
+    isotp.offset = len - 2;
 
-    // Envia Flow Control (CTS)
-    // Envia Flow Control (CTS)
-    // 0x30 = Continue To Send
-    // 0x00 = Block Size (sem limite)
-    // 0x00 = STmin
-    uint8_t fc[8] = {0x30, 0x00, 0x00, 0, 0, 0, 0, 0};
+    memcpy(isotp.buffer, &data[2], isotp.offset);
 
-    // Para respostas OBD padrão, enviar para ECU Engine (0x7E0)
-    CAN.sendMsgBuf(0x7E0, 0, 8, fc);
+    isotp.expected_sn  = 1;
+    isotp.block_size   = 0;
+    isotp.block_counter = 0;
+    isotp.stmin        = 0;
+    isotp.lastFrameTime = millis();
+    isotp.active       = true;
 
+    // FLOW CONTROL - CTS
+    uint8_t fc[8] = {
+      0x30,  // CTS
+      0x00,  // Block Size = ilimitado
+      0x05,  // STmin = 5 ms
+      0, 0, 0, 0, 0
+    };
+
+    CAN.sendMsgBuf(isotp.txId, 0, 8, fc);
 
     return false;
   }
@@ -319,29 +433,39 @@ bool processIsoTpFrame(long rxId, const uint8_t *data, uint8_t len) {
   // ===============================
   // CONSECUTIVE FRAME
   // ===============================
-  if (pciType == 0x2 && isotp_active) {
+  if (pciType == 0x2 && isotp.active) {
+
     uint8_t sn = data[0] & 0x0F;
 
-    if (sn != isotp_expected_sn) {
-      isotp_active = false;
+    if (sn != isotp.expected_sn) {
+      isotp.active = false;
       return false;
     }
 
-    uint8_t copyLen = min((uint16_t)(len - 1), (uint16_t)(isotp_len - isotp_offset));
-    memcpy(&isotp_buffer[isotp_offset], &data[1], copyLen);
+    uint16_t remaining = isotp.length - isotp.offset;
+    uint8_t copyLen = min((uint16_t)(len - 1), remaining);
 
-    isotp_offset += copyLen;
-    isotp_expected_sn++;
+    if (isotp.offset + copyLen > ISOTP_BUFFER_SIZE) {
+      isotp.active = false;
+      return false;
+    }
 
-    if (isotp_offset >= isotp_len) {
-      isotp_active = false;
+    memcpy(&isotp.buffer[isotp.offset], &data[1], copyLen);
+    isotp.offset += copyLen;
+
+    isotp.expected_sn = (isotp.expected_sn + 1) & 0x0F;
+    isotp.lastFrameTime = millis();
+
+    if (isotp.offset >= isotp.length) {
+      isotp.active = false;
       return true;
     }
+
+    return false;
   }
 
   return false;
 }
-
 
 
 void processCanMessage(long rxId, const uint8_t *rxBuf, uint8_t len) {
@@ -366,15 +490,80 @@ void processCanMessage(long rxId, const uint8_t *rxBuf, uint8_t len) {
 
   obd_response_received = true;
   last_obd_response_time = millis();
-  
+
   // Junta single / multi-frame
   if (!processIsoTpFrame(rxId, rxBuf, len)) {
     return;
   }
 
   // Payload ISO-TP completo
-  uint8_t mode = isotp_buffer[0];
-  uint8_t pid  = isotp_buffer[1];
+  uint8_t mode = isotp.buffer[0];
+  uint8_t pid  = isotp.buffer[1];
+
+  // ======================================================
+  // MODE 09 - VIN
+  // ======================================================
+  if (mode == 0x49 && pid == 0x02) {
+
+    uint8_t vinIndex = isotp.buffer[2]; // índice do frame (01, 02, 03...)
+    uint8_t dataStart = 3;
+
+    for (uint8_t i = dataStart; i < isotp.length; i++) {
+      if (isotp.buffer[i] >= 32 && isotp.buffer[i] <= 126) {
+        size_t pos = strlen(vehicleVin);
+        if (pos < 17) {
+          vehicleVin[pos] = (char)isotp.buffer[i];
+          vehicleVin[pos + 1] = '\0';
+        }
+      }
+    }
+
+    if (strlen(vehicleVin) >= 17) {
+      vinReceived = true;
+      Serial.print("✅ VIN recebido: ");
+      Serial.println(vehicleVin);
+    }
+
+    return;
+  }
+
+  // ======================================================
+  // MODE 03 - DTCs (Falhas)
+  // ======================================================
+  if (mode == 0x43) {  // 0x40 + 0x03
+    dtcReceived = true;
+
+    Serial.println("🚨 Falhas encontradas:");
+
+    uint8_t start = (isotp.buffer[1] == 0x00) ? 2 : 1;
+
+    for (uint8_t i = start; i + 1 < isotp.length; i += 2) {
+
+      uint8_t a = isotp.buffer[i];
+      uint8_t b = isotp.buffer[i + 1];
+
+ String dtc = decodeDtc(a, b);
+
+if (dtc.length() > 0) {
+
+  bool exists = false;
+  for (uint8_t j = 0; j < dtcCount; j++) {
+    if (dtcList[j] == dtc) {
+      exists = true;
+      break;
+    }
+  }
+
+  if (!exists && dtcCount < MAX_DTC) {
+    dtcList[dtcCount++] = dtc;
+  }
+}
+
+    }
+
+    return;
+  }
+
 
   // ======================================================
   // 2.1️⃣ PID DISCOVERY
@@ -385,7 +574,7 @@ void processCanMessage(long rxId, const uint8_t *rxBuf, uint8_t len) {
     uint8_t basePid = pid;
 
     for (int byte = 0; byte < 4; byte++) {
-      uint8_t mask = isotp_buffer[2 + byte];
+      uint8_t mask = isotp.buffer[2 + byte];
 
       for (int bit = 0; bit < 8; bit++) {
         if (mask & (1 << (7 - bit))) {
@@ -424,7 +613,7 @@ void processCanMessage(long rxId, const uint8_t *rxBuf, uint8_t len) {
 
     if (pid_map->pid == pid) {
       last_obd_values[i] =
-        decodeObdResponse(&isotp_buffer[2], pid_map);
+        decodeObdResponse(&isotp.buffer[2], pid_map);
       return;
     }
   }
@@ -436,45 +625,31 @@ void processCanMessage(long rxId, const uint8_t *rxBuf, uint8_t len) {
 // =================================================================
 
 void loop() {
+
   unsigned long currentMillis = millis();
 
-if (currentMillis - last_obd_request_time >= obd_request_interval) {
-    last_obd_request_time = currentMillis;
+  if (isotp.active && millis() - isotp.lastFrameTime > 500) {
+    isotp.active = false;
+  }
 
-    // 🔁 Atualiza fallback de endereço (7DF → 7E0 → 7E1)
-    updateObdAddressFallback();
+  static unsigned long lastCycle = 0;
 
-    if (!pid_discovery_done) {
+  if (obdState == OBD_IDLE && millis() - lastCycle > 3000) {
+    obdState = OBD_REQUEST_VIN;
+    requestVin();
+    lastCycle = millis();
+  }
 
-        // PID discovery (01 00, 01 20, 01 40)
-        uint8_t req[3] = {
-            0x02,           // número de bytes
-            0x01,           // Mode 01
-            pid_discovery_requests[pid_discovery_index]
-        };
+  if (obdState == OBD_REQUEST_VIN && vinReceived) {
+    obdState = OBD_REQUEST_DTC;
+    requestDTCs();
+  }
 
-        sendObdWithFallback(req, 3);
+  if (obdState == OBD_REQUEST_DTC && dtcReceived) {
+    obdState = OBD_IDLE;
+  }
 
-    } else {
-
-        // OBD normal
-        const ObdPid* pid_map = &OBD_PIDS[current_obd_pid_index];
-
-        uint8_t req[3] = {
-            0x02,
-            pid_map->mode,
-            pid_map->pid
-        };
-
-        sendObdWithFallback(req, 3);
-
-        current_obd_pid_index =
-            (current_obd_pid_index + 1) % NUM_OBD_PIDS;
-    }
-}
-
-
-  // 2. Leitura e Processamento de Mensagens CAN
+  // Leitura CAN
   if (CAN_MSGAVAIL == CAN.checkReceive()) {
     long unsigned int rxId;
     unsigned char len = 0;
@@ -488,6 +663,16 @@ if (currentMillis - last_obd_request_time >= obd_request_interval) {
   if (currentMillis - last_print_time >= print_interval) {
     last_print_time = currentMillis;
 
+if (dtcCount > 0) {
+    Serial.println("🚨 DTCs armazenados:");
+    for (uint8_t i = 0; i < dtcCount; i++) {
+      Serial.print("  - ");
+      Serial.println(dtcList[i]);
+    }
+  } else {
+    Serial.println("✅ Nenhuma falha armazenada");
+  }
+  
     Serial.print("======================================\n");
     Serial.println("Scanner Completo - Dados Traduzidos:");
     Serial.println("--------------------------------------");
@@ -518,6 +703,7 @@ if (currentMillis - last_obd_request_time >= obd_request_interval) {
     }
     Serial.println("======================================");
   }
+  
 
   delay(10);
 }
