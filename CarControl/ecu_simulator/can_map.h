@@ -153,20 +153,26 @@ float decodeObdResponse(const uint8_t *response_data, const ObdPid *pid_map) {
  * @param response_data Buffer para os bytes de dados da resposta (a partir do byte 3).
  * @return true se a codificação foi bem-sucedida.
  */
-bool encodeObdResponse(float value, const ObdPid *pid_map, uint8_t *response_data) {
-    uint32_t raw_value = (uint32_t)((value - pid_map->offset) / pid_map->factor);
+void encodeObdResponse(float value, const ObdPid* pid, uint8_t* out) {
 
-    if (pid_map->bytes_in_resp == 1) {
-        response_data[0] = (uint8_t)raw_value;
-    } else if (pid_map->bytes_in_resp == 2) {
-        // Assume Big-Endian (Byte A, Byte B)
-        response_data[0] = (uint8_t)(raw_value >> 8);
-        response_data[1] = (uint8_t)(raw_value & 0xFF);
-    } else {
-        return false;
-    }
-    
-    return true;
+  if (strcmp(pid->name, "Engine RPM (OBD)") == 0) {
+    uint16_t rpm = (uint16_t)(value * 4);
+    out[0] = (rpm >> 8) & 0xFF;
+    out[1] = rpm & 0xFF;
+  }
+
+  else if (strcmp(pid->name, "Vehicle Speed (OBD)") == 0) {
+    out[0] = (uint8_t)value;
+  }
+
+  else if (strcmp(pid->name, "Coolant Temp (OBD)") == 0) {
+    out[0] = (uint8_t)(value + 40);
+  }
+
+  else if (strcmp(pid->name, "Calculated Load (OBD)") == 0) {
+    out[0] = (uint8_t)((value * 255.0) / 100.0);
+  }
 }
+
 
 #endif // CAN_MAP_H
