@@ -1,0 +1,331 @@
+# 🚗 ESP32 CAN Scanner & ECU Translator
+
+Scanner CAN automotivo completo baseado em **ESP32 + MCP2515**, capaz de sniffar mensagens proprietárias, realizar diagnósticos **OBD-II**, montar mensagens **ISO-TP** manualmente e traduzir dados em tempo real.
+
+Este projeto foi desenvolvido com foco em **aprendizado profundo de protocolos automotivos**, evitando abstrações excessivas e priorizando controle total do barramento CAN.
+
+---
+
+## 📌 Visão Geral
+
+Funcionalidades principais:
+
+- ✅ Auto-detecção de velocidade CAN (125 / 250 / 500 kbps)
+- ✅ Sniffer de mensagens CAN proprietárias
+- ✅ OBD-II universal (Mode 01, 03, 09)
+- ✅ Implementação manual de ISO-TP (ISO 15765-2)
+- ✅ Leitura de VIN
+- ✅ Leitura e decodificação de DTCs
+- ✅ PID Discovery automático (00 / 20 / 40)
+- ✅ Fallback automático de endereço OBD
+- ✅ Arquitetura modular e extensível
+
+---
+
+## 🧠 Filosofia do Projeto
+
+Este projeto **não utiliza bibliotecas prontas de OBD ou ISO-TP** de propósito.
+
+### Por quê?
+
+- Controle total byte a byte
+- Melhor entendimento de protocolos automotivos reais
+- Facilidade para debug e análise
+- Base sólida para evoluir para **UDS**
+- Evitar “caixa preta” de bibliotecas abstratas
+
+O objetivo não é apenas *funcionar*, mas **entender o que está acontecendo no barramento**.
+
+---
+
+## 🧱 Arquitetura Geral
+
+
+---
+
+## 🔌 Hardware Utilizado
+
+- ESP32
+- MCP2515 (SPI)
+- Transceptor CAN (TJA1050 / VP230)
+- Veículo real ou bancada CAN
+
+---
+
+## 📚 Bibliotecas Utilizadas
+
+- `SPI.h`
+- `mcp_can.h`
+
+### Por que `mcp_can`?
+A biblioteca `mcp_can` oferece acesso direto ao MCP2515, permitindo controle total de:
+- IDs
+- Máscaras
+- Filtros
+- Frames crus CAN
+
+Isso é essencial para sniffing, ISO-TP manual e diagnóstico automotivo.
+
+---
+
+## ⚙️ Inicialização do Sistema
+
+### `setup()`
+
+#### O que faz
+- Inicializa a comunicação serial
+- Detecta automaticamente a velocidade CAN
+- Configura máscaras e filtros
+- Coloca o MCP2515 em modo normal
+
+#### Por que existe
+A velocidade CAN varia entre veículos.  
+A detecção automática elimina configuração manual e aumenta compatibilidade.
+
+---
+
+## 🚦 Auto-detecção de Velocidade CAN
+
+### Função: `tryCanSpeed()`
+
+#### O que faz
+- Inicializa o MCP2515 em uma velocidade específica
+- Aguarda tráfego no barramento
+- Confirma se a velocidade é válida
+
+#### Por que existe
+Veículos podem operar em:
+- 500 kbps
+- 250 kbps
+- 125 kbps
+
+Essa técnica é usada por scanners automotivos comerciais.
+
+---------------------------------------------------------------------------------SETUP------------------------------------------------------------------------------
+ 
+for (size_t i = 0;
+       i < sizeof(CAN_SPEEDS) / sizeof(CAN_SPEEDS[0]);
+       i++) {
+    if (tryCanSpeed(CAN_SPEEDS[i], CAN_SPEED_NAMES[i])) {
+      detectedCanSpeed = CAN_SPEEDS[i];
+      canDetected = true;
+      break;
+    }
+  }
+
+
+tamanho total do array em bytes
+--------------------------------
+tamanho de um elemento em bytes
+
+Estamos lidando com bytes e não com numeros inteiros, logo se faz necessárioa a divisão.
+
+
+
+
+---------------------------------------------------------------------------------tryCanSpeed------------------------------------------------------------------------------
+
+bool tryCanSpeed(uint8_t speed, const char* label) {
+
+  Serial.print("Tentando CAN ");
+  Serial.println(label);
+
+  if (CAN.begin(MCP_ANY, speed, MCP_8MHZ) != CAN_OK) {       
+    Serial.println("  Falha ao inicializar MCP2515");
+    return false;
+  }
+
+  CAN.setMode(MCP_NORMAL);
+
+  unsigned long start = millis();
+
+  // Espera até 1 segundo por qualquer frame CAN
+  while (millis() - start < 1000) {
+    if (CAN_MSGAVAIL == CAN.checkReceive()) {
+      Serial.print("  CAN detectado em ");
+      Serial.println(label);
+      return true;
+    }
+  }
+
+  Serial.println("  Nenhuma mensagem detectada");
+  return false;
+}
+
+
+****************************************
+
+if (CAN.begin(MCP_ANY, speed, MCP_8MHZ) != CAN_OK) { ------> Tenta inicializar o controlador CAN MCP2515, se correta ela retorna ok
+CAN.setMode(MCP_NORMAL); ------> Coloca o MCP2515 em modo NORMAL, permitindo que ele participe ativamente do barramento CAN
+
+| Modo             | Descrição                     |
+| ---------------- | ----------------------------- |
+| `MCP_NORMAL`     | Operação normal no barramento |
+| `MCP_LISTENONLY` | Apenas escuta (não envia ACK) |
+| `MCP_LOOPBACK`   | Teste interno, sem barramento |
+| `MCP_SLEEP`      | Baixo consumo                 |
+| `MCP_CONFIG`     | Configuração interna          |
+
+if (CAN_MSGAVAIL == CAN.checkReceive()) {  ------>
+
+
+
+
+
+
+
+
+---
+
+## 🎯 Filtros e Máscaras CAN
+
+#### O que faz
+- Aceita apenas IDs relevantes
+- Filtra mensagens proprietárias e respostas OBD
+
+#### Por que existe
+- Reduz carga de processamento
+- Evita ruído no ISO-TP
+- Torna o sistema mais estável
+
+---
+
+## 🧩 Processamento Central de Mensagens
+
+### Função: `processCanMessage()`
+
+#### O que faz
+- Atua como **roteador de mensagens CAN**
+- Classifica cada frame como:
+  - Proprietário
+  - OBD-II
+  - ISO-TP
+
+#### Por que existe
+Centralizar a lógica:
+- Evita código duplicado
+- Facilita manutenção
+- Simplifica a evolução do projeto
+
+---
+
+## 🔁 ISO-TP (ISO 15765-2)
+
+### Funções principais
+- `sendIsoTp()`
+- `processIsoTpFrame()`
+
+#### O que faz
+Implementa manualmente:
+- Single Frame
+- First Frame
+- Consecutive Frames
+- Flow Control (CTS)
+
+#### Por que não usar biblioteca pronta
+- Aprendizado profundo do protocolo
+- Flexibilidade total
+- Base sólida para UDS
+
+---
+
+## 🔍 OBD-II Universal
+
+### Funcionalidades
+- Leitura contínua de PIDs
+- PID Discovery automático
+- Suporte a respostas multi-frame
+- Decodificação conforme PID
+
+---
+
+## 🔁 Fallback de Endereço OBD
+
+### O que faz
+Alterna automaticamente entre:
+- `0x7DF` (broadcast)
+- `0x7E0`
+- `0x7E1`
+
+#### Por que existe
+Nem todas ECUs respondem a broadcast.  
+O fallback aumenta significativamente a taxa de sucesso.
+
+---
+
+## 🚨 Diagnóstico de Falhas (DTC)
+
+### Mode 03
+
+- Decodificação de falhas:
+  - Pxxxx
+  - Cxxxx
+  - Bxxxx
+  - Uxxxx
+- Evita duplicação
+- Armazenamento local temporário
+
+---
+
+## 🆔 Leitura do VIN
+
+### Mode 09 / PID 02
+
+- Suporte a resposta multi-frame
+- Montagem segura do VIN (17 caracteres)
+- Validação básica de caracteres
+
+---
+
+## 🔄 Máquina de Estados OBD
+
+### Estados
+- `OBD_IDLE`
+- `OBD_REQUEST_VIN`
+- `OBD_REQUEST_DTC`
+
+#### Por que existe
+- Evita flood no barramento
+- Mantém comunicação previsível
+- Facilita debug e expansão futura
+
+---
+
+## 📤 Exibição de Dados
+
+- Dados proprietários (tempo real)
+- Dados OBD-II (pedido/resposta)
+- Status de falhas detectadas
+
+---
+
+## 🧪 Limitações Conhecidas
+
+- ISO-TP simplificado
+- Sem suporte completo a Block Size dinâmico
+- UDS ainda não implementado
+- Depende de tráfego CAN ativo
+
+---
+
+## 🚀 Próximos Passos
+
+- [ ] Implementar UDS (0x22, 0x2E, 0x19, 0x10)
+- [ ] Logger CAN (SD Card)
+- [ ] Exportação via MQTT / BLE
+- [ ] Interface gráfica
+- [ ] Suporte a múltiplos veículos
+
+---
+
+## ⚠️ Aviso Legal
+
+Este projeto é **educacional**.  
+Não utilize em veículos em movimento ou em ambientes críticos.
+
+---
+
+## 🤝 Contribuições
+
+Pull requests são bem-vindos.  
+Discussões técnicas e sugestões são incentivadas.
