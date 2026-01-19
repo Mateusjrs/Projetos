@@ -122,6 +122,44 @@ Estamos lidando com bytes e não com numeros inteiros, logo se faz necessárioa 
 
 
 
+// Depois disso você configura filtros normalmente
+CAN.init_Mask(0, 0, 0x7FF);
+CAN.init_Filt(0, 0, 0x0B6);
+CAN.init_Filt(1, 0, 0x0F6);
+
+CAN.init_Mask(1, 0, 0x7F8);
+CAN.init_Filt(2, 1, 0x7E8);
+CAN.init_Filt(3, 1, 0x7E9);
+CAN.init_Filt(4, 1, 0x7EA);
+
+
+
+O MCP2515 utiliza máscaras e filtros para decidir quais mensagens
+CAN devem ser aceitas em hardware.
+
+A máscara define quais bits do ID serão comparados, enquanto o filtro
+define o valor esperado desses bits. Apenas mensagens que satisfaçam
+a condição `(ID & MASK) == FILTER` são entregues ao microcontrolador.
+
+
+CAN.init_Mask(0, 0, 0x7FF);
+init_Mask(numero_da_mascara, tipo_id, valor_da_mascara)
+Define a máscara de recepção 0 do MCP2515, dizendo que todos os 11 bits do ID CAN devem ser comparados.
+Mask 0 → RXB0 → prioridade
+Mask 1 → RXB1 → volume / faixa
+
+CAN.init_Mask(0, 0, ...)
+Esse 0 significa:
+0 → ID padrão (11 bits)
+1 → ID estendido (29 bits)
+Como OBD-II usa IDs de 11 bits,
+
+0x7FF = 0b11111111111
+Cada 1 na máscara significa:
+
+“Esse bit do ID precisa ser comparado.”
+Cada 0 significa:
+“Esse bit pode ser qualquer coisa.”
 
 ---------------------------------------------------------------------------------tryCanSpeed------------------------------------------------------------------------------
 
@@ -167,7 +205,8 @@ CAN.setMode(MCP_NORMAL); ------> Coloca o MCP2515 em modo NORMAL, permitindo que
 | `MCP_CONFIG`     | Configuração interna          |
 
 if (CAN_MSGAVAIL == CAN.checkReceive()) {  ------>
-
+CAN_MSGAVAIL == CAN.checkReceive() ------> A função CAN.checkReceive() retorna CAN_MSGAVAIL quando ocorre uma transmissao bem sucedida
+#define CAN_MSGAVAIL 0x01
 
 
 
