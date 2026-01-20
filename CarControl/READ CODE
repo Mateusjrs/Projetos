@@ -208,13 +208,57 @@ if (CAN_MSGAVAIL == CAN.checkReceive()) {  ------>
 CAN_MSGAVAIL == CAN.checkReceive() ------> A função CAN.checkReceive() retorna CAN_MSGAVAIL quando ocorre uma transmissao bem sucedida
 #define CAN_MSGAVAIL 0x01
 
+---------------------------------------------------------------------------------LOOP------------------------------------------------------------------------------
 
 
 
+vinReceived = false;
 
+uint8_t req[3] = {
+  0x02,
+  0x09,
+  0x02
+};
 
+0x02 → Tamanho do payload
+Indica que 2 bytes de dados válidos vêm depois
+NÃO conta esse próprio byt
 
+0x09 → Modo 09 (Vehicle Information)
+Esse modo serve para:
+VIN
+Número de calibração
+ID do módulo
+Informações fixas do veículo
+Definido no OBD-II (ISO 15031 / SAE J1979)
+
+0x02 → PID 02 = VIN
+PID específico para VIN
+Retorna o VIN fragmentado (porque é maior que 8 bytes)
+
+ID: 0x7E0   (ECU motor)
+DATA: 02 09 02 00 00 00 00 00
+Os zeros finais são padding (completam os 8 bytes).
 ---
+
+
+
+🚨 Importante: 
+O VIN tem 17 caracteres → não cabe em um frame CAN.
+A ECU vai responder usando ISO-TP (ISO 15765-2):
+1️⃣ First Frame
+2️⃣ Flow Control
+3️⃣ Consecutive Frames
+
+ID 0x7E8
+10 14 49 02 01 57 50 30   ← First Frame
+ID 0x7E0
+30 00 00                 ← Flow Control
+ID 0x7E8
+21 4C 5A 5A 39 39 39 39
+ID 0x7E8
+22 39 39 39 39 39 39
+
 
 ## 🎯 Filtros e Máscaras CAN
 
