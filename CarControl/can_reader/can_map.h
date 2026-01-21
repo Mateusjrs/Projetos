@@ -68,15 +68,28 @@ const size_t NUM_CAN_SIGNALS = sizeof(CAN_SIGNALS) / sizeof(CAN_SIGNALS[0]);
 // =================================================================
 
 const ObdPid OBD_PIDS[] = {
-    // PID 0x0C: Engine RPM
-    { "Engine RPM (OBD)", 0x01, 0x0C, 2, 0.25, 0.0, "RPM" },
-    // PID 0x0D: Vehicle Speed
-    { "Vehicle Speed (OBD)", 0x01, 0x0D, 1, 1.0, 0.0, "km/h" },
-    // PID 0x05: Engine Coolant Temperature
-    { "Coolant Temp (OBD)", 0x01, 0x05, 1, 1.0, -40.0, "C" },
-    // PID 0x04: Calculated Engine Load
-    { "Calculated Load (OBD)", 0x01, 0x04, 1, 100.0 / 255.0, 0.0, "%" },
+
+  // =====================
+  // BÁSICOS (já tinha)
+  // =====================
+  { "Calculated Load (OBD)",      0x01, 0x04, 1, 100.0 / 255.0, 0.0, "%" },
+  { "Coolant Temp (OBD)",         0x01, 0x05, 1, 1.0, -40.0, "C" },
+  { "Engine RPM (OBD)",           0x01, 0x0C, 2, 0.25, 0.0, "RPM" },
+  { "Vehicle Speed (OBD)",        0x01, 0x0D, 1, 1.0, 0.0, "km/h" },
+  { "Throttle Position (OBD)",    0x01, 0x11, 1, 100.0 / 255.0, 0.0, "%" },
+
+  // =====================
+  // NOVOS PIDs (UNIVERSAIS)
+  // =====================
+  { "Intake Air Temp (OBD)",      0x01, 0x0F, 1, 1.0, -40.0, "C" },
+  { "Fuel Level (OBD)",           0x01, 0x2F, 1, 100.0 / 255.0, 0.0, "%" },
+  { "Ambient Air Temp (OBD)",     0x01, 0x46, 1, 1.0, -40.0, "C" },
+  { "Run Time Since Start (OBD)", 0x01, 0x1F, 2, 1.0, 0.0, "s" },
+  { "Intake MAP (OBD)",           0x01, 0x0B, 1, 1.0, 0.0, "kPa" },
+  { "MAF Air Flow (OBD)",          0x01, 0x10, 2, 1.0 / 100.0, 0.0, "g/s" },
+  { "Battery Voltage (OBD)",      0x01, 0x42, 2, 1.0 / 1000.0, 0.0, "V" },
 };
+
 
 const size_t NUM_OBD_PIDS = sizeof(OBD_PIDS) / sizeof(OBD_PIDS[0]);
 

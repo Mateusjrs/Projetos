@@ -125,6 +125,7 @@ enum ObdState {
 };
 
 ObdState obdState = OBD_IDLE;
+bool obd_pid_received[NUM_OBD_PIDS];
 
 void clearDtcList() {
   for (uint8_t i = 0; i < MAX_DTC; i++) {
@@ -133,15 +134,12 @@ void clearDtcList() {
   dtcCount = 0;
 }
 
-
-
 void setup() {
   Serial.begin(115200);
   delay(500);
 
-  for (size_t i = 0;
-       i < sizeof(CAN_SPEEDS) / sizeof(CAN_SPEEDS[0]);
-       i++) {
+  // --- Detecção de Velocidade (Mantém igual) ---
+  for (size_t i = 0; i < sizeof(CAN_SPEEDS) / sizeof(CAN_SPEEDS[0]); i++) {
     if (tryCanSpeed(CAN_SPEEDS[i], CAN_SPEED_NAMES[i])) {
       detectedCanSpeed = CAN_SPEEDS[i];
       canDetected = true;
@@ -151,23 +149,30 @@ void setup() {
 
   if (!canDetected) {
     Serial.println("❌ Nenhuma velocidade CAN detectada");
-    while (1); // trava
+    while (1); 
   }
 
   Serial.println("✅ CAN inicializado com sucesso");
 
-  // ⚠️ Depois disso você configura filtros normalmente
-  CAN.init_Mask(0, 0, 0x7FF);
-  CAN.init_Filt(0, 0, 0x0B6);
-  CAN.init_Filt(1, 0, 0x0F6);
+  // ============================================================
+  // 🚨 ALTERAÇÃO AQUI: REMOVENDO FILTROS RESTRITIVOS
+  // ============================================================
+  // Configura Máscaras para 0x00 (Aceita tudo, não filtra nada)
+  // Mask 0 e Mask 1 cobrem todos os filtros
+  CAN.init_Mask(0, 0, 0x00000000); 
+  CAN.init_Mask(1, 0, 0x00000000);
 
-  CAN.init_Mask(1, 0, 0x7F8);
-  CAN.init_Mask(1, 0, 0x7F8);
-  CAN.init_Filt(2, 1, 0x7E8);
-  CAN.init_Filt(3, 1, 0x7E9);
-  CAN.init_Filt(4, 1, 0x7EA);
+  // Os filtros abaixo agora são irrelevantes por causa da máscara 0x00,
+  // mas precisamos preenchê-los para o MCP não reclamar.
+  // Colocamos 0 em tudo.
+  for (int i = 0; i < 6; i++) {
+    CAN.init_Filt(i, 0, 0x00000000);
+  }
+  
+  Serial.println("🔓 Filtros desativados (Modo Promíscuo ativado)");
 
-  CAN.setMode(MCP_NORMAL);
+  memset(supported_pids, false, sizeof(supported_pids));
+  memset(obd_pid_received, false, sizeof(obd_pid_received));
 }
 
 bool tryCanSpeed(uint8_t speed, const char* label) {
@@ -205,33 +210,38 @@ bool tryCanSpeed(uint8_t speed, const char* label) {
 void sendObdRequest() {
   if (NUM_OBD_PIDS == 0) return;
 
-  // Seleciona o próximo PID a ser solicitado
   const ObdPid* pid_map = &OBD_PIDS[current_obd_pid_index];
 
-  // Formato da Solicitação OBD-II (Mode 01): [DLC] [Num Bytes] [Mode] [PID] [0] [0] [0] [0]
-  // O DLC é 8, mas o número de bytes de dados é 2 (Mode + PID)
-  uint8_t request_data[8] = {0x02, pid_map->mode, pid_map->pid, 0x00, 0x00, 0x00, 0x00, 0x00};
+  // 1. Cria o pacote APENAS com os dados úteis (Modo + PID)
+  // NÃO coloque o tamanho (0x02) aqui, a função sendIsoTp faz isso sozinha!
+  uint8_t request_data[2] = {
+    pid_map->mode,  // Mode 01
+    pid_map->pid    // PID
+  };
 
-  // Envia a solicitação para o ID de broadcast (0x7DF)
-  byte sndStat = CAN.sendMsgBuf(CAN_ID_OBD_REQUEST, 0, 8, request_data);
+  // 2. Envia APENAS 2 bytes. 
+  // Como 2 <= 7, a função sendIsoTp vai criar um "Single Frame" correto (0x02 M P ...)
+  sendObdWithFallback(request_data, 2);
 
-  if (sndStat == CAN_OK) {
-    Serial.print("OBD Request Enviado: ");
-    Serial.print(pid_map->name);
-    Serial.print(" (0x");
-    Serial.print(pid_map->pid, HEX);
-    Serial.println(")");
-  } else {
-    Serial.print("Erro ao enviar OBD Request: ");
-    Serial.println(sndStat);
-  }
+  Serial.print("📤 OBD Request: ");
+  Serial.print(pid_map->name);
+  Serial.print(" (0x");
+  Serial.print(pid_map->pid, HEX);
+  Serial.println(")");
 
-  // Move para o próximo PID para a próxima solicitação
   current_obd_pid_index = (current_obd_pid_index + 1) % NUM_OBD_PIDS;
 }
 
 
+
+
 void sendPidDiscoveryRequest() {
+
+  if (pid_discovery_index >=
+      sizeof(pid_discovery_requests) /
+      sizeof(pid_discovery_requests[0])) {
+    return;
+  }
 
   uint8_t pid = pid_discovery_requests[pid_discovery_index];
 
@@ -242,7 +252,7 @@ void sendPidDiscoveryRequest() {
     0, 0, 0, 0, 0
   };
 
-  CAN.sendMsgBuf(CAN_ID_OBD_REQUEST, 0, 8, req);
+  sendObdWithFallback(req, 8);
 
   Serial.print("PID discovery request: 01 ");
   Serial.println(pid, HEX);
@@ -345,12 +355,16 @@ void requestDTCs() {
   dtcReceived = false;
   clearDtcList();   // 🔹 limpa DTCs antigos
 
-  uint8_t req[2] = {
-    0x01,
-    0x03
+  // CORREÇÃO: O pedido de DTC é APENAS o byte do Modo (0x03).
+  // Antes estava {0x01, 0x03}, o que confundia o simulador.
+  uint8_t req[1] = {
+    0x03 
   };
 
-  sendObdWithFallback(req, 2);
+  // Envia apenas 1 byte. O sendIsoTp vai montar o frame "01 03 ..."
+  sendObdWithFallback(req, 1);
+  
+  Serial.println("📤 Pedido de DTC (Mode 03) enviado...");
 }
 
 
@@ -421,7 +435,7 @@ bool processIsoTpFrame(long rxId, const uint8_t *data, uint8_t len) {
     uint8_t fc[8] = {
       0x30,  // CTS
       0x00,  // Block Size = ilimitado
-      0x05,  // STmin = 5 ms
+      0x02,  // STmin = 5 ms
       0, 0, 0, 0, 0
     };
 
@@ -473,6 +487,19 @@ void processCanMessage(long rxId, const uint8_t *rxBuf, uint8_t len) {
   // ======================================================
   // 1️⃣ MENSAGENS PROPRIETÁRIAS (PSA)
   // ======================================================
+
+  if (rxId >= 0x7E8 && rxId <= 0x7EF) {
+     Serial.print("👀 RESPOSTA OBD DETECTADA! ID: 0x");
+     Serial.print(rxId, HEX);
+     Serial.print(" Dados: ");
+     for(int k=0; k<len; k++){
+        Serial.print(rxBuf[k], HEX);
+        Serial.print(" ");
+     }
+     Serial.println();
+  }
+  //
+  
   for (size_t i = 0; i < NUM_CAN_SIGNALS; ++i) {
     const CanSignal* signal = &CAN_SIGNALS[i];
 
@@ -482,6 +509,8 @@ void processCanMessage(long rxId, const uint8_t *rxBuf, uint8_t len) {
     }
   }
 
+  Serial.print("RX CAN ID: 0x");
+  Serial.println(rxId, HEX);
 
   // ======================================================
   // 2️⃣ RESPOSTAS OBD-II (ISO-TP)
@@ -499,6 +528,8 @@ void processCanMessage(long rxId, const uint8_t *rxBuf, uint8_t len) {
   // Payload ISO-TP completo
   uint8_t mode = isotp.buffer[0];
   uint8_t pid  = isotp.buffer[1];
+  uint8_t responseMode = isotp.buffer[0];
+  uint8_t service = responseMode & 0x3F;  // remove 0x40
 
   // ======================================================
   // MODE 09 - VIN
@@ -542,22 +573,22 @@ void processCanMessage(long rxId, const uint8_t *rxBuf, uint8_t len) {
       uint8_t a = isotp.buffer[i];
       uint8_t b = isotp.buffer[i + 1];
 
- String dtc = decodeDtc(a, b);
+      String dtc = decodeDtc(a, b);
 
-if (dtc.length() > 0) {
+      if (dtc.length() > 0) {
 
-  bool exists = false;
-  for (uint8_t j = 0; j < dtcCount; j++) {
-    if (dtcList[j] == dtc) {
-      exists = true;
-      break;
-    }
-  }
+        bool exists = false;
+        for (uint8_t j = 0; j < dtcCount; j++) {
+          if (dtcList[j] == dtc) {
+            exists = true;
+            break;
+          }
+        }
 
-  if (!exists && dtcCount < MAX_DTC) {
-    dtcList[dtcCount++] = dtc;
-  }
-}
+        if (!exists && dtcCount < MAX_DTC) {
+          dtcList[dtcCount++] = dtc;
+        }
+      }
 
     }
 
@@ -588,17 +619,17 @@ if (dtc.length() > 0) {
     Serial.print("PIDs suportados atualizados (base 0x");
     Serial.print(basePid, HEX);
     Serial.println(")");
+    /*
+        pid_discovery_index++;
 
-    pid_discovery_index++;
+        if (pid_discovery_index >=
+            sizeof(pid_discovery_requests) /
+            sizeof(pid_discovery_requests[0])) {
 
-    if (pid_discovery_index >=
-        sizeof(pid_discovery_requests) /
-        sizeof(pid_discovery_requests[0])) {
-
-      pid_discovery_done = true;
-      Serial.println("✅ PID discovery completo");
-    }
-
+          pid_discovery_done = true;
+          Serial.println("✅ PID discovery completo");
+        }
+    */
     return;
   }
 
@@ -614,56 +645,21 @@ if (dtc.length() > 0) {
     if (pid_map->pid == pid) {
       last_obd_values[i] =
         decodeObdResponse(&isotp.buffer[2], pid_map);
+
+      obd_pid_received[i] = true;
       return;
     }
+
   }
 }
 
-
 // =================================================================
-// LOOP PRINCIPAL
+// FUNÇÃO AUXILIAR: EXIBIÇÃO DE DADOS NO SERIAL
 // =================================================================
-
-void loop() {
-
-  unsigned long currentMillis = millis();
-
-  if (isotp.active && millis() - isotp.lastFrameTime > 500) {
-    isotp.active = false;
-  }
-
-  static unsigned long lastCycle = 0;
-
-  if (obdState == OBD_IDLE && millis() - lastCycle > 3000) {
-    obdState = OBD_REQUEST_VIN;
-    requestVin();
-    lastCycle = millis();
-  }
-
-  if (obdState == OBD_REQUEST_VIN && vinReceived) {
-    obdState = OBD_REQUEST_DTC;
-    requestDTCs();
-  }
-
-  if (obdState == OBD_REQUEST_DTC && dtcReceived) {
-    obdState = OBD_IDLE;
-  }
-
-  // Leitura CAN
-  if (CAN_MSGAVAIL == CAN.checkReceive()) {
-    long unsigned int rxId;
-    unsigned char len = 0;
-    unsigned char rxBuf[8];
-
-    CAN.readMsgBuf(&rxId, &len, rxBuf);
-    processCanMessage(rxId, rxBuf, len);
-  }
-
-  // 3. Exibição dos Dados Traduzidos
-  if (currentMillis - last_print_time >= print_interval) {
-    last_print_time = currentMillis;
-
-if (dtcCount > 0) {
+void printData() {
+  
+  // 1. Exibe DTCs (Códigos de Falha) se houver
+  if (dtcCount > 0) {
     Serial.println("🚨 DTCs armazenados:");
     for (uint8_t i = 0; i < dtcCount; i++) {
       Serial.print("  - ");
@@ -672,38 +668,156 @@ if (dtcCount > 0) {
   } else {
     Serial.println("✅ Nenhuma falha armazenada");
   }
-  
-    Serial.print("======================================\n");
-    Serial.println("Scanner Completo - Dados Traduzidos:");
-    Serial.println("--------------------------------------");
 
-    // Exibe dados Proprietários (PSA)
-    Serial.println("Dados Proprietários (PSA - Envio Contínuo):");
-    for (size_t i = 0; i < NUM_CAN_SIGNALS; ++i) {
-      const CanSignal* signal = &CAN_SIGNALS[i];
-      Serial.print("  ");
-      Serial.print(signal->name);
-      Serial.print(": ");
-      Serial.print(last_prop_values[i], 2);
-      Serial.print(" ");
-      Serial.println(signal->unit);
+  Serial.println("======================================");
+  Serial.println("Scanner Completo - Dados Traduzidos:");
+  Serial.println("--------------------------------------");
+
+  // 2. Exibe dados Proprietários (PSA)
+  Serial.println("Dados Proprietários (PSA - Envio Contínuo):");
+  for (size_t i = 0; i < NUM_CAN_SIGNALS; ++i) {
+    const CanSignal* signal = &CAN_SIGNALS[i];
+    
+    Serial.print("  ");
+    Serial.print(signal->name);
+    Serial.print(": ");
+    
+    // Verifica se o valor é válido (opcional, mas bom pra debug)
+    if (last_prop_values[i] == 0 && strcmp(signal->name, "Engine RPM") == 0) {
+       // Se quiser tratar zeros específicos, pode fazer aqui
     }
 
-    // Exibe dados OBD-II (Universal - Pedido/Resposta)
-    Serial.println("--------------------------------------");
-    Serial.println("Dados OBD-II (Universal - Pedido/Resposta):");
-    for (size_t i = 0; i < NUM_OBD_PIDS; ++i) {
-      const ObdPid* pid_map = &OBD_PIDS[i];
-      Serial.print("  ");
-      Serial.print(pid_map->name);
-      Serial.print(": ");
-      Serial.print(last_obd_values[i], 2);
-      Serial.print(" ");
-      Serial.println(pid_map->unit);
-    }
-    Serial.println("======================================");
+    Serial.print(last_prop_values[i], 2);
+    Serial.print(" ");
+    Serial.println(signal->unit);
+  }
+
+  Serial.println("--------------------------------------");
+
+  // 3. Exibe dados OBD-II (Universal)
+  Serial.println("Dados OBD-II (Universal - Pedido/Resposta):");
+  for (size_t i = 0; i < NUM_OBD_PIDS; ++i) {
+    const ObdPid* pid_map = &OBD_PIDS[i];
+    
+    Serial.print("  ");
+    Serial.print(pid_map->name);
+    Serial.print(": ");
+    
+    // Mostra o valor armazenado
+    Serial.print(last_obd_values[i], 2);
+    Serial.print(" ");
+    Serial.println(pid_map->unit);
   }
   
+  Serial.println("======================================");
+}
+// =================================================================
+// LOOP PRINCIPAL
+// =================================================================
+// =================================================================
+// LOOP PRINCIPAL CORRIGIDO
+// =================================================================
+// =================================================================
+// LOOP PRINCIPAL (COM VERIFICAÇÃO PERIÓDICA DE FALHAS)
+// =================================================================
+void loop() {
+  unsigned long currentMillis = millis();
 
-  delay(10);
+  // 1. PRIORIDADE MÁXIMA: Ler o CAN
+  while (CAN_MSGAVAIL == CAN.checkReceive()) {
+    long unsigned int rxId;
+    unsigned char len = 0;
+    unsigned char rxBuf[8];
+    CAN.readMsgBuf(&rxId, &len, rxBuf);
+    processCanMessage(rxId, rxBuf, len);
+  }
+
+  if (isotp.active && currentMillis - isotp.lastFrameTime > 1000) {
+    isotp.active = false;
+  }
+
+  // Fallback de endereço
+  updateObdAddressFallback();
+
+
+  // ======================================================
+  // LÓGICA DE ESTADOS (STATE MACHINE)
+  // ======================================================
+  static unsigned long stateEntryTime = 0;
+  static unsigned long lastDtcCheckTime = 0; // 🕒 Cronômetro para checar falhas
+  const long dtcCheckInterval = 5000;        // Checa falhas a cada 5 segundos
+
+  // --- 1. INICIALIZAÇÃO (Pede VIN uma vez) ---
+  if (obdState == OBD_IDLE && currentMillis > 3000 && !vinReceived && stateEntryTime == 0) {
+    Serial.println("⏳ Iniciando solicitação de VIN...");
+    obdState = OBD_REQUEST_VIN;
+    stateEntryTime = currentMillis;
+    requestVin(); 
+  }
+
+  // --- 2. VERIFICAÇÃO CÍCLICA DE FALHAS (A cada 5s) ---
+  // Só entra aqui se já passou o tempo E se não estamos ocupados com VIN
+  if (obdState == OBD_IDLE && vinReceived && (currentMillis - lastDtcCheckTime > dtcCheckInterval)) {
+    Serial.println("🔍 Verificação Periódica de Falhas (DTC)...");
+    obdState = OBD_REQUEST_DTC;
+    stateEntryTime = currentMillis;
+    requestDTCs();
+    lastDtcCheckTime = currentMillis; // Reseta o cronômetro
+  }
+
+
+  // --- ESTADO: LENDO VIN ---
+  if (obdState == OBD_REQUEST_VIN) {
+    if (vinReceived) {
+       Serial.println("✅ VIN Concluído.");
+       obdState = OBD_IDLE; // Vai para IDLE (o timer acima cuidará do DTC)
+    } 
+    else if (currentMillis - stateEntryTime > 3000) {
+       Serial.println("⚠️ Timeout VIN. Desistindo.");
+       obdState = OBD_IDLE; 
+       stateEntryTime = 1; 
+       // Se falhar o VIN, marcamos como recebido fake para permitir checar DTCs
+       vinReceived = true; 
+    }
+  }
+
+  // --- ESTADO: LENDO DTC ---
+  if (obdState == OBD_REQUEST_DTC) {
+    if (dtcReceived) {
+       obdState = OBD_IDLE; // Volta a ler sensores
+    }
+    else if (currentMillis - stateEntryTime > 3000) {
+       Serial.println("⚠️ Timeout DTC. Voltando...");
+       obdState = OBD_IDLE;
+    }
+  }
+
+  // ======================================================
+  // PID DISCOVERY
+  // ======================================================
+  if (!pid_discovery_done && (currentMillis - last_obd_request_time > 500)) {
+     sendPidDiscoveryRequest();
+     pid_discovery_index++;
+     last_obd_request_time = currentMillis;
+     if (pid_discovery_index >= sizeof(pid_discovery_requests) / sizeof(pid_discovery_requests[0])) {
+        pid_discovery_done = true;
+        Serial.println("✅ PID discovery finalizado");
+     }
+  }
+
+  // ======================================================
+  // OBD-II NORMAL (SENSORES)
+  // ======================================================
+  if (pid_discovery_done && obdState == OBD_IDLE) {
+     if (currentMillis - last_obd_request_time > obd_request_interval) {
+        sendObdRequest();
+        last_obd_request_time = currentMillis;
+     }
+  }
+
+  // 3. Exibição dos Dados
+  if (currentMillis - last_print_time >= print_interval) {
+    last_print_time = currentMillis;
+    printData(); 
+  }
 }
