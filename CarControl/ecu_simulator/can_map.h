@@ -68,15 +68,28 @@ const size_t NUM_CAN_SIGNALS = sizeof(CAN_SIGNALS) / sizeof(CAN_SIGNALS[0]);
 // =================================================================
 
 const ObdPid OBD_PIDS[] = {
-    // PID 0x0C: Engine RPM
-    { "Engine RPM (OBD)", 0x01, 0x0C, 2, 0.25, 0.0, "RPM" },
-    // PID 0x0D: Vehicle Speed
-    { "Vehicle Speed (OBD)", 0x01, 0x0D, 1, 1.0, 0.0, "km/h" },
-    // PID 0x05: Engine Coolant Temperature
-    { "Coolant Temp (OBD)", 0x01, 0x05, 1, 1.0, -40.0, "C" },
-    // PID 0x04: Calculated Engine Load
-    { "Calculated Load (OBD)", 0x01, 0x04, 1, 100.0 / 255.0, 0.0, "%" },
+
+  // =====================
+  // BÁSICOS (já tinha)
+  // =====================
+  { "Calculated Load (OBD)",      0x01, 0x04, 1, 100.0 / 255.0, 0.0, "%" },
+  { "Coolant Temp (OBD)",         0x01, 0x05, 1, 1.0, -40.0, "C" },
+  { "Engine RPM (OBD)",           0x01, 0x0C, 2, 0.25, 0.0, "RPM" },
+  { "Vehicle Speed (OBD)",        0x01, 0x0D, 1, 1.0, 0.0, "km/h" },
+  { "Throttle Position (OBD)",    0x01, 0x11, 1, 100.0 / 255.0, 0.0, "%" },
+
+  // =====================
+  // NOVOS PIDs (UNIVERSAIS)
+  // =====================
+  { "Intake Air Temp (OBD)",      0x01, 0x0F, 1, 1.0, -40.0, "C" },
+  { "Fuel Level (OBD)",           0x01, 0x2F, 1, 100.0 / 255.0, 0.0, "%" },
+  { "Ambient Air Temp (OBD)",     0x01, 0x46, 1, 1.0, -40.0, "C" },
+  { "Run Time Since Start (OBD)", 0x01, 0x1F, 2, 1.0, 0.0, "s" },
+  { "Intake MAP (OBD)",           0x01, 0x0B, 1, 1.0, 0.0, "kPa" },
+  { "MAF Air Flow (OBD)",          0x01, 0x10, 2, 1.0 / 100.0, 0.0, "g/s" },
+  { "Battery Voltage (OBD)",      0x01, 0x42, 2, 1.0 / 1000.0, 0.0, "V" },
 };
+
 
 const size_t NUM_OBD_PIDS = sizeof(OBD_PIDS) / sizeof(OBD_PIDS[0]);
 
@@ -153,26 +166,20 @@ float decodeObdResponse(const uint8_t *response_data, const ObdPid *pid_map) {
  * @param response_data Buffer para os bytes de dados da resposta (a partir do byte 3).
  * @return true se a codificação foi bem-sucedida.
  */
-void encodeObdResponse(float value, const ObdPid* pid, uint8_t* out) {
+bool encodeObdResponse(float value, const ObdPid *pid_map, uint8_t *response_data) {
+    uint32_t raw_value = (uint32_t)((value - pid_map->offset) / pid_map->factor);
 
-  if (strcmp(pid->name, "Engine RPM (OBD)") == 0) {
-    uint16_t rpm = (uint16_t)(value * 4);
-    out[0] = (rpm >> 8) & 0xFF;
-    out[1] = rpm & 0xFF;
-  }
-
-  else if (strcmp(pid->name, "Vehicle Speed (OBD)") == 0) {
-    out[0] = (uint8_t)value;
-  }
-
-  else if (strcmp(pid->name, "Coolant Temp (OBD)") == 0) {
-    out[0] = (uint8_t)(value + 40);
-  }
-
-  else if (strcmp(pid->name, "Calculated Load (OBD)") == 0) {
-    out[0] = (uint8_t)((value * 255.0) / 100.0);
-  }
+    if (pid_map->bytes_in_resp == 1) {
+        response_data[0] = (uint8_t)raw_value;
+    } else if (pid_map->bytes_in_resp == 2) {
+        // Assume Big-Endian (Byte A, Byte B)
+        response_data[0] = (uint8_t)(raw_value >> 8);
+        response_data[1] = (uint8_t)(raw_value & 0xFF);
+    } else {
+        return false;
+    }
+    
+    return true;
 }
-
 
 #endif // CAN_MAP_H

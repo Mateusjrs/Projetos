@@ -295,6 +295,8 @@ void handleObdRequest(long rxId, const uint8_t *rxBuf, uint8_t len) {
 
   // ID OBD padrão
   if ((rxId != 0x7DF && rxId != 0x7E0) || len < 2) return;
+  // ✅ ID de resposta OBD (sempre ECU + 0x08)
+  uint16_t responseId = 0x7E8;
 
   uint8_t mode = rxBuf[1];
 
@@ -317,7 +319,8 @@ void handleObdRequest(long rxId, const uint8_t *rxBuf, uint8_t len) {
 
     tx[0] = idx - 1;  // bytes após byte 0
 
-    CAN.sendMsgBuf(CAN_ID_OBD_RESPONSE, 0, 8, tx);
+    CAN.sendMsgBuf(responseId, 0, 8, tx);
+
     return;
   }
 
@@ -330,16 +333,51 @@ void handleObdRequest(long rxId, const uint8_t *rxBuf, uint8_t len) {
     clearDTCs();
 
     uint8_t tx[8] = {0x01, 0x44, 0, 0, 0, 0, 0, 0};
-    CAN.sendMsgBuf(CAN_ID_OBD_RESPONSE, 0, 8, tx);
+    CAN.sendMsgBuf(responseId, 0, 8, tx);
     return;
   }
+  // ==================================================
+  // MODE 09 → VIN (OBD-II)
+  // ==================================================
+  if (mode == 0x09 && rxBuf[2] == 0x02) {
+
+    uint8_t vinPayload[] = {
+      0x49, 0x02, 0x01,
+      '9', 'B', 'W', 'Z', 'Z', 'Z', '3', '7', '7', 'V', 'T', '0', '0', '0', '1'
+    };
+
+    isotpSend(sizeof(vinPayload), vinPayload);
+    return;
+  }
+
 
   // ==================================================
   // MODE 01 → DADOS EM TEMPO REAL (RPM, SPEED, ETC)
   // ==================================================
   if (mode != 0x01 || len < 3) return;
 
-  uint8_t pid = rxBuf[2];
+  uint8_t pid = rxBuf[2];  // ✅ DECLARA PRIMEIRO
+
+  // ==================================================
+  // MODE 01 PID 00 → Supported PIDs
+  // ==================================================
+  if (pid == 0x00) {
+    uint8_t tx[8] = {
+      0x06,
+      0x41,
+      0x00,
+      0b10111110,
+      0b00011111,
+      0b10101000,
+      0b00010011,
+      0x00
+    };
+    CAN.sendMsgBuf(responseId, 0, 8, tx);
+    return;
+  }
+
+
+  pid = rxBuf[2];
 
   for (size_t i = 0; i < NUM_OBD_PIDS; i++) {
 
@@ -357,6 +395,27 @@ void handleObdRequest(long rxId, const uint8_t *rxBuf, uint8_t len) {
         value = current_temp;
       else if (strcmp(pid_map->name, "Calculated Load (OBD)") == 0)
         value = current_load;
+      else if (strcmp(pid_map->name, "Intake Air Temp (OBD)") == 0)
+        value = current_temp - 10.0;
+
+      else if (strcmp(pid_map->name, "Fuel Level (OBD)") == 0)
+        value = 75.0;  // simulado
+
+      else if (strcmp(pid_map->name, "Ambient Air Temp (OBD)") == 0)
+        value = current_temp - 15.0;
+
+      else if (strcmp(pid_map->name, "Run Time Since Start (OBD)") == 0)
+        value = millis() / 1000;
+
+      else if (strcmp(pid_map->name, "Intake MAP (OBD)") == 0)
+        value = throttle * 1.2; // kPa fake
+
+      else if (strcmp(pid_map->name, "MAF Air Flow (OBD)") == 0)
+        value = current_rpm * throttle / 1000.0;
+
+      else if (strcmp(pid_map->name, "Battery Voltage (OBD)") == 0)
+        value = 13.8;
+
       else
         return;
 
@@ -368,7 +427,8 @@ void handleObdRequest(long rxId, const uint8_t *rxBuf, uint8_t len) {
 
       encodeObdResponse(value, pid_map, &txBuf[3]);
 
-      CAN.sendMsgBuf(CAN_ID_OBD_RESPONSE, 0, 8, txBuf);
+      CAN.sendMsgBuf(0x7E8, 0, 8, txBuf); 
+
       return;
     }
   }
