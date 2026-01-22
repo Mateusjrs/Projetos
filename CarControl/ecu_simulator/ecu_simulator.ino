@@ -35,8 +35,10 @@ int   gear     = 1;     // -1 = R, 0 = N, 1..5
 enum IgnitionState {
   IGN_OFF,
   IGN_ON,
+  STARTING,
   ENGINE_ON
 };
+
 
 IgnitionState ignitionState = IGN_OFF;
 
@@ -77,6 +79,92 @@ void setup() {
 
   CAN.setMode(MCP_NORMAL);
 }
+
+void simulateIgnition();
+void simulateEngine();
+void simulateVehicle();
+void simulateTemperature();
+
+void simulateIgnition() {
+
+  static unsigned long startTime = 0;
+
+  if (ignitionState == STARTING) {
+    if (startTime == 0) startTime = millis();
+
+    current_rpm = 300 + random(-50, 50);
+
+    if (millis() - startTime > 1200) {
+      ignitionState = ENGINE_ON;
+      startTime = 0;
+    }
+  }
+
+  if (ignitionState == IGN_OFF) {
+    current_rpm = 0;
+    current_speed = 0;
+  }
+}
+
+
+void simulateEngine() {
+
+  if (ignitionState != ENGINE_ON) return;
+
+  float targetRpm = 800 + throttle * 35;
+
+  if (brake > 0) targetRpm -= brake * 10;
+
+  targetRpm = constrain(targetRpm, 800, 4500);
+
+  float inertia = (throttle > 50) ? 0.15 : 0.06;
+
+  current_rpm += (targetRpm - current_rpm) * inertia;
+  current_rpm = constrain(current_rpm, 0, 5000);
+
+  current_load = (throttle * current_rpm) / 4500.0;
+  current_load = constrain(current_load, 0, 100);
+
+}
+
+
+float gearRatio[] = {0, 0, 3.5, 2.1, 1.4, 1.0};
+
+void simulateVehicle() {
+
+  if (ignitionState != ENGINE_ON) return;
+  gear = constrain(gear, 0, 5);
+
+  if (gear > 0) {
+    float wheelRpm = current_rpm / gearRatio[gear];
+    float targetSpeed = wheelRpm * 0.002;
+
+    current_speed += (targetSpeed - current_speed) * 0.05;
+  }
+
+  if (brake > 0) {
+    current_speed -= brake * 0.04 + current_speed * 0.01;
+  }
+
+  if (current_speed < 0) current_speed = 0;
+}
+
+
+void simulateTemperature() {
+
+  if (ignitionState == ENGINE_ON) {
+    current_temp += (current_rpm / 4000.0) * 0.08;
+  } else {
+    current_temp -= 0.01;
+
+  }
+
+  current_temp = constrain(current_temp, 20, 120);
+}
+float noise(float amp) {
+  return random(-amp * 100, amp * 100) / 100.0;
+}
+
 
 void setDTC(uint16_t code) {
   for (int i = 0; i < MAX_DTCS; i++) {
@@ -184,70 +272,6 @@ void isotpSend(uint16_t totalLen, uint8_t *payload) {
   }
 }
 
-
-void simulateData() {
-
-  // 🔴 Ignição desligada → carro morto
-  if (ignitionState == IGN_OFF) {
-    current_rpm   = 0.0;
-    current_speed = 0.0;
-    current_load  = 0.0;
-    current_temp  = 20.0;
-    return;
-  }
-
-  // 🟡 Ignição ligada, motor desligado
-  if (ignitionState == IGN_ON) {
-    current_rpm   = 0.0;
-    current_speed = 0.0;
-    current_load  = 0.0;
-
-    if (current_temp < 30.0)
-      current_temp += 0.05;
-
-    return;
-  }
-
-  // 🟢 Motor ligado (simulação normal)
-  if (ignitionState == ENGINE_ON) {
-
-    // RPM base (marcha lenta)
-    float target_rpm = 800.0 + throttle * 35.0;
-
-    // Freio reduz RPM
-    target_rpm -= brake * 15.0;
-
-    // Limites
-    if (target_rpm < 800.0) target_rpm = 800.0;
-    if (target_rpm > 4500.0) target_rpm = 4500.0;
-
-    // Suavização
-    current_rpm += (target_rpm - current_rpm) * 0.1;
-
-    // Velocidade depende da marcha
-    if (gear > 0 && brake < 5.0) {
-      current_speed += (throttle * gear * 0.01);
-    }
-
-    if (brake > 0.0) {
-      current_speed -= brake * 0.05;
-    }
-
-    if (current_speed < 0) current_speed = 0;
-
-    // Load baseado no throttle
-    current_load = throttle;
-
-    // Temperatura
-    if (current_temp < 90.0)
-      current_temp += 0.05;
-  }
-
-
-  if (current_speed < 0.0) current_speed = 0.0;
-  if (current_load < 0.0)  current_load = 0.0;
-  if (current_load > 100.) current_load = 100.0;
-}
 
 // =================================================================
 // LÓGICA DE ENVIO PROPRIETÁRIO (PSA)
@@ -427,7 +451,7 @@ void handleObdRequest(long rxId, const uint8_t *rxBuf, uint8_t len) {
 
       encodeObdResponse(value, pid_map, &txBuf[3]);
 
-      CAN.sendMsgBuf(0x7E8, 0, 8, txBuf); 
+      CAN.sendMsgBuf(0x7E8, 0, 8, txBuf);
 
       return;
     }
@@ -435,58 +459,8 @@ void handleObdRequest(long rxId, const uint8_t *rxBuf, uint8_t len) {
 }
 
 
-void handleIgnitionSerial() {
-  if (!Serial.available()) return;
-
-  String cmd = Serial.readStringUntil('\n');
-  cmd.trim();
-  if (cmd == "IGN OFF") {
-    ignitionState = IGN_OFF;
-    throttle = 0;
-    brake = 0;
-    gear = 1;
-    clearDTCs();
-    Serial.println("Ignição OFF");
-  }
-
-  else if (cmd == "IGN ON") {
-    ignitionState = IGN_ON;
-    Serial.println("Ignição ON");
-  }
-  else if (cmd == "ENGINE ON") {
-    ignitionState = ENGINE_ON;
-    Serial.println("Motor LIGADO");
-  }
-  else if (cmd == "ENGINE OFF") {
-    ignitionState = IGN_ON;
-    Serial.println("Motor DESLIGADO");
-  }
-}
 
 
-void handleCarControlSerial() {
-  if (!Serial.available()) return;
-
-  String cmd = Serial.readStringUntil('\n');
-  cmd.trim();
-
-  if (cmd.startsWith("THROTTLE")) {
-    throttle = cmd.substring(9).toFloat();
-    throttle = constrain(throttle, 0, 100);
-    Serial.println("Throttle setado");
-  }
-
-  else if (cmd.startsWith("BRAKE")) {
-    brake = cmd.substring(6).toFloat();
-    brake = constrain(brake, 0, 100);
-    Serial.println("Brake setado");
-  }
-
-  else if (cmd.startsWith("GEAR")) {
-    gear = cmd.substring(5).toInt();
-    Serial.println("Marcha alterada");
-  }
-}
 
 void handleUdsRequest(long rxId, const uint8_t *rxBuf, uint8_t len) {
 
@@ -591,10 +565,16 @@ void handleSerialCommand() {
     ignitionState = IGN_ON;
     Serial.println("Ignição ON");
   }
+
+  else if (cmd.equalsIgnoreCase("ENGINE START")) {
+    ignitionState = STARTING;
+    Serial.println("Dando partida...");
+  }
   else if (cmd.equalsIgnoreCase("ENGINE ON")) {
     ignitionState = ENGINE_ON;
     Serial.println("Motor LIGADO");
   }
+
   else if (cmd.equalsIgnoreCase("ENGINE OFF")) {
     ignitionState = IGN_ON;
     Serial.println("Motor DESLIGADO");
@@ -608,9 +588,10 @@ void handleSerialCommand() {
     Serial.println("Brake setado");
   }
   else if (cmd.startsWith("GEAR ")) {
-    gear = cmd.substring(5).toInt();
+    gear = constrain(cmd.substring(5).toInt(), 0, 5);
     Serial.println("Marcha alterada");
   }
+
   else if (cmd.startsWith("UDS ")) {
     uint8_t data[8];
     int len = 0;
@@ -646,9 +627,13 @@ void loop() {
 
   if (now - previousMillis >= interval_prop) {
     previousMillis = now;
-
-    simulateData();
     handleSerialCommand();
+
+    simulateIgnition();
+    simulateEngine();
+    simulateVehicle();
+    simulateTemperature();
+
 
     evaluateFaults();
 
