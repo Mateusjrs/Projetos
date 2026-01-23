@@ -70,17 +70,13 @@ const size_t NUM_CAN_SIGNALS = sizeof(CAN_SIGNALS) / sizeof(CAN_SIGNALS[0]);
 const ObdPid OBD_PIDS[] = {
 
   // =====================
-  // BÁSICOS (já tinha)
+  // BÁSICOS 
   // =====================
   { "Calculated Load (OBD)",      0x01, 0x04, 1, 100.0 / 255.0, 0.0, "%" },
   { "Coolant Temp (OBD)",         0x01, 0x05, 1, 1.0, -40.0, "C" },
   { "Engine RPM (OBD)",           0x01, 0x0C, 2, 0.25, 0.0, "RPM" },
   { "Vehicle Speed (OBD)",        0x01, 0x0D, 1, 1.0, 0.0, "km/h" },
   { "Throttle Position (OBD)",    0x01, 0x11, 1, 100.0 / 255.0, 0.0, "%" },
-
-  // =====================
-  // NOVOS PIDs (UNIVERSAIS)
-  // =====================
   { "Intake Air Temp (OBD)",      0x01, 0x0F, 1, 1.0, -40.0, "C" },
   { "Fuel Level (OBD)",           0x01, 0x2F, 1, 100.0 / 255.0, 0.0, "%" },
   { "Ambient Air Temp (OBD)",     0x01, 0x46, 1, 1.0, -40.0, "C" },
@@ -97,7 +93,7 @@ const size_t NUM_OBD_PIDS = sizeof(OBD_PIDS) / sizeof(OBD_PIDS[0]);
 // FUNÇÕES GENÉRICAS DE CODIFICAÇÃO E DECODIFICAÇÃO (PROPRIETÁRIO)
 // =================================================================
 
-// Função de decodificação proprietária (mantida do código anterior)
+// Função de decodificação proprietária 
 float decodeSignal(const uint8_t *data, const CanSignal *signal) {
     uint64_t raw_value = 0;
     
@@ -113,7 +109,7 @@ float decodeSignal(const uint8_t *data, const CanSignal *signal) {
     return decoded_value;
 }
 
-// Função de codificação proprietária (mantida do código anterior)
+// Função de codificação proprietária 
 bool encodeSignal(float value, const CanSignal *signal, uint8_t *data) {
     uint64_t raw_value = (uint64_t)((value - signal->offset) / signal->factor);
 
@@ -166,6 +162,7 @@ float decodeObdResponse(const uint8_t *response_data, const ObdPid *pid_map) {
  * @param response_data Buffer para os bytes de dados da resposta (a partir do byte 3).
  * @return true se a codificação foi bem-sucedida.
  */
+
 bool encodeObdResponse(float value, const ObdPid *pid_map, uint8_t *response_data) {
     uint32_t raw_value = (uint32_t)((value - pid_map->offset) / pid_map->factor);
 
@@ -178,7 +175,6 @@ bool encodeObdResponse(float value, const ObdPid *pid_map, uint8_t *response_dat
     } else {
         return false;
     }
-    
     return true;
 }
 
