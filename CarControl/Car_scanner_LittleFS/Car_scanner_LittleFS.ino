@@ -76,10 +76,10 @@ void setup() {
   
   // Inicia LittleFS com formatação automática se falhar
   if (!LittleFS.begin(true)) {
-    Serial.println("❌ Falha grave ao montar LittleFS");
+    Serial.println("Falha grave ao montar LittleFS");
     return;
   }
-  Serial.println("✅ LittleFS montado.");
+  Serial.println(" LittleFS montado.");
   Serial.print("Espaço Total: "); Serial.print(LittleFS.totalBytes());
   Serial.print(" | Usado: "); Serial.println(LittleFS.usedBytes());
   
@@ -89,14 +89,14 @@ void setup() {
   bool canInit = false;
   for (size_t i = 0; i < 3; i++) {
     if (CAN.begin(MCP_ANY, CAN_SPEEDS[i], MCP_8MHZ) == CAN_OK) {
-      Serial.print("✅ CAN Conectado: ");
+      Serial.print("CAN Conectado: ");
       Serial.println(CAN_SPEED_NAMES[i]);
       canInit = true;
       break;
     }
   }
 
-  if (!canInit) Serial.println("❌ Erro no MCP2515. Modo Offline (só leitura de logs).");
+  if (!canInit) Serial.println("Erro no MCP2515. Modo Offline (só leitura de logs).");
 
   CAN.init_Mask(0, 0, 0x00000000);
   CAN.init_Mask(1, 0, 0x00000000);
@@ -126,7 +126,6 @@ void loop() {
     if ((rxId & 0x80000000) == 0x80000000) rxId = (rxId & 0x1FFFFFFF);
     
     char tmp[64]; // Usar buffer char é mais seguro que String para memória
-    // Timestamp;ID;DLC;D0...
     int n = sprintf(tmp, "%lu;%03lX;%d;", millis(), rxId, len);
     
     // Adiciona ao buffer principal
