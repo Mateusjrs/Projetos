@@ -21,10 +21,10 @@ void setup() {
   
   // 1. INICIA SPIFFS
   if (!SPIFFS.begin(true)) {
-    Serial.println("❌ Falha ao montar SPIFFS");
+    Serial.println("Falha ao montar SPIFFS");
     return;
   }
-  Serial.println("✅ SPIFFS montado.");
+  Serial.println("SPIFFS montado.");
   Serial.println("Envie 'L' para ler o log salvo.");
   Serial.println("Envie 'D' para deletar o log e começar do zero.");
 
@@ -32,7 +32,7 @@ void setup() {
   bool canInit = false;
   for (size_t i = 0; i < 3; i++) {
     if (CAN.begin(MCP_ANY, CAN_SPEEDS[i], MCP_8MHZ) == CAN_OK) {
-      Serial.print("✅ CAN Conectado: ");
+      Serial.print("CAN Conectado: ");
       Serial.println(CAN_SPEED_NAMES[i]);
       canInit = true;
       break;
@@ -40,7 +40,7 @@ void setup() {
   }
 
   if (!canInit) {
-    Serial.println("❌ Erro no MCP2515. Verifique cabos.");
+    Serial.println("Erro no MCP2515");
     // Não trava o código, pois você pode querer ler o log mesmo sem CAN
   }
 
@@ -99,7 +99,7 @@ void loop() {
 
 // --- FUNÇÃO PARA SALVAR NA FLASH ---
 void flushBufferToSpiffs() {
-  File file = SPIFFS.open(LOG_FILE, FILE_APPEND); // Abre modo APPEND (adicionar ao final)
+  File file = SPIFFS.open(LOG_FILE, FILE_APPEND); // Abre modo APPEND 
   if (!file) {
     Serial.println("Erro ao abrir arquivo para gravar!");
     return;
