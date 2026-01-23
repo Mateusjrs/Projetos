@@ -17,7 +17,7 @@ const uint8_t CAN_SPEEDS[] = {CAN_500KBPS, CAN_250KBPS, CAN_125KBPS};
 const char* CAN_SPEED_NAMES[] = {"500kbps", "250kbps", "125kbps"};
 
 void setup() {
-  Serial.begin(921600); // Velocidade máxima para descarregar rápido depois
+  Serial.begin(115200); // Velocidade máxima para descarregar rápido depois
   
   // 1. INICIA SPIFFS
   if (!SPIFFS.begin(true)) {
