@@ -1,7 +1,5 @@
 // =================================================================
 // CÓDIGO PARA O NÓ 1: SIMULADOR DE ECU (ECU FAKE) - VERSÃO COMPLETA
-// HARDWARE: ESP32 + MCP2515 (ou TJA1050/VP230 como transceptor)
-// IDE: Arduino IDE
 // =================================================================
 
 #include <SPI.h>
@@ -26,7 +24,7 @@ uint8_t isotpSeq = 1;
 float current_rpm = 800.0;
 float current_speed = 0.0;
 float current_temp = 20.0;
-float current_load = 0.0; // Novo PID simulado
+float current_load = 0.0; 
 
 float throttle = 0.0;   // 0–100 %
 float brake    = 0.0;   // 0–100 %
@@ -112,16 +110,11 @@ void simulateEngine() {
   if (ignitionState != ENGINE_ON) return;
 
   float targetRpm = 800 + throttle * 35;
-
   if (brake > 0) targetRpm -= brake * 10;
-
   targetRpm = constrain(targetRpm, 800, 4500);
-
   float inertia = (throttle > 50) ? 0.15 : 0.06;
-
   current_rpm += (targetRpm - current_rpm) * inertia;
   current_rpm = constrain(current_rpm, 0, 5000);
-
   current_load = (throttle * current_rpm) / 4500.0;
   current_load = constrain(current_load, 0, 100);
 
@@ -134,31 +127,25 @@ void simulateVehicle() {
 
   if (ignitionState != ENGINE_ON) return;
   gear = constrain(gear, 0, 5);
-
   if (gear > 0) {
     float wheelRpm = current_rpm / gearRatio[gear];
     float targetSpeed = wheelRpm * 0.002;
-
     current_speed += (targetSpeed - current_speed) * 0.05;
   }
 
   if (brake > 0) {
     current_speed -= brake * 0.04 + current_speed * 0.01;
   }
-
   if (current_speed < 0) current_speed = 0;
 }
 
 
 void simulateTemperature() {
-
   if (ignitionState == ENGINE_ON) {
     current_temp += (current_rpm / 4000.0) * 0.08;
   } else {
     current_temp -= 0.01;
-
   }
-
   current_temp = constrain(current_temp, 20, 120);
 }
 float noise(float amp) {
@@ -190,17 +177,14 @@ void clearDTCs() {
 
 unsigned long faultTimer = 0;
 void evaluateFaults() {
-
   static unsigned long overTempTimer = 0;
   static unsigned long overRpmTimer  = 0;
   static unsigned long loadTimer     = 0;
-
   if (ignitionState != ENGINE_ON) {
     overTempTimer = overRpmTimer = loadTimer = 0;
     return;
   }
-
-  // 🔥 Superaquecimento
+  // Superaquecimento
   if (current_temp > 110.0) {
     if (overTempTimer == 0) overTempTimer = millis();
     if (millis() - overTempTimer > 3000)
@@ -214,7 +198,7 @@ void evaluateFaults() {
       setDTC(0x0300);
   } else overRpmTimer = 0;
 
-  // ⚠️ Carga alta em baixa velocidade
+  // Carga alta em baixa velocidade
   if (throttle > 80.0 && current_speed < 10.0) {
     if (loadTimer == 0) loadTimer = millis();
     if (millis() - loadTimer > 4000)
@@ -223,10 +207,6 @@ void evaluateFaults() {
 }
 
 
-
-// =================================================================
-// LÓGICA DE SIMULAÇÃO
-// =================================================================
 void isotpSend(uint16_t totalLen, uint8_t *payload) {
 
   // -------------------------------
@@ -319,7 +299,7 @@ void handleObdRequest(long rxId, const uint8_t *rxBuf, uint8_t len) {
 
   // ID OBD padrão
   if ((rxId != 0x7DF && rxId != 0x7E0) || len < 2) return;
-  // ✅ ID de resposta OBD (sempre ECU + 0x08)
+  // ID de resposta OBD (sempre ECU + 0x08)
   uint16_t responseId = 0x7E8;
 
   uint8_t mode = rxBuf[1];
@@ -380,7 +360,7 @@ void handleObdRequest(long rxId, const uint8_t *rxBuf, uint8_t len) {
   // ==================================================
   if (mode != 0x01 || len < 3) return;
 
-  uint8_t pid = rxBuf[2];  // ✅ DECLARA PRIMEIRO
+  uint8_t pid = rxBuf[2];  //DECLARA PRIMEIRO
 
   // ==================================================
   // MODE 01 PID 00 → Supported PIDs
@@ -399,7 +379,6 @@ void handleObdRequest(long rxId, const uint8_t *rxBuf, uint8_t len) {
     CAN.sendMsgBuf(responseId, 0, 8, tx);
     return;
   }
-
 
   pid = rxBuf[2];
 
@@ -460,8 +439,6 @@ void handleObdRequest(long rxId, const uint8_t *rxBuf, uint8_t len) {
 
 
 
-
-
 void handleUdsRequest(long rxId, const uint8_t *rxBuf, uint8_t len) {
 
   if (rxId != 0x7E0 || len < 3) return;
@@ -480,7 +457,7 @@ void handleUdsRequest(long rxId, const uint8_t *rxBuf, uint8_t len) {
     // ================================
     if (did == 0xF190) {
 
-      // Payload UDS completo (resposta positiva)
+      // Payload UDS completo 
       uint8_t vinPayload[] = {
         0x62, 0xF1, 0x90,
         '9', 'B', 'W', 'Z', 'Z', 'Z', '3', '7', '7', 'V', 'T', '0', '0', '0', '1'
