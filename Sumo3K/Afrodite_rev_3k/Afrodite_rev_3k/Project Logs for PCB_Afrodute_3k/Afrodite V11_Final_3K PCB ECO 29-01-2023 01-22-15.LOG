@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=GND Pin=C5-1
+Removed Pin From Net: NetName=5V Pin=C5-2
+Removed Pin From Net: NetName=GND Pin=C6-1
+Removed Pin From Net: NetName=3V3 Pin=C6-2
+Removed Pin From Net: NetName=GND Pin=Reg3v3-1
+Removed Pin From Net: NetName=3V3 Pin=Reg3v3-2
+Removed Pin From Net: NetName=5V Pin=Reg3v3-3
+Removed Member From Class: ClassName=Afrodite V11_Final_3K Member=C5
+Removed Member From Class: ClassName=Afrodite V11_Final_3K Member=C6
+Change component parameters: Designator = "R3"; Footprint = "RES 0805"; UniqueID = "\ENPEDPEK"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "220"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R4"; Footprint = "RES 0805"; UniqueID = "\SATGZZKE"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "220"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=3V3 Pin=U4-1

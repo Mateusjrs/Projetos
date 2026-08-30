@@ -1,0 +1,10 @@
+Removed Pin From Net: NetName=NetC1_2 Pin=J1-1
+Removed Pin From Net: NetName=SINAL_RECEP Pin=J1-2
+Removed Pin From Net: NetName=GND Pin=J1-3
+Removed Pin From Net: NetName=SINAL_RECEP Pin=R2-1
+Removed Pin From Net: NetName=3V3 Pin=R2-2
+Removed Pin From Net: NetName=UP Pin=U4-4
+Removed Pin From Net: NetName=LED_D1 Pin=U4-6
+Added Pin To Net: NetName=LED_D1 Pin=U4-4
+Added Pin To Net: NetName=UP Pin=U4-6
+Added Room: Name=Afrodite V11_Final_3K

@@ -1,0 +1,31 @@
+Removed Pin From Net: NetName=NetC1_2 Pin=J1-1
+Removed Pin From Net: NetName=SINAL_RECEP Pin=J1-2
+Removed Pin From Net: NetName=GND Pin=J1-3
+Removed Pin From Net: NetName=SINAL_RECEP Pin=R2-1
+Removed Pin From Net: NetName=3V3 Pin=R2-2
+Removed Pin From Net: NetName=UP Pin=U4-4
+Removed Pin From Net: NetName=LED_D1 Pin=U4-6
+Change Component Designator: OldDesignator=Reg3v3 NewDesignator=g108433
+Change component parameters: Designator = "R9"; Footprint = "RES 0805"; UniqueID = "\BRLFNHTY"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "220"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R10"; Footprint = "RES 0805"; UniqueID = "\QXLBIKKL"
+Change component parameters. Clean all parameters for all variants
+Change component parameters (AddParameter): Name = "Value"; Value = "220"; VariantName = "[No Variations]"
+Added Component: Designator=J1(TSOP18XX)
+Add component. Clean all parameters for all variants
+Add component (AddParameter): Name = "Availability"; Value = "Unavailable"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MF"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "MP"; Value = "TSOP1838"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Package"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Price"; Value = "None"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = ""; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetC1_2 Pin=J1-1
+Added Pin To Net: NetName=SINAL_RECEP Pin=J1-2
+Added Pin To Net: NetName=GND Pin=J1-3
+Added Pin To Net: NetName=3V3 Pin=R2-1
+Added Pin To Net: NetName=SINAL_RECEP Pin=R2-2
+Added Pin To Net: NetName=LED_D1 Pin=U4-4
+Added Pin To Net: NetName=UP Pin=U4-6
+Change Class Name : Old Net Name=Afrodite V10 New Net Name=Afrodite V11_Final_3K
+Added Room: Name=Afrodite V11_Final_3K

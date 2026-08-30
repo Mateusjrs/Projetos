@@ -1,0 +1,5 @@
+Removed Pin From Net: NetName=UP Pin=U4-4
+Removed Pin From Net: NetName=LED_D1 Pin=U4-6
+Added Pin To Net: NetName=LED_D1 Pin=U4-4
+Added Pin To Net: NetName=UP Pin=U4-6
+Added Room: Name=Afrodite V11_Final_3K
