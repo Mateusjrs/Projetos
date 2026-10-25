@@ -1,0 +1,78 @@
+******************************************************************************
+(C) Copyright 1992-2004
+Computational Applications and System Integration Inc.
+All rights Reserved.
+******************************************************************************
+
+Job:file0	at:Sun Oct 25 00:50:30 2026
+
+
+	Number of cores used (Distributed Memory Parallel): 4
+	Degrees of Freedom: 174081
+	DOF Constraints: 1785
+	CP/CE Constraints: 6
+	CP/CE Constraints (spanning CPU domains): 0
+	Elements: 33240
+		Assembled: 33240
+		Implicit: 0
+	Nodes: 58025
+	Number of Load Cases: 1
+
+	Nonzeros in Upper Triangular part of
+	             Global Stiffness Matrix : 6495987
+	Nonzeros in Preconditioner: 3269714
+		*** Precond Reorder: Mindegree ***
+		Nonzeros in V: 265065
+		Nonzeros in factor: 2656469
+		Equations in factor: 12748
+	*** Level of Difficulty: 3 (primal preconditioner) ***
+
+
+	Total Operation Count: 6.27173e+09
+	Total Number of Cycles In PCG: 1
+	Total Iterations In PCG: 133
+	Average Iterations Per Load Case:  133.0
+	PCG Stopping Criteria Selector: DISJUNCTION_OF_NORMS
+	Achieved PCG Stopping Criterion: A_NORM_OF_ERROR
+	Final PCG Status: SUCCESS_STATUS
+	Input PCG Error Tolerance: 1e-08
+	Achieved PCG Error Tolerance: 8.30035e-09
+
+
+	DETAILS OF PCG SOLVER SETUP TIME(secs)        Cpu        Wall
+	     Gather Finite Element Data              0.03        0.04
+	     Element Matrix Assembly                 0.44        0.44
+
+	DETAILS OF PCG SOLVER SOLUTION TIME(secs)     Cpu        Wall
+	     Preconditioner Construction             0.03        0.03
+	     Preconditioner Factoring                0.14        0.18
+	     Apply Boundary Conditions               0.00        0.02
+	     Preconditioned CG Iterations            0.98        1.03
+	          Multiply With A                    0.34        0.45
+	               Multiply With A22             0.30        0.41
+	               Multiply with Cp/Ce           0.00        0.00
+	               Communication Overhead        0.05        0.04
+	          Solve With Precond                 0.48        0.44
+	               Solve With Right Precond      0.02        0.06
+	               Direct Solve                  0.42        0.29
+	               Communication Overhead        0.00        0.00
+	               Solve With Left Precond       0.05        0.08
+******************************************************************************
+	     TOTAL PCG SOLVER SOLUTION CP TIME      =       1.16 secs
+	     TOTAL PCG SOLVER SOLUTION ELAPSED TIME =       1.26 secs
+******************************************************************************
+	Total Memory Usage at CG         :       1.50 GB
+	PCG Memory Usage at CG           :       0.13 GB
+	Memory Usage for Matrix          :       0.08 GB
+	*** I/O Reduction Mode Activated ***
+******************************************************************************
+	Multiply with A Memory Bandwidth :      35.81 GB/s
+	Mult w/ A Memory Bandwidth (old) :      71.04 GB/s
+	Multiply with A GFLOP Rate       :       7.63 GFlops
+	Solve With Precond GFLOP Rate    :       4.06 GFlops
+	Precond Factoring GFLOP Rate     :       4.21 GFlops
+******************************************************************************
+	Total amount of I/O read         :       0.00 GB
+	Total amount of I/O written      :       0.00 GB
+******************************************************************************
+

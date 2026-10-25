@@ -1,0 +1,474 @@
+/batch
+/config,noeldb,1     ! force off writing results to database
+*get,_wallstrt,active,,time,wall
+! ANSYS input file written by Workbench version 2026 R1
+! File used for geometry attach: C:\Users\mateu\AppData\Local\Temp\WB_mateu_2940_2\wbnew_files\dp0\SYS\DM\SYS.agdb
+/title,wbnew--Static Structural (A5)
+! ****** Begin Custom Load Command Snippet ******
+/COM, ACT Extensions:
+/COM,     LSDYNA, 2026.1
+/COM,     5f463412-bd3e-484b-87e7-cbc0a665e474, wbex
+/COM,     ANSYSMotion, 2026.1
+/COM,     20180725-3f81-49eb-9f31-41364844c769, wbex
+! ****** End   Custom Load Command Snippet ******
+*DIM,_wb_ProjectScratch_dir,string,248
+_wb_ProjectScratch_dir(1) = 'C:\Users\mateu\AppData\Local\Temp\WB_mateu_2940_2\_ProjectScratch\Scr3BA5\'
+*DIM,_wb_SolverFiles_dir,string,248
+_wb_SolverFiles_dir(1) = 'C:\Users\mateu\AppData\Local\Temp\WB_mateu_2940_2\wbnew_files\dp0\SYS\MECH\'
+*DIM,_wb_userfiles_dir,string,248
+_wb_userfiles_dir(1) = 'C:\Users\mateu\AppData\Local\Temp\WB_mateu_2940_2\wbnew_files\user_files\'
+/com,--- Data in consistent MKS units. See Solving Units in the help system for more information.
+/units,MKS
+/nopr
+/wb,file,start              !  signify a WB generated input file
+/prep7
+! Turn off shape checking because checks already performed inside WB mesher.
+! See help system for more information.
+SHPP,OFF,,NOWARN
+/nolist
+etcon,set             ! allow ANSYS to choose best KEYOP's for 180x elements, resets any applicable keyopt to MAPDL defaults
+/com,*********** Send User Defined Coordinate System(s) ***********
+csys,0
+/com,*********** Nodes for the whole assembly ***********
+nblock,3,,151
+(1i9,3e20.9e3)
+        1     3.255107095E+01     0.000000000E+00     0.000000000E+00
+        2     8.255107095E+01     0.000000000E+00     0.000000000E+00
+        3     3.755107095E+01     0.000000000E+00     0.000000000E+00
+        4     4.255107095E+01     0.000000000E+00     0.000000000E+00
+        5     4.755107095E+01     0.000000000E+00     0.000000000E+00
+        6     5.255107095E+01     0.000000000E+00     0.000000000E+00
+        7     5.755107095E+01     0.000000000E+00     0.000000000E+00
+        8     6.255107095E+01     0.000000000E+00     0.000000000E+00
+        9     6.755107095E+01     0.000000000E+00     0.000000000E+00
+       10     7.255107095E+01     0.000000000E+00     0.000000000E+00
+       11     7.755107095E+01     0.000000000E+00     0.000000000E+00
+       12     7.551070952E+00     4.330127019E+01     0.000000000E+00
+       13     1.005107095E+01     3.897114317E+01     0.000000000E+00
+       14     1.255107095E+01     3.464101615E+01     0.000000000E+00
+       15     1.505107095E+01     3.031088913E+01     0.000000000E+00
+       16     1.755107095E+01     2.598076211E+01     0.000000000E+00
+       17     2.005107095E+01     2.165063509E+01     0.000000000E+00
+       18     2.255107095E+01     1.732050808E+01     0.000000000E+00
+       19     2.505107095E+01     1.299038106E+01     0.000000000E+00
+       20     2.755107095E+01     8.660254038E+00     0.000000000E+00
+       21     3.005107095E+01     4.330127019E+00     0.000000000E+00
+       22     5.755107095E+01     4.330127019E+01     0.000000000E+00
+       23     6.005107095E+01     3.897114317E+01     0.000000000E+00
+       24     6.255107095E+01     3.464101615E+01     0.000000000E+00
+       25     6.505107095E+01     3.031088913E+01     0.000000000E+00
+       26     6.755107095E+01     2.598076211E+01     0.000000000E+00
+       27     7.005107095E+01     2.165063509E+01     0.000000000E+00
+       28     7.255107095E+01     1.732050808E+01     0.000000000E+00
+       29     7.505107095E+01     1.299038106E+01     0.000000000E+00
+       30     7.755107095E+01     8.660254038E+00     0.000000000E+00
+       31     8.005107095E+01     4.330127019E+00     0.000000000E+00
+       32     3.505107095E+01     4.330127019E+00     0.000000000E+00
+       33     3.755107095E+01     8.660254038E+00     0.000000000E+00
+       34     4.005107095E+01     1.299038106E+01     0.000000000E+00
+       35     4.255107095E+01     1.732050808E+01     0.000000000E+00
+       36     4.505107095E+01     2.165063509E+01     0.000000000E+00
+       37     4.755107095E+01     2.598076211E+01     0.000000000E+00
+       38     5.005107095E+01     3.031088913E+01     0.000000000E+00
+       39     5.255107095E+01     3.464101615E+01     0.000000000E+00
+       40     5.505107095E+01     3.897114317E+01     0.000000000E+00
+       41     1.255107095E+01     4.330127019E+01     0.000000000E+00
+       42     1.755107095E+01     4.330127019E+01     0.000000000E+00
+       43     2.255107095E+01     4.330127019E+01     0.000000000E+00
+       44     2.755107095E+01     4.330127019E+01     0.000000000E+00
+       45     3.255107095E+01     4.330127019E+01     0.000000000E+00
+       46     3.755107095E+01     4.330127019E+01     0.000000000E+00
+       47     4.255107095E+01     4.330127019E+01     0.000000000E+00
+       48     4.755107095E+01     4.330127019E+01     0.000000000E+00
+       49     5.255107095E+01     4.330127019E+01     0.000000000E+00
+       50    -1.744892905E+01     0.000000000E+00     0.000000000E+00
+       51    -1.494892905E+01     4.330127019E+00     0.000000000E+00
+       52    -1.244892905E+01     8.660254038E+00     0.000000000E+00
+       53    -9.948929048E+00     1.299038106E+01     0.000000000E+00
+       54    -7.448929048E+00     1.732050808E+01     0.000000000E+00
+       55    -4.948929048E+00     2.165063509E+01     0.000000000E+00
+       56    -2.448929048E+00     2.598076211E+01     0.000000000E+00
+       57     5.107095168E-02     3.031088913E+01     0.000000000E+00
+       58     2.551070952E+00     3.464101615E+01     0.000000000E+00
+       59     5.051070952E+00     3.897114317E+01     0.000000000E+00
+       60    -1.244892905E+01     0.000000000E+00     0.000000000E+00
+       61    -7.448929048E+00     0.000000000E+00     0.000000000E+00
+       62    -2.448929048E+00     0.000000000E+00     0.000000000E+00
+       63     2.551070952E+00     0.000000000E+00     0.000000000E+00
+       64     7.551070952E+00     0.000000000E+00     0.000000000E+00
+       65     1.255107095E+01     0.000000000E+00     0.000000000E+00
+       66     1.755107095E+01     0.000000000E+00     0.000000000E+00
+       67     2.255107095E+01     0.000000000E+00     0.000000000E+00
+       68     2.755107095E+01     0.000000000E+00     0.000000000E+00
+       69     3.505107095E+01     0.000000000E+00     5.000000000E+00
+       70     4.005107095E+01     0.000000000E+00     5.000000000E+00
+       71     4.505107095E+01     0.000000000E+00     5.000000000E+00
+       72     5.005107095E+01     0.000000000E+00     5.000000000E+00
+       73     5.505107095E+01     0.000000000E+00     5.000000000E+00
+       74     6.005107095E+01     0.000000000E+00     5.000000000E+00
+       75     6.505107095E+01     0.000000000E+00     5.000000000E+00
+       76     7.005107095E+01     0.000000000E+00     5.000000000E+00
+       77     7.505107095E+01     0.000000000E+00     5.000000000E+00
+       78     8.005107095E+01     0.000000000E+00     5.000000000E+00
+       79     8.801070952E+00     4.113620668E+01     5.000000000E+00
+       80     1.130107095E+01     3.680607966E+01     5.000000000E+00
+       81     1.380107095E+01     3.247595264E+01     5.000000000E+00
+       82     1.630107095E+01     2.814582562E+01     5.000000000E+00
+       83     1.880107095E+01     2.381569860E+01     5.000000000E+00
+       84     2.130107095E+01     1.948557159E+01     5.000000000E+00
+       85     2.380107095E+01     1.515544457E+01     5.000000000E+00
+       86     2.630107095E+01     1.082531755E+01     5.000000000E+00
+       87     2.880107095E+01     6.495190528E+00     5.000000000E+00
+       88     3.130107095E+01     2.165063509E+00     5.000000000E+00
+       89     5.880107095E+01     4.113620668E+01     5.000000000E+00
+       90     6.130107095E+01     3.680607966E+01     5.000000000E+00
+       91     6.380107095E+01     3.247595264E+01     5.000000000E+00
+       92     6.630107095E+01     2.814582562E+01     5.000000000E+00
+       93     6.880107095E+01     2.381569860E+01     5.000000000E+00
+       94     7.130107095E+01     1.948557159E+01     5.000000000E+00
+       95     7.380107095E+01     1.515544457E+01     5.000000000E+00
+       96     7.630107095E+01     1.082531755E+01     5.000000000E+00
+       97     7.880107095E+01     6.495190528E+00     5.000000000E+00
+       98     8.130107095E+01     2.165063509E+00     5.000000000E+00
+       99     3.380107095E+01     2.165063509E+00     5.000000000E+00
+      100     3.630107095E+01     6.495190528E+00     5.000000000E+00
+      101     3.880107095E+01     1.082531755E+01     5.000000000E+00
+      102     4.130107095E+01     1.515544457E+01     5.000000000E+00
+      103     4.380107095E+01     1.948557159E+01     5.000000000E+00
+      104     4.630107095E+01     2.381569860E+01     5.000000000E+00
+      105     4.880107095E+01     2.814582562E+01     5.000000000E+00
+      106     5.130107095E+01     3.247595264E+01     5.000000000E+00
+      107     5.380107095E+01     3.680607966E+01     5.000000000E+00
+      108     5.630107095E+01     4.113620668E+01     5.000000000E+00
+      109     1.005107095E+01     4.330127019E+01     5.000000000E+00
+      110     1.505107095E+01     4.330127019E+01     5.000000000E+00
+      111     2.005107095E+01     4.330127019E+01     5.000000000E+00
+      112     2.505107095E+01     4.330127019E+01     5.000000000E+00
+      113     3.005107095E+01     4.330127019E+01     5.000000000E+00
+      114     3.505107095E+01     4.330127019E+01     5.000000000E+00
+      115     4.005107095E+01     4.330127019E+01     5.000000000E+00
+      116     4.505107095E+01     4.330127019E+01     5.000000000E+00
+      117     5.005107095E+01     4.330127019E+01     5.000000000E+00
+      118     5.505107095E+01     4.330127019E+01     5.000000000E+00
+      119    -1.619892905E+01     2.165063509E+00     5.000000000E+00
+      120    -1.369892905E+01     6.495190528E+00     5.000000000E+00
+      121    -1.119892905E+01     1.082531755E+01     5.000000000E+00
+      122    -8.698929048E+00     1.515544457E+01     5.000000000E+00
+      123    -6.198929048E+00     1.948557159E+01     5.000000000E+00
+      124    -3.698929048E+00     2.381569860E+01     5.000000000E+00
+      125    -1.198929048E+00     2.814582562E+01     5.000000000E+00
+      126     1.301070952E+00     3.247595264E+01     5.000000000E+00
+      127     3.801070952E+00     3.680607966E+01     5.000000000E+00
+      128     6.301070952E+00     4.113620668E+01     5.000000000E+00
+      129    -1.494892905E+01     0.000000000E+00     5.000000000E+00
+      130    -9.948929048E+00     0.000000000E+00     5.000000000E+00
+      131    -4.948929048E+00     0.000000000E+00     5.000000000E+00
+      132     5.107095168E-02     0.000000000E+00     5.000000000E+00
+      133     5.051070952E+00     0.000000000E+00     5.000000000E+00
+      134     1.005107095E+01     0.000000000E+00     5.000000000E+00
+      135     1.505107095E+01     0.000000000E+00     5.000000000E+00
+      136     2.005107095E+01     0.000000000E+00     5.000000000E+00
+      137     2.505107095E+01     0.000000000E+00     5.000000000E+00
+      138     3.005107095E+01     0.000000000E+00     5.000000000E+00
+-1
+/wb,elem,start            !  set before creation of elements
+/com,*********** Elements for Body 1 'Line Body' ***********
+et,1,188
+keyo,1,3,2
+MAT,1 $ TYPE,1 $ REAL,1 $ SECNUM,1 $ ESYS,0    ! ELEMNODES = 3
+eblock,21,COMPACT,,70
+(21i9)
+        1        1        3       69
+        2        3        4       70
+        3        4        5       71
+        4        5        6       72
+        5        6        7       73
+        6        7        8       74
+        7        8        9       75
+        8        9       10       76
+        9       10       11       77
+       10       11        2       78
+       11       12       13       79
+       12       13       14       80
+       13       14       15       81
+       14       15       16       82
+       15       16       17       83
+       16       17       18       84
+       17       18       19       85
+       18       19       20       86
+       19       20       21       87
+       20       21        1       88
+       21       22       23       89
+       22       23       24       90
+       23       24       25       91
+       24       25       26       92
+       25       26       27       93
+       26       27       28       94
+       27       28       29       95
+       28       29       30       96
+       29       30       31       97
+       30       31        2       98
+       31        1       32       99
+       32       32       33      100
+       33       33       34      101
+       34       34       35      102
+       35       35       36      103
+       36       36       37      104
+       37       37       38      105
+       38       38       39      106
+       39       39       40      107
+       40       40       22      108
+       41       12       41      109
+       42       41       42      110
+       43       42       43      111
+       44       43       44      112
+       45       44       45      113
+       46       45       46      114
+       47       46       47      115
+       48       47       48      116
+       49       48       49      117
+       50       49       22      118
+       51       50       51      119
+       52       51       52      120
+       53       52       53      121
+       54       53       54      122
+       55       54       55      123
+       56       55       56      124
+       57       56       57      125
+       58       57       58      126
+       59       58       59      127
+       60       59       12      128
+       61       50       60      129
+       62       60       61      130
+       63       61       62      131
+       64       62       63      132
+       65       63       64      133
+       66       64       65      134
+       67       65       66      135
+       68       66       67      136
+       69       67       68      137
+       70       68        1      138
+-1
+secnum,1    ! reset the section ID to default
+! Material Id = {FB88319C-B4A2-4DAD-B585-52332BF287E5}
+/wb,elem,end               !  done creating elements
+toffst,273.15,      ! Temperature offset from absolute zero
+/com,*********** Set Reference Temperature ***********
+tref,22.
+/wb,mat,start              !  starting to send materials
+/com,*********** Send Materials ***********
+Temperature = 'TEMP' ! Temperature
+MP,DENS,1,7850,	! kg m^-3
+MP,ALPX,1,1.2e-05,	! C^-1
+MP,C,1,434,	! J kg^-1 C^-1
+MP,KXX,1,60.5,	! W m^-1 C^-1
+MP,RSVX,1,1.7e-07,	! kg m^3 A^-2 s^-3
+MP,EX,1,200000000000,	! Pa
+MP,NUXY,1,0.3,
+MP,MURX,1,10000,
+MP,UVID,1,e37d482f-ba7d-43bf-824c-984bc5638cf7
+MP,UMID,1,59002a79-71c2-428e-906b-55d7dbee100e
+
+/wb,mat,end                !  done sending materials
+/com,*********** Send Beam Properties ***********
+SECTYPE,1,BEAM,RECT
+SECDATA,1.,1.
+secoffset,cent
+
+!************************* Model Summary ********************
+! Line Body,	Structural Steel,	matid,	1
+!************************* End Model Summary ********************
+! get the diagonal of the bounding box. Needed later for other things
+*get,_xmin,node,,mnloc,x
+*get,_ymin,node,,mnloc,y
+*get,_zmin,node,,mnloc,z
+*get,_xmax,node,,mxloc,x
+*get,_ymax,node,,mxloc,y
+*get,_zmax,node,,mxloc,z
+_ASMDIAG=(_xmax-_xmin)*(_xmax-_xmin)+(_ymax-_ymin)*(_ymax-_ymin)+(_zmax-_zmin)*(_zmax-_zmin)
+_ASMDIAG=SQRT(_ASMDIAG)
+/wb,contact,start          !  starting to send contact
+/wb,contact,end            !  done creating contacts
+/golist
+/wb,load,start             !  starting to send loads
+/com,*********** Fixed Supports ***********
+CMBLOCK,_FIXEDSU,NODE,        1
+(8i10)
+        50
+cmsel,s,_FIXEDSU
+d,all,all
+nsel,all
+/com,******* Constant Zero Displacement Y *******
+CMBLOCK,_DISPZEROUY,NODE,        1
+(8i10)
+         2
+cmsel,s,_DISPZEROUY
+d,all,uy,0
+nsel,all
+/com,******* Constant Zero Displacement Z *******
+CMBLOCK,_DISPZEROUZ,NODE,        1
+(8i10)
+         2
+cmsel,s,_DISPZEROUZ
+d,all,uz,0
+nsel,all
+/com,*********** Define Vertex Force Using Follower Elements ***********
+et,2,201
+keyo,2,1,1          ! Keep the direction constant
+keyo,2,2,1          ! Apply Forces only, not moment
+mat,2
+real,2
+type,2
+en,71,12
+r,2
+rmod,2,1,1.0,              ! FX
+mat,3
+real,3
+type,2
+en,72,12
+r,3
+rmod,3,2,1.0,              ! FY
+mat,4
+real,4
+type,2
+en,73,12
+r,4
+rmod,4,3,1.0,              ! FZ
+/com,*********** Define Vertex Force Using Follower Elements ***********
+et,5,201
+keyo,5,1,1          ! Keep the direction constant
+keyo,5,2,1          ! Apply Forces only, not moment
+mat,5
+real,5
+type,5
+en,74,1
+r,5
+rmod,5,1,1.0,              ! FX
+mat,6
+real,6
+type,5
+en,75,1
+r,6
+rmod,6,2,1.0,              ! FY
+mat,7
+real,7
+type,5
+en,76,1
+r,7
+rmod,7,3,1.0,              ! FZ
+/gst,on,on
+fini
+*get,_numnode,node,0,count
+*get,_numelem,elem,0,count
+*get, _MAXELEMNUM, elem, 0, NUM, MAX
+*get, _MAXNODENUM, node, 0, NUM, MAX
+*get, _MAXELEMTYPE, etyp, 0, NUM, MAX
+*get, _MAXREALCONST, rcon, 0, NUM, MAX
+/go
+/wb,load,end               !  done creating loads
+/com,--- Number of total nodes = %_numnode%
+/com,--- Number of contact elements = 0
+/com,--- Number of spring elements = 0
+/com,--- Number of bearing elements = 0
+/com,--- Number of solid elements = 70
+/com,--- Number of condensed parts = 0
+/com,--- Number of total elements = %_numelem%
+*get,_wallbsol,active,,time,wall
+/com,****************************************************************************
+/com,*************************    SOLUTION       ********************************
+/com,****************************************************************************
+/solu
+antype,0                   ! static analysis
+_thickRatio=  0     ! Ratio of thick parts in the model
+eqsl,sparse,,,,,1
+cntr,print,1               ! print out contact info and also make no initial contact an error
+cncheck,dmp		!	Enable program controlled contact splitting for distributed memory parallel run
+dmpoption,emat,no             ! Don't combine emat file for DANSYS
+dmpoption,esav,no             ! Don't combine esav file for DANSYS
+nldiag,cont,iter           ! print out contact info each equilibrium iteration
+rescontrol,,none                 ! Do not keep any restart files
+/com,****************************************************
+/com,******************* SOLVE FOR LS 1 OF 1 ****************
+esel,s,real,,2
+sfe,all,1,pres,1,0.
+esel,s,real,,3
+sfe,all,1,pres,1,-1000.
+esel,s,real,,4
+sfe,all,1,pres,1,0.
+esel,s,real,,5
+sfe,all,1,pres,1,0.
+esel,s,real,,6
+sfe,all,1,pres,1,-1000.
+esel,s,real,,7
+sfe,all,1,pres,1,0.
+esel,all
+/nopr
+/gopr
+nsub,1,1,1
+time,1.
+outres,erase
+outres,all,none
+outres,nsol,all,
+outres,rsol,all
+outres,eangl,all
+outres,etmp,all
+outres,veng,all
+outres,strs,all,
+outres,epel,all,
+outres,eppl,all,
+outres,cont,all,
+/nopr
+esel,s,type,,1
+cm,_elmisc,elem
+esel,all
+/gopr
+outres,misc,all,_elmisc
+! *********** WB SOLVE COMMAND ***********
+! check interactive state
+*get,ANSINTER_,active,,int
+*if,ANSINTER_,ne,0,then
+/eof
+*endif
+solve
+/com *************** Write FE CONNECTORS ********* 
+CEWRITE,file,ce,,INTE
+/com,****************************************************
+/com,*************** FINISHED SOLVE FOR LS 1 *************
+fini
+*get,_wallasol,active,,time,wall
+/nopr
+*get,_numnode,node,0,count
+*get,_numelem,elem,0,count
+*get, _MAXELEMNUM, elem, 0, NUM, MAX
+*get, _MAXNODENUM, node, 0, NUM, MAX,,,INTERNAL
+*get, _MAXELEMTYPE, etyp, 0, NUM, MAX
+*get, _MAXREALCONST, rcon, 0, NUM, MAX
+*get,_NSOLTHREADS,active,0,ntfs
+*get,_NSOLPROCESSES,active,0,npfs
+/gopr
+/post1
+xmlo,ENCODING,ISO-8859-1
+xmlo,parm
+/xml,parm,xml
+fini
+/gopr
+*get,_walldone,active,,time,wall
+_preptime=(_wallbsol-_wallstrt)*3600
+_solvtime=(_wallasol-_wallbsol)*3600
+_posttime=(_walldone-_wallasol)*3600
+_totaltim=(_walldone-_wallstrt)*3600
+*get,_dlbratio,active,0,solu,dlbr
+*get,_combtime,active,0,solu,comb
+*get,_ssmode,active,0,solu,ssmm
+*get,_ndofs,active,0,solu,ndof
+*get,_sol_end_time,active,0,set,time
+*if,_sol_end_time,eq,1.000000,then
+/fclean				!clean distributed files
+*endif
+/com,--- Total number of nodes = %_numnode%
+/com,--- Total number of elements = %_numelem%
+/com,--- Element load balance ratio = %_dlbratio%
+/com,--- Time to combine distributed files = %_combtime%
+/com,--- Sparse memory mode = %_ssmode%
+/com,--- Number of DOF = %_ndofs%
+/wb,file,end               ! done with WB generated input

@@ -1,0 +1,39 @@
+# encoding: utf-8
+# 2026 R1
+SetScriptVersion(Version="26.1.174")
+template1 = GetTemplate(
+    TemplateName="ACP",
+    Solver="Pre")
+system1 = template1.CreateSystem()
+favorites1 = EngData.LoadFavoriteItems()
+library1 = EngData.OpenLibrary(
+    Name="Composite Materials",
+    Source="Composite_Materials.xml")
+engineeringData1 = system1.GetContainer(ComponentName="Engineering Data")
+matl1 = engineeringData1.ImportMaterial(
+    Name="Epoxy Carbon UD (230 GPa) Prepreg",
+    Source="Composite_Materials.xml")
+EngData.EnableFilter(Enable=False)
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit(IsDiscoveryGeometry=True)
+geometry1.Exit()
+geometry1.Edit(IsDiscoveryGeometry=True)
+geometry1.Exit()
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+Save(Overwrite=True)
+modelComponent1.Update(AllDependencies=True)
+setup1 = system1.GetContainer(ComponentName="Setup")
+setup1.Refresh(
+    KeepACPOpen=True,
+    BatchMode=False)
+ACP.RefreshAPDLMaterial(
+    Container=setup1,
+    apdlMatFilePath=r"C:\Users\mateu\Downloads\ANSYS\Helice_files\dp0\ACP-Pre\ACP\material.apdl")
+setup1.StartACP(ACPMode="pre")
+ACP.RefreshAPDLMaterial(
+    Container=setup1,
+    apdlMatFilePath=r"C:\Users\mateu\Downloads\ANSYS\Helice_files\dp0\ACP-Pre\ACP\material.apdl")
+Save(Overwrite=True)

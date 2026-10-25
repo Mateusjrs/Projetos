@@ -1,0 +1,60 @@
+/COM,ANSYS RELEASE 2026 R1           BUILD 26.1      UP20260202       20:14:27
+
+ *** WARNING ***                         ELAPSED TIME =       5.716   TIME= 20:14:28
+ Element shape checking is currently inactive.  Issue SHPP,ON or         
+ SHPP,WARN to reactivate, if desired.                                    
+
+ *** WARNING ***                         ELAPSED TIME =       5.767   TIME= 20:14:28
+ Material number 14 (used by element 2374) should normally have at least 
+ one MP or one TB type command associated with it.  Output of energy by  
+ material may not be available.                                          
+
+ *** WARNING ***                         ELAPSED TIME =       5.770   TIME= 20:14:28
+ It has been detected that you are using reduced integration brick       
+ elements along with the PCG solver (EQSLV,PCG).  Please verify that     
+ you have multiple elements through the thickness in your model or       
+ switch to the SPARSE solver (EQSLV,SPARSE).                             
+
+ *** WARNING ***                         ELAPSED TIME =       6.028   TIME= 20:14:28
+ Overconstraint may occur for Lagrange multiplier or MPC based contact   
+ algorithm.                                                              
+
+ *** WARNING ***                         ELAPSED TIME =       6.028   TIME= 20:14:28
+ Boundary conditions, coupling, and/or constraint equations have been    
+ applied on certain contact nodes (for example 6803).                    
+
+ *** WARNING ***                         ELAPSED TIME =       6.311   TIME= 20:14:29
+ Multiple constraints have been applied on degree of freedom 1 of        
+ contact node 387 (may be more nodes).  The program will remove certain  
+ internal MPCs.  Please check the model carefully.                       
+
+ *** WARNING ***                         ELAPSED TIME =       6.311   TIME= 20:14:29
+ Or use relaxation option (target element KEYOPT(11) = 1) to overcome    
+ the over-constraint.                                                    
+
+ *** WARNING ***                         ELAPSED TIME =       6.344   TIME= 20:14:29
+ Multiple constraints have been applied on degree of freedom 1 of        
+ contact node 2723 (may be more nodes).  The program will remove         
+ certain internal MPCs.  Please check the model carefully.               
+
+ *** WARNING ***                         ELAPSED TIME =       6.344   TIME= 20:14:29
+ Or use relaxation option (target element KEYOPT(11) = 1) to overcome    
+ the over-constraint.                                                    
+
+ *** WARNING ***                         ELAPSED TIME =       6.344   TIME= 20:14:29
+ Multiple constraints have been applied on degree of freedom 1 of        
+ contact node 2731 (may be more nodes).  The program will remove         
+ certain internal MPCs.  Please check the model carefully.               
+
+ *** WARNING ***                         ELAPSED TIME =       6.344   TIME= 20:14:29
+ Or use relaxation option (target element KEYOPT(11) = 1) to overcome    
+ the over-constraint.                                                    
+
+ *** WARNING ***                         ELAPSED TIME =       6.344   TIME= 20:14:29
+ Multiple constraints have been applied on degree of freedom 3 of        
+ contact node 5127 (may be more nodes).  The program will remove         
+ certain internal MPCs.  Please check the model carefully.               
+
+ *** WARNING ***                         ELAPSED TIME =       6.344   TIME= 20:14:29
+ Or use relaxation option (target element KEYOPT(11) = 1) to overcome    
+ the over-constraint.                                                    

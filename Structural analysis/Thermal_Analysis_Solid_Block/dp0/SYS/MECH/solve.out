@@ -1,0 +1,809 @@
+
+ Ansys Mechanical Enterprise Academic Student      
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *         ANSYS MAPDL 2026 R1          LEGAL NOTICES          *
+ ***************************************************************
+ *                                                             *
+ * Copyright (c) 2026 Synopsys, Inc. and ANSYS, Inc.           *
+ * All rights reserved.                                        *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of Ansys, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the Ansys, Inc. online documentation or the Ansys, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * Ansys, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * Ansys, Inc. is a UL registered                              *
+ * ISO 9001:2015 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the Ansys, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the Ansys, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+ 2026 R1 
+     
+ Point Releases and Patches installed:   
+     
+ Ansys, Inc. License Manager 2026 R1 
+ Discovery (full install) 2026 R1
+ Core WB Files 2026 R1   
+ optiSLang Core UI 2026 R1   
+ CFX (includes CFD-Post) 2026 R1 
+ Chemkin 2026 R1 
+ EnSight 2026 R1 
+ FENSAP-ICE 2026 R1  
+ Fluent (includes CFD-Post) 2026 R1  
+ Polyflow (includes CFD-Post) 2026 R1
+ Forte (includes EnSight) 2026 R1
+ Rocky 2026 R1   
+ TurboGrid 2026 R1   
+ ACIS Geometry Interface 2026 R1 
+ AutoCAD Geometry Interface 2026 R1  
+ Catia, Version 4 Geometry Interface 2026 R1 
+ Catia, Version 5 Geometry Interface 2026 R1 
+ Catia, Version 6 Geometry Interface 2026 R1 
+ Creo Elements/Direct Modeling Geometry Interface 2026 R1
+ Creo Parametric Geometry Interface 2026 R1  
+ Inventor Geometry Interface 2026 R1 
+ JTOpen Geometry Interface 2026 R1   
+ NX Geometry Interface 2026 R1   
+ Parasolid Geometry Interface  2026 R1   
+ Solid Edge Geometry Interface 2026 R1   
+ SOLIDWORKS Geometry Interface 2026 R1   
+ Speos 2026 R1   
+ SpaceClaim 2026 R1  
+ Speos RPC 2026 R1   
+ Zemax OpticStudio 2026 R1   
+ Dynamic Reporting 2026 R1   
+ Aqwa 2026 R1
+ Autodyn 2026 R1 
+ Material Calibration App 2026 R1
+ Mechanical Products 2026 R1 
+ Motion 2026 R1  
+ Academic Student 2026 R1
+
+
+          *****  MAPDL COMMAND LINE ARGUMENTS  *****
+  BATCH MODE REQUESTED (-b)    = NOLIST
+  INPUT FILE COPY MODE (-c)    = COPY
+  DISTRIBUTED MEMORY PARALLEL REQUESTED
+       4 PARALLEL PROCESSES REQUESTED WITH SINGLE THREAD PER PROCESS
+    TOTAL OF     4 CORES REQUESTED
+  INPUT FILE NAME              = C:\Users\mateu\AppData\Local\Temp\WB_mateu_18060_8\_ProjectScratch\Scr87F5\dummy.dat
+  OUTPUT FILE NAME             = C:\Users\mateu\AppData\Local\Temp\WB_mateu_18060_8\_ProjectScratch\Scr87F5\solve.out
+  START-UP FILE MODE           = NOREAD
+  STOP FILE MODE               = NOREAD
+
+ RELEASE= 2026 R1              BUILD= 26.1      UP20260202   VERSION=WINDOWS x64 
+ CURRENT JOBNAME=file0  10:06:33  OCT 21, 2026  Elapsed Time=       0.141
+
+
+ PARAMETER _DS_PROGRESS =     999.0000000    
+
+ /INPUT FILE= ds.dat  LINE=       0
+
+
+
+ *** NOTE ***                            ELAPSED TIME =       5.267   TIME= 10:06:34
+ The /CONFIG,NOELDB command is not valid in a distributed memory         
+ parallel solution.  Command is ignored.                                 
+
+ *GET  _WALLSTRT  FROM  ACTI  ITEM=TIME WALL  VALUE= 0.147261711E-02
+
+ TITLE= 
+ wbnew--Transient Thermal (A5)                                                 
+
+  ACT Extensions:
+      LSDYNA, 2026.1
+      5f463412-bd3e-484b-87e7-cbc0a665e474, wbex
+      ANSYSMotion, 2026.1
+      20180725-3f81-49eb-9f31-41364844c769, wbex
+
+ SET PARAMETER DIMENSIONS ON  _WB_PROJECTSCRATCH_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_PROJECTSCRATCH_DIR(1) = C:\Users\mateu\AppData\Local\Temp\WB_mateu_18060_8\_ProjectScratch\Scr87F5\
+
+ SET PARAMETER DIMENSIONS ON  _WB_SOLVERFILES_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_SOLVERFILES_DIR(1) = C:\Users\mateu\AppData\Local\Temp\WB_mateu_18060_8\wbnew_files\dp0\SYS\MECH\
+
+ SET PARAMETER DIMENSIONS ON  _WB_USERFILES_DIR
+  TYPE=STRI  DIMENSIONS=      248        1        1
+
+ PARAMETER _WB_USERFILES_DIR(1) = C:\Users\mateu\AppData\Local\Temp\WB_mateu_18060_8\wbnew_files\user_files\
+ --- Data in consistent MKS units. See Solving Units in the help system for more
+
+ MKS UNITS SPECIFIED FOR INTERNAL    
+  LENGTH        (l)  = METER (M)
+  MASS          (M)  = KILOGRAM (KG)
+  TIME          (t)  = SECOND (SEC)
+  TEMPERATURE   (T)  = CELSIUS (C)
+  TOFFSET            = 273.0
+  CHARGE        (Q)  = COULOMB
+  FORCE         (f)  = NEWTON (N) (KG-M/SEC2)
+  HEAT               = JOULE (N-M)
+
+  PRESSURE           = PASCAL (NEWTON/M**2)
+  ENERGY        (W)  = JOULE (N-M)
+  POWER         (P)  = WATT (N-M/SEC)
+  CURRENT       (i)  = AMPERE (COULOMBS/SEC)
+  CAPACITANCE   (C)  = FARAD
+  INDUCTANCE    (L)  = HENRY
+  MAGNETIC FLUX      = WEBER
+  RESISTANCE    (R)  = OHM
+  ELECTRIC POTENTIAL = VOLT
+
+ INPUT  UNITS ARE ALSO SET TO MKS 
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   10:06:34  OCT 21, 2026 Elapsed Time=      5.303
+
+ wbnew--Transient Thermal (A5)                                                 
+
+
+
+          ***** MAPDL ANALYSIS DEFINITION (PREP7) *****
+ *********** Send User Defined Coordinate System(s) ***********
+ *********** Nodes for the whole assembly ***********
+ *********** Elements for Body 1 'SYS\Solid' ***********
+ *********** Send Materials ***********
+ *********** Define Temperature Constraint ***********
+ *********** Create "Heat Flux" ***********
+ ***************** Define Uniform Initial temperature ***************
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         5.321
+
+
+ --- Number of total nodes = 2442
+ --- Number of contact elements = 27
+ --- Number of spring elements = 0
+ --- Number of bearing elements = 0
+ --- Number of solid elements = 432
+ --- Number of condensed parts = 0
+ --- Number of total elements = 459
+
+ *GET  _WALLBSOL  FROM  ACTI  ITEM=TIME WALL  VALUE= 0.147841450E-02
+ ****************************************************************************
+ *************************    SOLUTION       ********************************
+ ****************************************************************************
+
+ *****  MAPDL SOLUTION ROUTINE  *****
+
+
+ PERFORM A TRANSIENT ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ STEP BOUNDARY CONDITION KEY= 1
+
+ CONTACT INFORMATION PRINTOUT LEVEL       1
+
+ CHECK INITIAL OPEN/CLOSED STATUS OF SELECTED CONTACT ELEMENTS
+      AND LIST DETAILED CONTACT PAIR INFORMATION
+
+ SPLIT CONTACT SURFACES AT SOLVE PHASE
+
+    NUMBER OF SPLITTING TBD BY PROGRAM
+
+ DO NOT SAVE ANY RESTART FILES AT ALL
+
+ DO NOT COMBINE ELEMENT MATRIX FILES (.emat) AFTER DISTRIBUTED PARALLEL SOLUTION
+
+ DO NOT COMBINE ELEMENT SAVE DATA FILES (.esav) AFTER DISTRIBUTED PARALLEL SOLUTION
+
+ Use Quasi-Linear Thermal Transient Solution
+   Tolerance for Reform of Thermal Matrix=     0.050
+   ***** Fast Property Table Information *****
+    Number of entries per property=    64
+    Minimum temperature =      0.00
+    Maximum temperature =   1000.00
+  Enable multipass algorithm
+
+ *** WARNING ***                         ELAPSED TIME =       5.387   TIME= 10:06:34
+ Temperature-dependent properties have not been specified.  The          
+ THOPT,QUASI option does not perform equilibrium iterations.  Small      
+ time steps may be required to obtain accurate results.                  
+
+ NLHIST: ADDED NODAL RESULTS HISTORY FOR:
+       NAME = MAX_TEMP                        
+  ITEM/COMP = TEMPMAX 
+       NODE =         0
+
+ NLHIST: ADDED NODAL RESULTS HISTORY FOR:
+       NAME = MIN_TEMP                        
+  ITEM/COMP = TEMPMIN 
+       NODE =         0
+ ********* Initial Time Increment Check And Fourier Modulus *********
+  Specified Initial Time Increment: 300
+  Estimated Increment Needed, le*le/alpha, Body 1: 28.7279
+ ****************************************************
+ ******************* SOLVE FOR LS 1 OF 1 ****************
+
+ SPECIFIED CONSTRAINT TEMP FOR PICKED NODES 
+ REAL=  26.8500000       IMAG=  0.00000000    
+
+ SELECT       FOR ITEM=TYPE COMPONENT=    
+  IN RANGE         2 TO          2 STEP          1
+
+         27  ELEMENTS (OF        459  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ SELECT      ALL NODES HAVING ANY ELEMENT IN ELEMENT SET.
+
+        106 NODES (OF       2442  DEFINED) SELECTED FROM
+       27 SELECTED ELEMENTS BY NSLE COMMAND.
+
+ GENERATE SURFACE LOAD HFLU ON SURFACE DEFINED BY ALL SELECTED NODES
+ VALUE =   50000.0000    
+
+ NUMBER OF HFLU ELEMENT FACE LOADS STORED =         27
+
+ ALL SELECT   FOR ITEM=NODE COMPONENT=    
+  IN RANGE         1 TO       2442 STEP          1
+
+       2442  NODES (OF       2442  DEFINED) SELECTED BY NSEL  COMMAND.
+
+ ALL SELECT   FOR ITEM=ELEM COMPONENT=    
+  IN RANGE         1 TO        897 STEP          1
+
+        459  ELEMENTS (OF        459  DEFINED) SELECTED BY  ESEL  COMMAND.
+
+ PRINTOUT RESUMED BY /GOP
+
+ USE AUTOMATIC TIME STEPPING THIS LOAD STEP
+
+ USE     100 SUBSTEPS INITIALLY THIS LOAD STEP FOR ALL  DEGREES OF FREEDOM
+ FOR AUTOMATIC TIME STEPPING:
+   USE   1000 SUBSTEPS AS A MAXIMUM
+   USE     10 SUBSTEPS AS A MINIMUM
+
+ TIME=  30000.    
+
+ INCLUDE TRANSIENT EFFECTS FOR  ALL DEGREES OF FREEDOM THIS LOAD STEP
+
+ ERASE THE CURRENT DATABASE OUTPUT CONTROL TABLE.
+
+
+ WRITE ALL  ITEMS TO THE DATABASE WITH A FREQUENCY OF NONE
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE NSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE RSOL ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE EANG ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE VENG ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE FFLU ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ WRITE CONT ITEMS TO THE DATABASE WITH A FREQUENCY OF ALL 
+   FOR ALL APPLICABLE ENTITIES
+
+ CONVERGENCE ON HEAT BASED ON THE NORM OF THE N-R LOAD
+   WITH A TOLERANCE OF 0.1000E-02 AND A MINIMUM REFERENCE VALUE OF 0.1000E-05
+   USING THE L2 NORM (CHECK THE SRSS VALUE)
+
+ *GET  ANSINTER_  FROM  ACTI  ITEM=INT        VALUE=  0.00000000    
+
+ *IF  ANSINTER_  ( =   0.00000     )  NE  
+      0  ( =   0.00000     )  THEN    
+
+ *ENDIF
+
+ *** NOTE ***                            ELAPSED TIME =       5.418   TIME= 10:06:34
+ The automatic domain decomposition logic has selected the MESH domain   
+ decomposition method with 4 processes per solution.                     
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** WARNING ***                         ELAPSED TIME =       5.422   TIME= 10:06:34
+ Element shape checking is currently inactive.  Issue SHPP,ON or         
+ SHPP,WARN to reactivate, if desired.                                    
+
+ *** NOTE ***                            ELAPSED TIME =       5.424   TIME= 10:06:34
+ The model data was checked and warning messages were found.             
+  Please review output or errors file (                                  
+ C:\Users\mateu\AppData\Local\Temp\WB_mateu_18060_8\_ProjectScratch\Scr8 
+ 87F5\file0.err ) for these warning messages.                            
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   10:06:34  OCT 21, 2026 Elapsed Time=      5.424
+
+ wbnew--Transient Thermal (A5)                                                 
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . TEMP
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .TRANSIENT            
+      SOLUTION METHOD. . . . . . . . . . . . . . .QUASI                
+   OFFSET TEMPERATURE FROM ABSOLUTE ZERO . . . . .  273.15    
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** WARNING ***                         ELAPSED TIME =       5.425   TIME= 10:06:34
+ Material number 2 (used by element 871) should normally have at least   
+ one MP or one TB type command associated with it.  Output of energy by  
+ material may not be available.                                          
+
+ *** NOTE ***                            ELAPSED TIME =       5.426   TIME= 10:06:34
+ The step data was checked and warning messages were found.              
+  Please review output or errors file (                                  
+ C:\Users\mateu\AppData\Local\Temp\WB_mateu_18060_8\_ProjectScratch\Scr8 
+ 87F5\file0.err ) for these warning messages.                            
+
+ *** NOTE ***                            ELAPSED TIME =       5.426   TIME= 10:06:34
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+  
+  
+     D I S T R I B U T E D   D O M A I N   D E C O M P O S E R
+  
+  ...Number of elements: 459
+  ...Number of nodes:    2442
+  ...Decompose to 4 CPU domains
+  ...Element load balance ratio =     1.079
+
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  30000.    
+   AUTOMATIC TIME STEPPING . . . . . . . . . . . .    ON
+      INITIAL NUMBER OF SUBSTEPS . . . . . . . . .   100
+      MAXIMUM NUMBER OF SUBSTEPS . . . . . . . . .  1000
+      MINIMUM NUMBER OF SUBSTEPS . . . . . . . . .    10
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .   YES
+   TRANSIENT (INERTIA) EFFECTS
+      THERMAL DOFS . . . . . . . . . . . . . . . .    ON
+   TRANSIENT INTEGRATION PARAMETERS
+      THETA. . . . . . . . . . . . . . . . . . . .  1.0000    
+      OSCILLATION LIMIT CRITERION. . . . . . . . . 0.50000    
+      TOLERANCE. . . . . . . . . . . . . . . . . .  0.0000    
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS
+      ITEM     FREQUENCY   COMPONENT
+       ALL       NONE               
+      NSOL        ALL               
+      RSOL        ALL               
+      EANG        ALL               
+      VENG        ALL               
+      FFLU        ALL               
+      CONT        ALL               
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= file.mntr                                                                                                                                                                                                                                                           
+
+
+
+
+            **** CENTER OF MASS, MASS, AND MASS MOMENTS OF INERTIA ****
+
+  CALCULATIONS ASSUME ELEMENT MASS AT ELEMENT CENTROID
+
+  TOTAL MASS =   1870.7    
+
+                           MOM. OF INERTIA         MOM. OF INERTIA
+  CENTER OF MASS            ABOUT ORIGIN        ABOUT CENTER OF MASS
+
+  XC = -0.43322          IXX =    559.5          IXX =    83.66    
+  YC =  0.49911          IYY =    510.8          IYY =    149.8    
+  ZC =  0.72425E-01      IZZ =    1045.          IZZ =    227.7    
+                         IXY =    414.7          IXY =    10.16    
+                         IYZ =   -67.62          IYZ =   0.1801E-13
+                         IZX =    58.70          IZX =   0.1848E-13
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1   1870.69    
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 34.0723064 at element 406.                                    
+ Minimum = 18.5041091 at element 17.                                     
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1       432  SOLID279          0.0405   0.000093691
+        2        27   SURF152          0.0035   0.000130637
+ Elapsed Time at end of element matrix formulation = 5.5545325.          
+
+ DISTRIBUTED SPARSE MATRIX DIRECT SOLVER.
+  Number of equations =        2336,    Maximum wavefront =     67
+
+
+  Memory allocated on only this MPI rank (rank     0)
+  -------------------------------------------------------------------
+  Equation solver memory allocated                     =     1.728 MB
+  Equation solver memory required for in-core mode     =     1.663 MB
+  Equation solver memory required for out-of-core mode =     1.280 MB
+  Total (solver and non-solver) memory allocated       =   381.798 MB
+
+
+  Total memory summed across all MPI ranks on this machines
+  -------------------------------------------------------------------
+  Equation solver memory allocated                     =     6.143 MB
+  Equation solver memory required for in-core mode     =     5.908 MB
+  Equation solver memory required for out-of-core mode =     4.500 MB
+  Total (solver and non-solver) memory allocated       =   700.991 MB
+
+ *** NOTE ***                            ELAPSED TIME =       5.597   TIME= 10:06:34
+ The Distributed Sparse Matrix Solver is currently running in the        
+ in-core memory mode.  This memory mode uses the most amount of memory   
+ in order to avoid using the hard drive as much as possible, which most  
+ often results in the fastest solution time.  This mode is recommended   
+ if enough physical memory is present to accommodate all of the solver   
+ data.                                                                   
+ Distributed sparse solver maximum pivot= 127.841633 at node 1025 TEMP.  
+ Distributed sparse solver minimum pivot= 9.66706155 at node 503 TEMP.   
+ Distributed sparse solver minimum pivot in absolute value= 9.66706155   
+ at node 503 TEMP.                                                       
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1       432  SOLID279          0.0422   0.000097669
+        2        27   SURF152          0.0006   0.000023226
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1       432  SOLID279          0.0080   0.000018485
+        2        27   SURF152          0.0002   0.000006930
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   300.000         TIME INC =   300.000      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.2871E-02   OSCILLATION LIMIT = 0.8613    
+ *** AUTO TIME STEP:  NEXT TIME INC =  174.15      DECREASED (FACTOR = 0.5805)
+
+ *** LOAD STEP     1   SUBSTEP     2  COMPLETED.    CUM ITER =      2
+ *** TIME =   474.149         TIME INC =   174.149      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.3969E-02   OSCILLATION LIMIT = 0.6912    
+ *** AUTO TIME STEP:  NEXT TIME INC =  125.97      DECREASED (FACTOR = 0.7234)
+
+ *** LOAD STEP     1   SUBSTEP     3  COMPLETED.    CUM ITER =      3
+ *** TIME =   600.121         TIME INC =   125.972      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.1845E-02   OSCILLATION LIMIT = 0.2325    
+ *** AUTO STEP TIME:  NEXT TIME INC =  125.97      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP     4  COMPLETED.    CUM ITER =      4
+ *** TIME =   726.093         TIME INC =   125.972      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.1176E-02   OSCILLATION LIMIT = 0.1481    
+ *** AUTO TIME STEP:  NEXT TIME INC =  377.92      INCREASED (FACTOR = 3.0000)
+
+ *** LOAD STEP     1   SUBSTEP     5  COMPLETED.    CUM ITER =      5
+ *** TIME =   1104.01         TIME INC =   377.917      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.6541E-03   OSCILLATION LIMIT = 0.2472    
+ *** AUTO TIME STEP:  NEXT TIME INC =  764.43      INCREASED (FACTOR = 2.0227)
+
+ *** LOAD STEP     1   SUBSTEP     6  COMPLETED.    CUM ITER =      6
+ *** TIME =   1868.44         TIME INC =   764.430      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.4663E-03   OSCILLATION LIMIT = 0.3564    
+ *** AUTO TIME STEP:  NEXT TIME INC =  1072.3      INCREASED (FACTOR = 1.4028)
+
+ *** LOAD STEP     1   SUBSTEP     7  COMPLETED.    CUM ITER =      7
+ *** TIME =   2940.77         TIME INC =   1072.33      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.4326E-03   OSCILLATION LIMIT = 0.4639    
+ *** AUTO TIME STEP:  NEXT TIME INC =  1155.7      INCREASED (FACTOR = 1.0778)
+
+ *** LOAD STEP     1   SUBSTEP     8  COMPLETED.    CUM ITER =      8
+ *** TIME =   4096.52         TIME INC =   1155.75      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.4284E-03   OSCILLATION LIMIT = 0.4951    
+ *** AUTO TIME STEP:  NEXT TIME INC =  1167.1      INCREASED (FACTOR = 1.0099)
+
+ *** LOAD STEP     1   SUBSTEP     9  COMPLETED.    CUM ITER =      9
+ *** TIME =   5263.66         TIME INC =   1167.14      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.4279E-03   OSCILLATION LIMIT = 0.4994    
+ *** AUTO TIME STEP:  NEXT TIME INC =  1168.5      INCREASED (FACTOR = 1.0011)
+
+ *** LOAD STEP     1   SUBSTEP    10  COMPLETED.    CUM ITER =     10
+ *** TIME =   6432.14         TIME INC =   1168.48      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.4278E-03   OSCILLATION LIMIT = 0.4999    
+ *** AUTO TIME STEP:  NEXT TIME INC =  1168.6      INCREASED (FACTOR = 1.0001)
+
+ *** LOAD STEP     1   SUBSTEP    11  COMPLETED.    CUM ITER =     11
+ *** TIME =   7600.77         TIME INC =   1168.64      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.4278E-03   OSCILLATION LIMIT = 0.5000    
+ *** AUTO TIME STEP:  NEXT TIME INC =  1168.7      INCREASED (FACTOR = 1.0000)
+
+ *** LOAD STEP     1   SUBSTEP    12  COMPLETED.    CUM ITER =     12
+ *** TIME =   8769.43         TIME INC =   1168.65      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.4278E-03   OSCILLATION LIMIT = 0.5000    
+ *** AUTO STEP TIME:  NEXT TIME INC =  1168.7      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP    13  COMPLETED.    CUM ITER =     13
+ *** TIME =   9938.08         TIME INC =   1168.66      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.4278E-03   OSCILLATION LIMIT = 0.5000    
+ *** AUTO STEP TIME:  NEXT TIME INC =  1168.7      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP    14  COMPLETED.    CUM ITER =     14
+ *** TIME =   11106.7         TIME INC =   1168.66      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.4278E-03   OSCILLATION LIMIT = 0.5000    
+ *** AUTO STEP TIME:  NEXT TIME INC =  1168.7      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP    15  COMPLETED.    CUM ITER =     15
+ *** TIME =   12275.4         TIME INC =   1168.66      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.4278E-03   OSCILLATION LIMIT = 0.5000    
+ *** AUTO STEP TIME:  NEXT TIME INC =  1168.7      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP    16  COMPLETED.    CUM ITER =     16
+ *** TIME =   13444.1         TIME INC =   1168.66      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.4278E-03   OSCILLATION LIMIT = 0.5000    
+ *** AUTO STEP TIME:  NEXT TIME INC =  1168.7      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP    17  COMPLETED.    CUM ITER =     17
+ *** TIME =   14612.7         TIME INC =   1168.66      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.4278E-03   OSCILLATION LIMIT = 0.5000    
+ *** AUTO STEP TIME:  NEXT TIME INC =  1168.7      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP    18  COMPLETED.    CUM ITER =     18
+ *** TIME =   15781.4         TIME INC =   1168.66      NEW TRIANG MATRIX
+ *** RESPONSE EIGENVALUE = 0.4278E-03   OSCILLATION LIMIT = 0.5000    
+ *** AUTO STEP TIME:  NEXT TIME INC =  1168.7      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP    19  COMPLETED.    CUM ITER =     19
+ *** TIME =   16950.0         TIME INC =   1168.66      NEW TRIANG MATRIX
+ *** AUTO STEP TIME:  NEXT TIME INC =  1168.7      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP    20  COMPLETED.    CUM ITER =     20
+ *** TIME =   18118.7         TIME INC =   1168.66      NEW TRIANG MATRIX
+ *** AUTO STEP TIME:  NEXT TIME INC =  1168.7      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP    21  COMPLETED.    CUM ITER =     21
+ *** TIME =   19287.3         TIME INC =   1168.66      NEW TRIANG MATRIX
+ *** AUTO STEP TIME:  NEXT TIME INC =  1168.7      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP    22  COMPLETED.    CUM ITER =     22
+ *** TIME =   20456.0         TIME INC =   1168.66      NEW TRIANG MATRIX
+ *** AUTO STEP TIME:  NEXT TIME INC =  1168.7      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP    23  COMPLETED.    CUM ITER =     23
+ *** TIME =   21624.6         TIME INC =   1168.66      NEW TRIANG MATRIX
+ *** AUTO STEP TIME:  NEXT TIME INC =  1168.7      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP    24  COMPLETED.    CUM ITER =     24
+ *** TIME =   22793.3         TIME INC =   1168.66      NEW TRIANG MATRIX
+ *** AUTO STEP TIME:  NEXT TIME INC =  1168.7      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP    25  COMPLETED.    CUM ITER =     25
+ *** TIME =   23962.0         TIME INC =   1168.66      NEW TRIANG MATRIX
+ *** AUTO STEP TIME:  NEXT TIME INC =  1168.7      UNCHANGED
+
+ *** LOAD STEP     1   SUBSTEP    26  COMPLETED.    CUM ITER =     26
+ *** TIME =   25130.6         TIME INC =   1168.66      NEW TRIANG MATRIX
+ *** AUTO TIME STEP:  NEXT TIME INC =  2337.3      INCREASED (FACTOR = 2.0000)
+
+ *** LOAD STEP     1   SUBSTEP    27  COMPLETED.    CUM ITER =     27
+ *** TIME =   27467.9         TIME INC =   2337.31      NEW TRIANG MATRIX
+ *** AUTO TIME STEP:  NEXT TIME INC =  2532.1      INCREASED (FACTOR = 1.0833)
+
+ *** LOAD STEP     1   SUBSTEP    28  COMPLETED.    CUM ITER =     28
+ *** TIME =   30000.0         TIME INC =   2532.07      NEW TRIANG MATRIX
+
+
+ *** MAPDL BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+        0.062 MB WRITTEN ON ELEMENT SAVED DATA FILE: file0.esav
+        0.375 MB WRITTEN ON ASSEMBLED MATRIX FILE: file0.full
+        1.188 MB WRITTEN ON RESULTS FILE: file0.rth
+ *************** Write FE CONNECTORS *********
+
+ WRITE OUT CONSTRAINT EQUATIONS TO FILE= file.ce                                                                                                                                                                                                                                                             
+ ****************************************************
+ *************** FINISHED SOLVE FOR LS 1 *************
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         7.522
+
+
+
+ *GET  _WALLASOL  FROM  ACTI  ITEM=TIME WALL  VALUE= 0.208941931E-02
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   10:06:36  OCT 21, 2026 Elapsed Time=      7.538
+
+ wbnew--Transient Thermal (A5)                                                 
+
+
+
+          ***** MAPDL RESULTS INTERPRETATION (POST1) *****
+
+ *** NOTE ***                            ELAPSED TIME =       7.538   TIME= 10:06:36
+ Reading results into the database (SET command) will update the current 
+ displacement and force boundary conditions in the database with the     
+ values from the results file for that load set.  Note that any          
+ subsequent solutions will use these values unless action is taken to    
+ either SAVE the current values or not overwrite them (/EXIT,NOSAVE).    
+
+ Set Encoding of XML File to:ISO-8859-1
+
+ Set Output of XML File to:
+     PARM,     ,     ,     ,     ,     ,     ,     ,     ,     ,     ,     ,
+         ,     ,     ,     ,     ,     ,     ,
+
+ DATABASE WRITTEN ON FILE  parm.xml                                                                                                                                                                                                                                                            
+
+ EXIT THE MAPDL POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         7.542
+
+
+
+ PRINTOUT RESUMED BY /GOP
+
+ *GET  _WALLDONE  FROM  ACTI  ITEM=TIME WALL  VALUE= 0.209495917E-02
+
+ PARAMETER _PREPTIME =    0.2087060000E-01
+
+ PARAMETER _SOLVTIME =     2.199617300    
+
+ PARAMETER _POSTTIME =    0.1994350000E-01
+
+ PARAMETER _TOTALTIM =     2.240431400    
+
+ *GET  _DLBRATIO  FROM  ACTI  ITEM=SOLU DLBR  VALUE=  1.07894737    
+
+ *GET  _COMBTIME  FROM  ACTI  ITEM=SOLU COMB  VALUE= 0.760882000E-01
+
+ *GET  _SSMODE   FROM  ACTI  ITEM=SOLU SSMM  VALUE=  2.00000000    
+
+ *GET  _NDOFS    FROM  ACTI  ITEM=SOLU NDOF  VALUE=  2336.00000    
+
+ /FCLEAN COMMAND REMOVING ALL LOCAL FILES
+ --- Total number of nodes = 2442
+ --- Total number of elements = 459
+ --- Element load balance ratio = 1.07894737
+ --- Time to combine distributed files = 7.60882E-02
+ --- Sparse memory mode = 2
+ --- Number of DOF = 2336
+
+ EXIT MAPDL WITHOUT SAVING DATABASE
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          3
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
++--------------------- M A P D L   S T A T I S T I C S ------------------------+
+
+Release: 2026 R1            Build: 26.1       Update: UP20260202   Platform: WINDOWS x64 
+Date Run: 10/21/2026   Time: 10:06     Process ID: 23372
+Operating System: Windows 11  (Build: 26300)
+
+Processor Model: 11th Gen Intel(R) Core(TM) i5-1135G7 @ 2.40GHz
+
+Compiler: Intel(R) Fortran Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) C/C++ Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) oneAPI Math Kernel Library Version 2024.2.3-Product Build 20250403
+
+Number of machines requested            :    1
+Total number of cores available         :    8
+Number of physical cores available      :    4
+Number of processes requested           :    4
+Number of threads per process requested :    1
+Total number of cores requested         :    4 (Distributed Memory Parallel)               
+MPI Type: INTELMPI
+MPI Version: Intel(R) MPI Library 2021.16 for Windows* OS
+
+
+GPU Acceleration: Not Requested
+
+Job Name: file0
+Input File: dummy.dat
+
+  Core                Machine Name   Working Directory
+ -----------------------------------------------------
+     0             DESKTOP-T5VN2J0   C:\Users\mateu\AppData\Local\Temp\WB_mateu_18060_8\_ProjectScratch\Scr87F5
+     1             DESKTOP-T5VN2J0   C:\Users\mateu\AppData\Local\Temp\WB_mateu_18060_8\_ProjectScratch\Scr87F5
+     2             DESKTOP-T5VN2J0   C:\Users\mateu\AppData\Local\Temp\WB_mateu_18060_8\_ProjectScratch\Scr87F5
+     3             DESKTOP-T5VN2J0   C:\Users\mateu\AppData\Local\Temp\WB_mateu_18060_8\_ProjectScratch\Scr87F5
+ 
+Latency time from master to core     1 =    2.337 microseconds
+Latency time from master to core     2 =    2.808 microseconds
+Latency time from master to core     3 =    3.217 microseconds
+ 
+Communication speed from master to core     1 =  2007.17 MB/sec
+Communication speed from master to core     2 =  4653.30 MB/sec
+Communication speed from master to core     3 =  5185.41 MB/sec
+
+Total CPU time for main thread                    :        2.3 seconds
+Total CPU time summed for all threads             :        2.7 seconds
+
+Elapsed time spent obtaining a license            :        0.5 seconds
+Elapsed time spent pre-processing model (/PREP7)  :        0.0 seconds
+Elapsed time spent solution - preprocessing       :        0.1 seconds
+Elapsed time spent computing solution             :        1.9 seconds
+   Elapsed time in element formation & assembly   :        0.1 seconds
+   Elapsed time in equation solver                :        1.0 seconds
+   Elapsed time in element result calculations    :        0.6 seconds
+Elapsed time spent solution - postprocessing      :        0.1 seconds
+Elapsed time spent post-processing model (/POST1) :        0.0 seconds
+ 
+Equation solver used                              :            Sparse (symmetric)
+
+Sum of disk space used on all processes           :        8.4 MB
+
+Sum of memory used on all processes               :      197.0 MB
+Sum of memory allocated on all processes          :     2880.0 MB
+Physical memory available                         :         16 GB
+Total amount of I/O written to disk               :        0.0 GB
+Total amount of I/O read from disk                :        0.1 GB
+
++------------------ E N D   M A P D L   S T A T I S T I C S -------------------+
+
+
+ *-----------------------------------------------------------------------------*
+ |                                                                             |
+ |                               RUN COMPLETED                                 |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Ansys MAPDL 2026 R1         Build 26.1         UP20260202    WINDOWS x64   |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Database Requested(-db)     1024 MB     Scratch Memory Requested   1024 MB |
+ |  Max Database Used(Master)      2 MB     Max Scratch Used(Master)     48 MB |
+ |  Max Database Used(Workers)     1 MB     Max Scratch Used(Workers)    48 MB |
+ |  Sum Database Used(All)         5 MB     Sum Scratch Used(All)       192 MB |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |        CP Time      (sec) =          2.672       Time  =  10:06:47          |
+ |        Elapsed Time (sec) =         18.665       Date  =  10/21/2026        |
+ |                                                                             |
+ *-----------------------------------------------------------------------------*

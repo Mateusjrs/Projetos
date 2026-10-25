@@ -1,0 +1,761 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Storage>
+  <Project Version="25.2.1.0" />
+  <Addins>
+    <addin-list valType="String">[Ansys.ParameterManager.ParameterManagerAddin, Ansys.HPS.Addin, Ansys.Simulation.Core.Addin, Ansys.EngineeringData.Commands.Addin, Ansys.DesignModeler.Core.Addin]</addin-list>
+    <Addin Name="Ansys.ParameterManager.ParameterManagerAddin" Version="7.4" />
+    <Addin Name="Ansys.HPS.Addin" Version="26.1.1.0">
+      <is-optional-on-resume valType="Boolean">true</is-optional-on-resume>
+    </Addin>
+    <Addin Name="Ansys.Simulation.Core.Addin" Version="26.1.3.0" />
+    <Addin Name="Ansys.EngineeringData.Commands.Addin" Version="26.1.0.79" />
+    <Addin Name="Ansys.DesignModeler.Core.Addin" Version="21.2.0.0" />
+  </Addins>
+  <Containers>
+    <container-map valType="String">{"Scopes": Ansys.ParameterManager.ParameterManagerAddin:scopes, "Engineering Data": "Ansys.EngineeringData.Commands.Addin:Engineering Data", "Geometry": Ansys.DesignModeler.Core.Addin:Geometry, "Model": Ansys.Simulation.Core.Addin:SimulationModel, "Setup": Ansys.Simulation.Core.Addin:SimulationSetup, "Solution": Ansys.Simulation.Core.Addin:SimulationSolution, "Results": Ansys.Simulation.Core.Addin:SimulationResults}</container-map>
+    <static-container-ids valType="String">{"Scopes": Scopes}</static-container-ids>
+    <Container Name="Scopes" Version="1.0">
+      <container-type valType="String">Ansys.ParameterManager.ParameterManagerAddin:scopes</container-type>
+      <static-id valType="String">Scopes</static-id>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">0</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 1516, "Input": 1517, "Output": 1516}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <contains-significant-data valType="Boolean">false</contains-significant-data>
+      <Object Name="/Scopes/GlobalScope:GlobalScope" Version="1.0">
+        <class-type valType="String">GlobalScope</class-type>
+        <object-name valType="String">GlobalScope</object-name>
+        <member-data valType="String">{"DisplayText": "GlobalScope", "_fieldExpressionValidationContext": None, "functionProviders": [], "Parent": None}</member-data>
+      </Object>
+    </Container>
+    <Container Name="Engineering Data" Version="1.0">
+      <container-type valType="String">Ansys.EngineeringData.Commands.Addin:Engineering Data</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <source valType="String">d283a93e-4ba5-4de7-8499-7b2ede08afb1</source>
+      <format valType="String">MatML31</format>
+      <DefaultSolidMaterial valType="String">e37d482f-ba7d-43bf-824c-984bc5638cf7</DefaultSolidMaterial>
+      <DefaultFluidMaterial valType="String">EDA_UNINITIALIZED_EDA</DefaultFluidMaterial>
+      <Source_DataObject valType="StringArray">
+        <ArrayEntry Index="0">Structural Steel::ANSYS%:%:Disk%:%:General_Materials.xml::Structural Steel</ArrayEntry>
+      </Source_DataObject>
+      <AdaptedEntityMap valType="String">[typ]Material[/typ][mat]Structural Steel[/mat]::d88ff4a5-accc-4326-bb38-14f23bc49fcd$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]Appearance[/prp]::e3669a86-f335-428f-b626-bc4a94623f12$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Appearance[/prp][tbl]Color[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl]::5d84dee3-ba6e-40f2-ad45-da45bbfdfa70$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Appearance[/prp][tbl]Color[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl][var]Red[/var]::da024584-f9ad-4bab-84c0-32a013ecfd88$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Appearance[/prp][tbl]Color[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl][var]Green[/var]::b22a5257-5ad6-4297-ac86-beb177522566$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Appearance[/prp][tbl]Color[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl][var]Blue[/var]::67dda66d-8ef4-4d87-b3a2-8ce6e8de402e$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]Compressive Ultimate Strength[/prp]::e7827ba8-8a2a-4da2-8c9e-4eed406578ab$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Compressive Ultimate Strength[/prp][tbl]Compressive Ultimate Strength[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl]::cf3ac19d-6dba-4a9a-809a-73ec7c6919f6$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Compressive Ultimate Strength[/prp][tbl]Compressive Ultimate Strength[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl][var]Compressive Ultimate Strength[/var]::1531545a-2565-4879-ad7b-f5feae325b27$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]Compressive Yield Strength[/prp]::a4de1f76-5d88-401d-bc26-0f0409d15769$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Compressive Yield Strength[/prp][tbl]Compressive Yield Strength[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl]::432374b4-9f50-4c7a-8b8c-526dd79fc180$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Compressive Yield Strength[/prp][tbl]Compressive Yield Strength[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl][var]Compressive Yield Strength[/var]::196e8da5-9e43-42fd-b8ab-1b98edee461a$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]Density[/prp]::f2b018cf-24ba-4e74-9868-498f1ea7621b$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Density[/prp][tbl]Density[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl]::4374a813-ab31-48a0-8b13-8b1da207db68$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Density[/prp][tbl]Density[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl][var]Density[/var]::25887e05-f3c2-44ce-9631-11a318137cb2$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Density[/prp][tbl]Density[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl][var]Temperature[qual]Field Variable%:%:Temperature%$%$Default Data%:%:22%$%$Field Units%:%:C%$%$Upper Limit%:%:Program Controlled%$%$Lower Limit%:%:Program Controlled[/qual][/var]::0b961328-5804-4120-85c6-d5acbe4bbad5$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Density[/prp][tbl]Density[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl][var]Interpolation Options[qual]AlgorithmType%:%:Linear Multivariate (Qhull)%:%:Linear Multivariate%,%,Linear Multivariate (Qhull)%,%,Nearest Neighbor%,%,Radial Basis%$%$Normalized%:%:True%:%:False%,%,True%$%$Cached%:%:True%:%:False%,%,True%$%$ExtrapolationType%:%:Projection to the Bounding Box%:%:Projection to the Bounding Box%,%,Projection to the Convex Hull[/qual][/var]::9abe7c18-a0bd-43a8-9a21-70ac505fb64a$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]Tensile Yield Strength[/prp]::1f3e78d9-a1ac-4331-b9f0-06331154d7b6$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Tensile Yield Strength[/prp][tbl]Tensile Yield Strength[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl]::cca551e0-1ebc-4118-b1e0-838890c350fe$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Tensile Yield Strength[/prp][tbl]Tensile Yield Strength[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl][var]Tensile Yield Strength[/var]::e28743eb-2f3d-45d1-bc3c-d742320bd64d$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]Tensile Ultimate Strength[/prp]::a6718bf3-4f65-4b75-89a0-85b8e1bb5e28$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Tensile Ultimate Strength[/prp][tbl]Tensile Ultimate Strength[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl]::c8611543-c917-47f7-922e-0ea3a345d22b$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Tensile Ultimate Strength[/prp][tbl]Tensile Ultimate Strength[qual]Definition%:%:%$%$Behavior%:%:[/qual][/tbl][var]Tensile Ultimate Strength[/var]::89a51ce7-5006-4d14-936f-3d1300010b20$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]Coefficient of Thermal Expansion[/prp]::0c39c002-df39-4bfb-a8b1-42a6c5461b39$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Coefficient of Thermal Expansion[/prp][tbl]Coefficient of Thermal Expansion[qual]Definition%:%:Secant%$%$Behavior%:%:Isotropic[/qual][/tbl]::ed086a66-0b3e-4c4f-b2ba-46fb5f588f48$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Coefficient of Thermal Expansion[/prp][tbl]Coefficient of Thermal Expansion[qual]Definition%:%:Secant%$%$Behavior%:%:Isotropic[/qual][/tbl][var]Coefficient of Thermal Expansion[/var]::009dcf52-ef85-435e-892e-38f59cac8529$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Coefficient of Thermal Expansion[/prp][tbl]Coefficient of Thermal Expansion[qual]Definition%:%:Secant%$%$Behavior%:%:Isotropic[/qual][/tbl][var]Temperature[qual]Field Variable%:%:Temperature%$%$Default Data%:%:22%$%$Field Units%:%:C%$%$Upper Limit%:%:Program Controlled%$%$Lower Limit%:%:Program Controlled[/qual][/var]::1951fb63-b9c7-4ab4-90c7-fd8930781969$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Coefficient of Thermal Expansion[/prp][tbl]Coefficient of Thermal Expansion[qual]Definition%:%:Secant%$%$Behavior%:%:Isotropic[/qual][/tbl][var]Interpolation Options[qual]AlgorithmType%:%:Linear Multivariate (Qhull)%:%:Linear Multivariate%,%,Linear Multivariate (Qhull)%,%,Nearest Neighbor%,%,Radial Basis%$%$Normalized%:%:True%:%:False%,%,True%$%$Cached%:%:True%:%:False%,%,True%$%$ExtrapolationType%:%:Projection to the Bounding Box%:%:Projection to the Bounding Box%,%,Projection to the Convex Hull[/qual][/var]::eae8725d-3b15-412d-94b6-b9d2dd98065e$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Coefficient of Thermal Expansion[/prp][tbl]Zero-Thermal-Strain Reference Temperature[qual]Definition%:%:Secant%$%$Behavior%:%:Isotropic[/qual][/tbl]::ec1f965b-fd24-487b-8e5c-7c7d4c474246$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Coefficient of Thermal Expansion[/prp][tbl]Zero-Thermal-Strain Reference Temperature[qual]Definition%:%:Secant%$%$Behavior%:%:Isotropic[/qual][/tbl][var]Zero-Thermal-Strain Reference Temperature[/var]::a6127200-6272-431c-b70b-51a30fa03b7e$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]Specific Heat[/prp]::74007525-9a4b-4ca2-9c8d-46ddd2e0490b$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Specific Heat[/prp][tbl]Specific Heat[qual]Definition%:%:Constant Pressure%$%$Behavior%:%:[/qual][/tbl]::afb2ff03-8fa8-4b25-9e2b-3fd33b340f20$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Specific Heat[/prp][tbl]Specific Heat[qual]Definition%:%:Constant Pressure%$%$Behavior%:%:[/qual][/tbl][var]Specific Heat[/var]::dac291a5-db6e-4756-b5c6-4e81131f4047$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Specific Heat[/prp][tbl]Specific Heat[qual]Definition%:%:Constant Pressure%$%$Behavior%:%:[/qual][/tbl][var]Temperature[qual]Field Variable%:%:Temperature%$%$Default Data%:%:22%$%$Field Units%:%:C%$%$Upper Limit%:%:Program Controlled%$%$Lower Limit%:%:Program Controlled[/qual][/var]::4680f00f-9a78-4d0c-b88a-65b154d416aa$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Specific Heat[/prp][tbl]Specific Heat[qual]Definition%:%:Constant Pressure%$%$Behavior%:%:[/qual][/tbl][var]Interpolation Options[qual]AlgorithmType%:%:Linear Multivariate (Qhull)%:%:Linear Multivariate%,%,Linear Multivariate (Qhull)%,%,Nearest Neighbor%,%,Radial Basis%$%$Normalized%:%:True%:%:False%,%,True%$%$Cached%:%:True%:%:False%,%,True%$%$ExtrapolationType%:%:Projection to the Bounding Box%:%:Projection to the Bounding Box%,%,Projection to the Convex Hull[/qual][/var]::a95ec8d0-6106-4842-8ec6-2b8138eaa802$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]Thermal Conductivity[/prp]::a132d1c7-8983-4d05-86af-659c4cfd02e5$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Thermal Conductivity[/prp][tbl]Thermal Conductivity[qual]Definition%:%:%$%$Behavior%:%:Isotropic[/qual][/tbl]::9a5656a3-c349-4fa0-9b58-fa3ae99b2a64$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Thermal Conductivity[/prp][tbl]Thermal Conductivity[qual]Definition%:%:%$%$Behavior%:%:Isotropic[/qual][/tbl][var]Thermal Conductivity[/var]::e8bf6734-6804-4c6f-97e4-67d91167341a$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Thermal Conductivity[/prp][tbl]Thermal Conductivity[qual]Definition%:%:%$%$Behavior%:%:Isotropic[/qual][/tbl][var]Temperature[qual]Field Variable%:%:Temperature%$%$Default Data%:%:22%$%$Field Units%:%:C%$%$Upper Limit%:%:Program Controlled%$%$Lower Limit%:%:Program Controlled[/qual][/var]::023dae07-92e5-40c9-b3d4-afd5d9cad7cf$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Thermal Conductivity[/prp][tbl]Thermal Conductivity[qual]Definition%:%:%$%$Behavior%:%:Isotropic[/qual][/tbl][var]Interpolation Options[qual]AlgorithmType%:%:Linear Multivariate (Qhull)%:%:Linear Multivariate%,%,Linear Multivariate (Qhull)%,%,Nearest Neighbor%,%,Radial Basis%$%$Normalized%:%:True%:%:False%,%,True%$%$Cached%:%:True%:%:False%,%,True%$%$ExtrapolationType%:%:Projection to the Bounding Box%:%:Projection to the Bounding Box%,%,Projection to the Convex Hull[/qual][/var]::9525f2bb-f8d4-4d34-b219-3f576eb22d8a$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]S-N Curve[/prp]::d33a11d3-380e-4be8-9fa7-4e8572f84cb2$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]S-N Curve[/prp][tbl]S-N Curve[qual]Definition%:%:%$%$Behavior%:%:%$%$Interpolation%:%:Log-Log%:%:Linear%,%,Log-Log%,%,Semi-Log[/qual][/tbl]::a2a1cc12-b842-4601-8276-f7737f437c8a$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]S-N Curve[/prp][tbl]S-N Curve[qual]Definition%:%:%$%$Behavior%:%:%$%$Interpolation%:%:Log-Log%:%:Linear%,%,Log-Log%,%,Semi-Log[/qual][/tbl][var]Alternating Stress[/var]::9cc5701b-61fe-45c7-a6cc-2446005b89f2$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]S-N Curve[/prp][tbl]S-N Curve[qual]Definition%:%:%$%$Behavior%:%:%$%$Interpolation%:%:Log-Log%:%:Linear%,%,Log-Log%,%,Semi-Log[/qual][/tbl][var]Cycles[/var]::c2aed58f-899f-4a64-a816-192599132a39$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]S-N Curve[/prp][tbl]S-N Curve[qual]Definition%:%:%$%$Behavior%:%:%$%$Interpolation%:%:Log-Log%:%:Linear%,%,Log-Log%,%,Semi-Log[/qual][/tbl][var]Mean Stress[qual]Field Variable%:%:Mean Stress%$%$Default Data%:%:0%$%$Field Units%:%:Pa%$%$Upper Limit%:%:Program Controlled%$%$Lower Limit%:%:Program Controlled[/qual][/var]::b3639b4a-5ceb-4edd-a38f-efef6c1b732c$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]Strain-Life Parameters[/prp]::870014f6-e23f-40c5-a48c-f7cb4eb5b072$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Strain-Life Parameters[/prp][tbl]Strain-Life Parameters[qual]Definition%:%:%$%$Behavior%:%:%$%$Display Curve Type%:%:Strain-Life%:%:Cyclic Stress-Strain%,%,Strain-Life[/qual][/tbl]::3d20490c-7186-4c4f-b188-0efc216a8977$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Strain-Life Parameters[/prp][tbl]Strain-Life Parameters[qual]Definition%:%:%$%$Behavior%:%:%$%$Display Curve Type%:%:Strain-Life%:%:Cyclic Stress-Strain%,%,Strain-Life[/qual][/tbl][var]Strength Coefficient[/var]::706aa9e0-48ab-4c1c-a2e7-a6995003f0e5$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Strain-Life Parameters[/prp][tbl]Strain-Life Parameters[qual]Definition%:%:%$%$Behavior%:%:%$%$Display Curve Type%:%:Strain-Life%:%:Cyclic Stress-Strain%,%,Strain-Life[/qual][/tbl][var]Strength Exponent[/var]::54c930f5-a453-4000-894b-af6c24d107ba$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Strain-Life Parameters[/prp][tbl]Strain-Life Parameters[qual]Definition%:%:%$%$Behavior%:%:%$%$Display Curve Type%:%:Strain-Life%:%:Cyclic Stress-Strain%,%,Strain-Life[/qual][/tbl][var]Ductility Coefficient[/var]::cbc63b00-462d-4452-bebb-b1d0302c83ab$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Strain-Life Parameters[/prp][tbl]Strain-Life Parameters[qual]Definition%:%:%$%$Behavior%:%:%$%$Display Curve Type%:%:Strain-Life%:%:Cyclic Stress-Strain%,%,Strain-Life[/qual][/tbl][var]Ductility Exponent[/var]::5248f23d-b587-489e-83b1-7fe3ffe7b83a$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Strain-Life Parameters[/prp][tbl]Strain-Life Parameters[qual]Definition%:%:%$%$Behavior%:%:%$%$Display Curve Type%:%:Strain-Life%:%:Cyclic Stress-Strain%,%,Strain-Life[/qual][/tbl][var]Cyclic Strength Coefficient[/var]::3c32cf0c-ca83-483b-b530-bf8aed230001$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Strain-Life Parameters[/prp][tbl]Strain-Life Parameters[qual]Definition%:%:%$%$Behavior%:%:%$%$Display Curve Type%:%:Strain-Life%:%:Cyclic Stress-Strain%,%,Strain-Life[/qual][/tbl][var]Cyclic Strain Hardening Exponent[/var]::c5b35832-926a-4e67-a3b5-1b5a88f8dea8$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]Resistivity[/prp]::5d219bfe-2624-42f2-aba8-1a659c3adb26$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Resistivity[/prp][tbl]Resistivity[qual]Definition%:%:%$%$Behavior%:%:Isotropic[/qual][/tbl]::5b59512b-364d-4dbc-b516-8d440d9622d3$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Resistivity[/prp][tbl]Resistivity[qual]Definition%:%:%$%$Behavior%:%:Isotropic[/qual][/tbl][var]Resistivity[/var]::56c8ff7b-9262-4742-b669-17c69001dbb6$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Resistivity[/prp][tbl]Resistivity[qual]Definition%:%:%$%$Behavior%:%:Isotropic[/qual][/tbl][var]Temperature[/var]::63c7ead2-18b0-46a6-8e81-54cff71e2578$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]Elasticity[/prp]::f9d6db4b-f09f-4a5f-8d3f-7cfed8818b76$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Elasticity[/prp][tbl]Elasticity[qual]Definition%:%:%$%$Behavior%:%:Isotropic%$%$Derive from%:%:Young's Modulus and Poisson's Ratio%:%:Bulk Modulus and Poisson's Ratio%,%,Bulk Modulus and Shear Modulus%,%,Bulk Modulus and Young's Modulus%,%,Shear Modulus and Poisson's Ratio%,%,Shear Modulus and Young's Modulus%,%,Young's Modulus and Poisson's Ratio[/qual][/tbl]::624d46d1-a0c1-49ef-9664-4a989a445f99$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Elasticity[/prp][tbl]Elasticity[qual]Definition%:%:%$%$Behavior%:%:Isotropic%$%$Derive from%:%:Young's Modulus and Poisson's Ratio%:%:Bulk Modulus and Poisson's Ratio%,%,Bulk Modulus and Shear Modulus%,%,Bulk Modulus and Young's Modulus%,%,Shear Modulus and Poisson's Ratio%,%,Shear Modulus and Young's Modulus%,%,Young's Modulus and Poisson's Ratio[/qual][/tbl][var]Young's Modulus[/var]::4da85cfc-50b4-4664-8923-8449a0c8f2cc$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Elasticity[/prp][tbl]Elasticity[qual]Definition%:%:%$%$Behavior%:%:Isotropic%$%$Derive from%:%:Young's Modulus and Poisson's Ratio%:%:Bulk Modulus and Poisson's Ratio%,%,Bulk Modulus and Shear Modulus%,%,Bulk Modulus and Young's Modulus%,%,Shear Modulus and Poisson's Ratio%,%,Shear Modulus and Young's Modulus%,%,Young's Modulus and Poisson's Ratio[/qual][/tbl][var]Poisson's Ratio[/var]::64d224ff-7480-4efd-b6f2-eb903795aeea$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Elasticity[/prp][tbl]Elasticity[qual]Definition%:%:%$%$Behavior%:%:Isotropic%$%$Derive from%:%:Young's Modulus and Poisson's Ratio%:%:Bulk Modulus and Poisson's Ratio%,%,Bulk Modulus and Shear Modulus%,%,Bulk Modulus and Young's Modulus%,%,Shear Modulus and Poisson's Ratio%,%,Shear Modulus and Young's Modulus%,%,Young's Modulus and Poisson's Ratio[/qual][/tbl][var]Bulk Modulus[/var]::d51b514f-35b5-44eb-9b68-24736b49df26$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Elasticity[/prp][tbl]Elasticity[qual]Definition%:%:%$%$Behavior%:%:Isotropic%$%$Derive from%:%:Young's Modulus and Poisson's Ratio%:%:Bulk Modulus and Poisson's Ratio%,%,Bulk Modulus and Shear Modulus%,%,Bulk Modulus and Young's Modulus%,%,Shear Modulus and Poisson's Ratio%,%,Shear Modulus and Young's Modulus%,%,Young's Modulus and Poisson's Ratio[/qual][/tbl][var]Shear Modulus[/var]::e060e077-4f9f-4835-b339-edf05bd0076b$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Elasticity[/prp][tbl]Elasticity[qual]Definition%:%:%$%$Behavior%:%:Isotropic%$%$Derive from%:%:Young's Modulus and Poisson's Ratio%:%:Bulk Modulus and Poisson's Ratio%,%,Bulk Modulus and Shear Modulus%,%,Bulk Modulus and Young's Modulus%,%,Shear Modulus and Poisson's Ratio%,%,Shear Modulus and Young's Modulus%,%,Young's Modulus and Poisson's Ratio[/qual][/tbl][var]Temperature[qual]Field Variable%:%:Temperature%$%$Default Data%:%:22%$%$Field Units%:%:C%$%$Upper Limit%:%:Program Controlled%$%$Lower Limit%:%:Program Controlled[/qual][/var]::c367964e-9e5b-4602-b00e-4634ae8631f6$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Elasticity[/prp][tbl]Elasticity[qual]Definition%:%:%$%$Behavior%:%:Isotropic%$%$Derive from%:%:Young's Modulus and Poisson's Ratio%:%:Bulk Modulus and Poisson's Ratio%,%,Bulk Modulus and Shear Modulus%,%,Bulk Modulus and Young's Modulus%,%,Shear Modulus and Poisson's Ratio%,%,Shear Modulus and Young's Modulus%,%,Young's Modulus and Poisson's Ratio[/qual][/tbl][var]Interpolation Options[qual]AlgorithmType%:%:Linear Multivariate (Qhull)%:%:Linear Multivariate%,%,Linear Multivariate (Qhull)%,%,Nearest Neighbor%,%,Radial Basis%$%$Normalized%:%:True%:%:False%,%,True%$%$Cached%:%:True%:%:False%,%,True%$%$ExtrapolationType%:%:Projection to the Bounding Box%:%:Projection to the Bounding Box%,%,Projection to the Convex Hull[/qual][/var]::5b0404b3-fe64-45c8-9dee-1045d6aaa557$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]Relative Permeability[/prp]::3d1d87d1-e2d8-424d-b88d-dd9d466e17df$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Relative Permeability[/prp][tbl]Relative Permeability[qual]Definition%:%:%$%$Behavior%:%:Isotropic[/qual][/tbl]::b1187582-a5bb-49c5-91e3-62117efbe2b4$$[typ]MaterialVariable[/typ][mat]Structural Steel[/mat][prp]Relative Permeability[/prp][tbl]Relative Permeability[qual]Definition%:%:%$%$Behavior%:%:Isotropic[/qual][/tbl][var]Relative Permeability[/var]::96090712-7611-45e6-82b6-48b2dccf38a1$$[typ]MaterialProperty[/typ][mat]Structural Steel[/mat][prp]Material Unique Id[/prp]::51089b47-db8c-4e38-ad3f-dcc78961727b$$[typ]MaterialPropertyData[/typ][mat]Structural Steel[/mat][prp]Material Unique Id[/prp][tbl]Material Unique Id[qual]Definition%:%:%$%$Behavior%:%:%$%$guid%:%:59002a79-71c2-428e-906b-55d7dbee100e%$%$Display%:%:False[/qual][/tbl]::d2c6e414-66be-412c-bd92-9366b93bb2ce$$</AdaptedEntityMap>
+      <ModelContainerDependencyList valType="String">{"Ansys.Simulation.Core.Addin:SimulationModel":[Model]}</ModelContainerDependencyList>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">2056</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 2128, "Input": 2052, "Output": 1937}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "HpsContainer": 0, "PyAddinManager": 0, "Engineering Data": 2055, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0}</last-update-regen-times>
+      <unique-system-dir valType="String">SYS</unique-system-dir>
+      <contains-significant-data valType="Boolean">false</contains-significant-data>
+      <Object Name="/Engineering Data/EngineeringData:Engineering Data" Version="1.0">
+        <class-type valType="String">EngineeringData</class-type>
+        <object-name valType="String">Engineering Data</object-name>
+        <member-data valType="String">{"DisplayText": "Engineering Data", "DataTypeToTransferData": {"material": $$297059da-9c50-47a9-8c5a-fcb9e1ac2e64}, "TransferFile": $$4dc175db-8ff9-43af-b52f-6a71ff7e24f5}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/Material:Structural Steel" Version="1.0">
+        <class-type valType="String">Material</class-type>
+        <object-name valType="String">Structural Steel</object-name>
+        <member-data valType="String">{"DisplayText": "Structural Steel", "SourceFileReference": None}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:Appearance" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">Appearance</object-name>
+        <member-data valType="String">{"DisplayText": "Appearance"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:Compressive Ultimate Strength" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">Compressive Ultimate Strength</object-name>
+        <member-data valType="String">{"DisplayText": "Compressive Ultimate Strength"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:Compressive Yield Strength" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">Compressive Yield Strength</object-name>
+        <member-data valType="String">{"DisplayText": "Compressive Yield Strength"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:Density" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">Density</object-name>
+        <member-data valType="String">{"DisplayText": "Density"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:Tensile Yield Strength" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">Tensile Yield Strength</object-name>
+        <member-data valType="String">{"DisplayText": "Tensile Yield Strength"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:Tensile Ultimate Strength" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">Tensile Ultimate Strength</object-name>
+        <member-data valType="String">{"DisplayText": "Tensile Ultimate Strength"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:Coefficient of Thermal Expansion" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">Coefficient of Thermal Expansion</object-name>
+        <member-data valType="String">{"DisplayText": "Coefficient of Thermal Expansion"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:Specific Heat" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">Specific Heat</object-name>
+        <member-data valType="String">{"DisplayText": "Specific Heat"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:Thermal Conductivity" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">Thermal Conductivity</object-name>
+        <member-data valType="String">{"DisplayText": "Thermal Conductivity"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:S-N Curve" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">S-N Curve</object-name>
+        <member-data valType="String">{"DisplayText": "S-N Curve"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:Strain-Life Parameters" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">Strain-Life Parameters</object-name>
+        <member-data valType="String">{"DisplayText": "Strain-Life Parameters"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:Resistivity" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">Resistivity</object-name>
+        <member-data valType="String">{"DisplayText": "Resistivity"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:Elasticity" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">Elasticity</object-name>
+        <member-data valType="String">{"DisplayText": "Elasticity"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:Relative Permeability" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">Relative Permeability</object-name>
+        <member-data valType="String">{"DisplayText": "Relative Permeability"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialProperty:Material Unique Id" Version="2.0">
+        <class-type valType="String">MaterialProperty</class-type>
+        <object-name valType="String">Material Unique Id</object-name>
+        <member-data valType="String">{"DisplayText": "Material Unique Id"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Color" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Color</object-name>
+        <member-data valType="String">{"DisplayText": "Color"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Compressive Ultimate Strength" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Compressive Ultimate Strength</object-name>
+        <member-data valType="String">{"DisplayText": "Compressive Ultimate Strength"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Compressive Yield Strength" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Compressive Yield Strength</object-name>
+        <member-data valType="String">{"DisplayText": "Compressive Yield Strength"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Density" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Density</object-name>
+        <member-data valType="String">{"DisplayText": "Density"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Tensile Yield Strength" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Tensile Yield Strength</object-name>
+        <member-data valType="String">{"DisplayText": "Tensile Yield Strength"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Tensile Ultimate Strength" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Tensile Ultimate Strength</object-name>
+        <member-data valType="String">{"DisplayText": "Tensile Ultimate Strength"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Coefficient of Thermal Expansion" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Coefficient of Thermal Expansion</object-name>
+        <member-data valType="String">{"DisplayText": "Coefficient of Thermal Expansion"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Zero-Thermal-Strain Reference Temperature" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Zero-Thermal-Strain Reference Temperature</object-name>
+        <member-data valType="String">{"DisplayText": "Zero-Thermal-Strain Reference Temperature"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Specific Heat" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Specific Heat</object-name>
+        <member-data valType="String">{"DisplayText": "Specific Heat"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Thermal Conductivity" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Thermal Conductivity</object-name>
+        <member-data valType="String">{"DisplayText": "Thermal Conductivity"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:S-N Curve" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">S-N Curve</object-name>
+        <member-data valType="String">{"DisplayText": "S-N Curve"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Strain-Life Parameters" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Strain-Life Parameters</object-name>
+        <member-data valType="String">{"DisplayText": "Strain-Life Parameters"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Resistivity" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Resistivity</object-name>
+        <member-data valType="String">{"DisplayText": "Resistivity"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Elasticity" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Elasticity</object-name>
+        <member-data valType="String">{"DisplayText": "Elasticity"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Relative Permeability" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Relative Permeability</object-name>
+        <member-data valType="String">{"DisplayText": "Relative Permeability"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialPropertyData:Material Unique Id" Version="2.0">
+        <class-type valType="String">MaterialPropertyData</class-type>
+        <object-name valType="String">Material Unique Id</object-name>
+        <member-data valType="String">{"DisplayText": "Material Unique Id"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Red" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Red</object-name>
+        <member-data valType="String">{"DisplayText": "Red"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Green" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Green</object-name>
+        <member-data valType="String">{"DisplayText": "Green"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Blue" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Blue</object-name>
+        <member-data valType="String">{"DisplayText": "Blue"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Compressive Ultimate Strength" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Compressive Ultimate Strength</object-name>
+        <member-data valType="String">{"DisplayText": "Compressive Ultimate Strength"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Compressive Yield Strength" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Compressive Yield Strength</object-name>
+        <member-data valType="String">{"DisplayText": "Compressive Yield Strength"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Density" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Density</object-name>
+        <member-data valType="String">{"DisplayText": "Density"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Temperature" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Temperature</object-name>
+        <member-data valType="String">{"DisplayText": "Temperature"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Interpolation Options" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Interpolation Options</object-name>
+        <member-data valType="String">{"DisplayText": "Interpolation Options"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Tensile Yield Strength" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Tensile Yield Strength</object-name>
+        <member-data valType="String">{"DisplayText": "Tensile Yield Strength"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Tensile Ultimate Strength" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Tensile Ultimate Strength</object-name>
+        <member-data valType="String">{"DisplayText": "Tensile Ultimate Strength"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Coefficient of Thermal Expansion" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Coefficient of Thermal Expansion</object-name>
+        <member-data valType="String">{"DisplayText": "Coefficient of Thermal Expansion"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Temperature 1" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Temperature 1</object-name>
+        <member-data valType="String">{"DisplayText": "Temperature"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Interpolation Options 1" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Interpolation Options 1</object-name>
+        <member-data valType="String">{"DisplayText": "Interpolation Options"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Zero-Thermal-Strain Reference Temperature" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Zero-Thermal-Strain Reference Temperature</object-name>
+        <member-data valType="String">{"DisplayText": "Zero-Thermal-Strain Reference Temperature"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Specific Heat" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Specific Heat</object-name>
+        <member-data valType="String">{"DisplayText": "Specific Heat"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Temperature 2" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Temperature 2</object-name>
+        <member-data valType="String">{"DisplayText": "Temperature"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Interpolation Options 2" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Interpolation Options 2</object-name>
+        <member-data valType="String">{"DisplayText": "Interpolation Options"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Thermal Conductivity" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Thermal Conductivity</object-name>
+        <member-data valType="String">{"DisplayText": "Thermal Conductivity"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Temperature 3" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Temperature 3</object-name>
+        <member-data valType="String">{"DisplayText": "Temperature"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Interpolation Options 3" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Interpolation Options 3</object-name>
+        <member-data valType="String">{"DisplayText": "Interpolation Options"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Alternating Stress" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Alternating Stress</object-name>
+        <member-data valType="String">{"DisplayText": "Alternating Stress"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Cycles" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Cycles</object-name>
+        <member-data valType="String">{"DisplayText": "Cycles"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Mean Stress" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Mean Stress</object-name>
+        <member-data valType="String">{"DisplayText": "Mean Stress"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Strength Coefficient" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Strength Coefficient</object-name>
+        <member-data valType="String">{"DisplayText": "Strength Coefficient"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Strength Exponent" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Strength Exponent</object-name>
+        <member-data valType="String">{"DisplayText": "Strength Exponent"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Ductility Coefficient" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Ductility Coefficient</object-name>
+        <member-data valType="String">{"DisplayText": "Ductility Coefficient"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Ductility Exponent" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Ductility Exponent</object-name>
+        <member-data valType="String">{"DisplayText": "Ductility Exponent"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Cyclic Strength Coefficient" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Cyclic Strength Coefficient</object-name>
+        <member-data valType="String">{"DisplayText": "Cyclic Strength Coefficient"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Cyclic Strain Hardening Exponent" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Cyclic Strain Hardening Exponent</object-name>
+        <member-data valType="String">{"DisplayText": "Cyclic Strain Hardening Exponent"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Resistivity" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Resistivity</object-name>
+        <member-data valType="String">{"DisplayText": "Resistivity"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Temperature 4" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Temperature 4</object-name>
+        <member-data valType="String">{"DisplayText": "Temperature"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Young's Modulus" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Young's Modulus</object-name>
+        <member-data valType="String">{"DisplayText": "Young's Modulus"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Poisson's Ratio" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Poisson's Ratio</object-name>
+        <member-data valType="String">{"DisplayText": "Poisson's Ratio"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Bulk Modulus" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Bulk Modulus</object-name>
+        <member-data valType="String">{"DisplayText": "Bulk Modulus"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Shear Modulus" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Shear Modulus</object-name>
+        <member-data valType="String">{"DisplayText": "Shear Modulus"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Temperature 5" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Temperature 5</object-name>
+        <member-data valType="String">{"DisplayText": "Temperature"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Interpolation Options 4" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Interpolation Options 4</object-name>
+        <member-data valType="String">{"DisplayText": "Interpolation Options"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/MaterialVariable:Relative Permeability" Version="1.0">
+        <class-type valType="String">MaterialVariable</class-type>
+        <object-name valType="String">Relative Permeability</object-name>
+        <member-data valType="String">{"DisplayText": "Relative Permeability"}</member-data>
+      </Object>
+      <Object Name="/Engineering Data/ResourceTransferData:TransferData_material" Version="1.0">
+        <class-type valType="String">ResourceTransferData</class-type>
+        <object-name valType="String">TransferData_material</object-name>
+        <member-data valType="String">{"DisplayText": "TransferData_material", "Guids": ["b9e3f2a5-5228-40c9-9645-40b8bf98d1fa"], "Data": $$4dc175db-8ff9-43af-b52f-6a71ff7e24f5, "LastUpdate": 2056}</member-data>
+      </Object>
+    </Container>
+    <Container Name="Geometry" Version="1.0">
+      <container-type valType="String">Ansys.DesignModeler.Core.Addin:Geometry</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">2313</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 2451, "Input": 2310, "Output": 2310}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <unique-system-dir valType="String">SYS</unique-system-dir>
+      <contains-significant-data valType="Boolean">true</contains-significant-data>
+      <Object Name="/Geometry/SimulationGeneratedMesh:MeshFileObject" Version="1.0">
+        <class-type valType="String">SimulationGeneratedMesh</class-type>
+        <object-name valType="String">MeshFileObject</object-name>
+        <member-data valType="String">{"DisplayText": "MeshFileObject", "TransferFile": None}</member-data>
+      </Object>
+      <Object Name="/Geometry/Geometry:GeometryDataObject" Version="1.0">
+        <class-type valType="String">Geometry</class-type>
+        <object-name valType="String">GeometryDataObject</object-name>
+        <member-data valType="String">{"DisplayText": "GeometryDataObject", "_geometryFileRelativePath": r"dp0\SYS\DM\SYS.agdb", "_geometryTeamcenterConnection": None, "_geometryPlugInName": "", "GeomFileReference": $$537cfc15-e6b1-40fe-b68d-409383d9c723, "GeometryImportSolidBodies": True, "GeometryImportSurfaceBodies": True, "GeometryImportLineBodies": True, "GeometryImportParameters": "CADImportParameterType_Independent", "GeometryImportParametersFilter": "", "GeometryImportCadAttributes": True, "GeometryImportCadAttributesFilter": "", "GeometryImportNamedSelections": True, "GeometryImportNamedSelectionsFilter": "", "GeometryImportMaterialProperties": True, "GeometryImportAnalysisType": "AnalysisType_3D", "GeometryImportCadAssociativity": True, "GeometryImportCoordinateSystems": True, "GeometryImportCoordinateSystemsFilter": "", "GeometryImportWorkPoints": True, "GeometryImportSavePartFile": False, "GeometryImportImportUsingInstances": True, "GeometryImportSmartUpdate": True, "GeometryImportPhysicsDefinition": False, "GeometryImportComparePartsOnUpdate": "ComparePartsMethod_None", "GeometryImportComparePartsTolerance": "ComparePartsTolerance_Tight", "GeometryImportProcessEnclosures": True, "GeometryImportDecomposeDisjointFaces": True, "GeometryImportMixedResolutionOption": "MixedImport_None", "GeometryImportWeightclass": "ImportWeightclass_Heavyweight", "GeometryImportFacetQuality": "PlugInFacetQuality_Source", "GeometryImportFlattenAssembly": True, "GeometryImportCleanGeometryOnImport": False, "GeometryImportStitchSurfacesOnImport": "StitchPreference_None", "GeometryImportStitchTolerance": 1E-07, "Guid": "87736567-1bce-4b42-b29b-1436f458f44a", "ObjectState": 0, "UpstreamConnections": {}, "ImportedFeatures": {}, "IsSpaceClaimGeometry": False, "IsDiscoveryGeometry": False, "IsDiscoveryModeEnabled": False, "_isModelerModeEnabled": False, "AreParametersOutOfDate": False, "RegisteredExternalFilesInfo": {"$$537cfc15-e6b1-40fe-b68d-409383d9c723": {"FilePathInDM": r"C:\Users\mateu\AppData\Local\Temp\WB_mateu_2940_2\wbnew_files\dp0\SYS\DM\SYS.agdb", "FilePathAfterRepair": r"C:\Users\mateu\AppData\Local\Temp\WB_mateu_2940_2\wbnew_files\dp0\SYS\DM\SYS.agdb", "IsFileRepaired": False, "CadSourceType": "DesignModeler"}}, "AreParametersMigratedFromLegacyDatabaseImport": False}</member-data>
+        <properties-setByUserFlag-data valType="String">["GeometryImportLineBodies", "ObjectState"]</properties-setByUserFlag-data>
+      </Object>
+      <Object Name="/Geometry/TransferData:Geometry" Version="1.0">
+        <class-type valType="String">TransferData</class-type>
+        <object-name valType="String">Geometry</object-name>
+        <member-data valType="String">{"DisplayText": "Geometry", "ConnectionKeys": ["691947a3-6290-4186-b93f-a54d7d8449c4"], "Data": $$e57394cd-ecb6-4798-89ac-af84eb01ba1e}</member-data>
+      </Object>
+    </Container>
+    <Container Name="Model" Version="1.0">
+      <container-type valType="String">Ansys.Simulation.Core.Addin:SimulationModel</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">2377</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 2450, "Input": 2375, "Output": 2375}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "HpsContainer": 0, "PyAddinManager": 0, "Engineering Data": 2056, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0, "Geometry": 2313, "Model": 0, "Setup": 0, "Solution": 0, "Results": 0}</last-update-regen-times>
+      <unique-system-dir valType="String">SYS</unique-system-dir>
+      <contains-significant-data valType="Boolean">true</contains-significant-data>
+      <Object Name="/Model/SimulationConnection:SimulationConnection" Version="1.0">
+        <class-type valType="String">SimulationConnection</class-type>
+        <object-name valType="String">SimulationConnection</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationConnection", "Caption": "SimulationConnection", "EventIdToDataReferenceMap": {}, "DSIdToDataReferenceMap": {"14": {"CellModel": $$3bc8e527-6236-468e-8fa0-221ea4ac6306}, "11": {"CellModel": $$3bc8e527-6236-468e-8fa0-221ea4ac6306}, "15": {"CellModel": $$3bc8e527-6236-468e-8fa0-221ea4ac6306}, "26": {"CellSetup": $$0aef6478-b850-41db-99d1-717ba09f365b}, "27": {"CellSolution": $$cbc34241-d4ae-4e65-b2e2-c4b9ef745c1e, "CellResults": $$108b42cc-4eee-4fc5-a5f8-8c61289fd55c}}, "Attributes": {}}</member-data>
+      </Object>
+      <Object Name="/Model/MechanicalSystemType:SystemClass for Structural|Static|ANSYS" Version="1.0">
+        <class-type valType="String">MechanicalSystemType</class-type>
+        <object-name valType="String">SystemClass for Structural|Static|ANSYS</object-name>
+        <member-data valType="String">{"DisplayText": "SystemClass for Structural|Static|ANSYS", "PhysicsType": "Structural", "AnalysisType": "Static", "SolverType": "ANSYS", "PhysicsTypeDisplayString": "Structural", "AnalysisTypeDisplayString": "Static Structural", "SolverTypeDisplayString": "Mechanical APDL", "AMCustomSystemType": "NoSystemType", "SystemTypeCombination": None, "DelimitedSystemTypeCominbation": None, "SetupEntityType": "SimulationSetup", "SolutionEntityType": "SimulationSolution", "ResultsEntityType": "SimulationResults", "SetupDataEntityType": "MechanicalSetup", "SolutionDataEntityType": "MechanicalSolution", "ResultsDataEntityType": "MechanicalResults", "Id": "Static Structural (ANSYS)", "SystemName": "SYS", "SystemID": "SYS"}</member-data>
+      </Object>
+      <Object Name="/Model/MechanicalMesh:SimulationMeshDataObject" Version="1.0">
+        <class-type valType="String">MechanicalMesh</class-type>
+        <object-name valType="String">SimulationMeshDataObject</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationMeshDataObject", "Caption": "Mesh", "MeshId": 15}</member-data>
+        <custom-data>
+          <AttentionRequired valType="String">False</AttentionRequired>
+          <value-keys valType="String">{"AttentionRequired": System.Boolean}</value-keys>
+          <dictionary-keys valType="String">[transferDataMap]</dictionary-keys>
+          <transferDataMap />
+        </custom-data>
+      </Object>
+      <Object Name="/Model/SimulationEngineeringData:SimulationEngineeringDataObject" Version="1.0">
+        <class-type valType="String">SimulationEngineeringData</class-type>
+        <object-name valType="String">SimulationEngineeringDataObject</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationEngineeringDataObject", "DataConnections": [], "TransferDataObject": $$01a078cb-0185-48d5-9583-5723fab541f4, "TransferFiles": None, "UptoDate": False}</member-data>
+      </Object>
+      <Object Name="/Model/SimulationModelGeneratedMesh:SimulationModelGeneratedMesh" Version="1.0">
+        <class-type valType="String">SimulationModelGeneratedMesh</class-type>
+        <object-name valType="String">SimulationModelGeneratedMesh</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationModelGeneratedMesh", "DataConnections": [], "TransferDataObject": $$64dcc2c9-58ef-4c29-9b46-9df3ba3d78a7, "VersionNumber": 2, "TransferFile": None, "TransferFiles": None, "UnitSystem": None, "AllowMeshing": True, "UptoDate": False}</member-data>
+      </Object>
+      <Object Name="/Model/SimulationModelGeneratedPMDB:SimulationModelGeneratedPMDB" Version="1.0">
+        <class-type valType="String">SimulationModelGeneratedPMDB</class-type>
+        <object-name valType="String">SimulationModelGeneratedPMDB</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationModelGeneratedPMDB", "DataConnections": [], "TransferDataObject": $$7beffdd9-9696-4f66-b30a-5a317b7d2e6e, "VersionNumber": 1, "TransferFile": None}</member-data>
+      </Object>
+      <Object Name="/Model/SimulationGeneratedSolidMesh:SimulationGeneratedSolidMesh" Version="1.0">
+        <class-type valType="String">SimulationGeneratedSolidMesh</class-type>
+        <object-name valType="String">SimulationGeneratedSolidMesh</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationGeneratedSolidMesh", "DataConnections": [], "TransferDataObject": $$ad2f75a1-43d1-46ff-aec6-5bd7d73a0c9a, "VersionNumber": 1, "TransferFile": None, "UnitSystem": None}</member-data>
+      </Object>
+      <Object Name="/Model/ModelOutputSettingsForACP:ModelOutputSettingsForACP" Version="1.0">
+        <class-type valType="String">ModelOutputSettingsForACP</class-type>
+        <object-name valType="String">ModelOutputSettingsForACP</object-name>
+        <member-data valType="String">{"DisplayText": "ModelOutputSettingsForACP", "LengthUnit": ""}</member-data>
+      </Object>
+      <Object Name="/Model/RemoteUpdateInformationStorage:RemoteUpdateInformationStorage" Version="1.0">
+        <class-type valType="String">RemoteUpdateInformationStorage</class-type>
+        <object-name valType="String">RemoteUpdateInformationStorage</object-name>
+        <member-data valType="String">{"DisplayText": "RemoteUpdateInformationStorage", "RemoteUpdateInformationMap": {}}</member-data>
+      </Object>
+      <Object Name="/Model/ExpertProperties:ExpertProperties" Version="1.0">
+        <class-type valType="String">ExpertProperties</class-type>
+        <object-name valType="String">ExpertProperties</object-name>
+        <member-data valType="String">{"DisplayText": "ExpertProperties", "ImportantNote": "These options are visible because a development environment variable is set", "ExpertPropertiesString": "", "EnableDebug": False, "EnableValidation": False, "EnableTesting": False, "EnableErrorReporting": False, "EnableWarningReporting": False, "EnableInfoReporting": False, "EnableFileBasedCommunication": False, "EnableSocketCommunication": False, "EnableFailureCauseReporting": True}</member-data>
+      </Object>
+      <Object Name="/Model/OutputsGeneratedManagerDataEntityType:OutputsGeneratedManagerObject" Version="1.0">
+        <class-type valType="String">OutputsGeneratedManagerDataEntityType</class-type>
+        <object-name valType="String">OutputsGeneratedManagerObject</object-name>
+        <member-data valType="String">{"DisplayText": "OutputsGeneratedManagerObject", "outputGeneratedTimes": {}}</member-data>
+      </Object>
+      <Object Name="/Model/SimulationMeshProperties:SimulationMeshProperties" Version="1.0">
+        <class-type valType="String">SimulationMeshProperties</class-type>
+        <object-name valType="String">SimulationMeshProperties</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationMeshProperties", "saveMeshFileInSeparateFile": False}</member-data>
+      </Object>
+      <Object Name="/Model/ModelComponentProperties:ModelComponentProperties" Version="1.0">
+        <class-type valType="String">ModelComponentProperties</class-type>
+        <object-name valType="String">ModelComponentProperties</object-name>
+        <member-data valType="String">{"DisplayText": "ModelComponentProperties", "License": ""}</member-data>
+      </Object>
+      <Object Name="/Model/ContainerConnections:ModelContainerConnections" Version="1.0">
+        <class-type valType="String">ContainerConnections</class-type>
+        <object-name valType="String">ModelContainerConnections</object-name>
+        <member-data valType="String">{"DisplayText": "ModelContainerConnections", "Connections": {"Engineering Data": {"$$0c394a6f-2568-493c-a7d4-b94993e0175a": {"material": ["b9e3f2a5-5228-40c9-9645-40b8bf98d1fa"]}}, "Geometry": {"$$e57394cd-ecb6-4798-89ac-af84eb01ba1e": {"Geometry": ["691947a3-6290-4186-b93f-a54d7d8449c4"]}}}}</member-data>
+      </Object>
+      <Object Name="/Model/MechanicalModel:MechanicalModel" Version="1.0">
+        <class-type valType="String">MechanicalModel</class-type>
+        <object-name valType="String">MechanicalModel</object-name>
+        <member-data valType="String">{"DisplayText": "MechanicalModel", "Caption": "Model", "File": $$2bbe66ee-8b27-4426-bb02-82fac3966014, "MeshFile": None, "EdaFile": None, "AcpRenumberingInformation": {}, "ModelConversionAssociativityMap": {}, "ModelId": 11, "PrototypeId": 14, "PrototypeUnitSystem": "WBUST_StandardMKS", "ModelHash": "9c1a5eb8-592f-48a0-918b-31b157bc1f5f", "GeometryHash": "9c1a5eb8-592f-48a0-918b-31b157bc1f5f", "IsResetNotRequired": False, "AllowMeshing": True, "TransferFiles": {"InputFile": {}, "ExternalModelOutputProvider": {}, "SimulationSolutionOutputProvider": {}, "SimulationModelGeneratedMesh": {}, "MeshingAssemblyTransferType": {}, "TopologyOptimizationResultsCDB": {}, "SpaceClaimModelerMode": {}, "MaterialDesignerLoadCase": {}, "Modeler": {}, "AIMGeometryMeshOutputProvider": {}, "AIMMechanicalPhysicsDefinitionOutputProvider": {}, "ExternalModelOutputProviderForAssembly": {}, "EngineeringData": {"Engineering Data": [$$86c7d7fc-34bb-4278-8426-85fc44ce2c76]}, "CompositeEngineeringData": {}, "SimulationEngineeringData": {}, "SolidSectionData": {}, "EnhancedModelData": {}}, "UnconsumedUpstreamDataForModelAssembly": {}, "ModelsWithConflictingModelHashes": [], "ApplicationRegisteredFiles": {}, "IsModifiedDueToSubstructureFileTypeChange": False}</member-data>
+        <custom-data>
+          <File valType="String">2bbe66ee-8b27-4426-bb02-82fac3966014</File>
+          <FilePath valType="String"></FilePath>
+          <AttentionRequired valType="String">False</AttentionRequired>
+          <IsModifiedDueToModelAssemblyPropertyChange valType="String">False</IsModifiedDueToModelAssemblyPropertyChange>
+          <IsModifiedDueToExternalModelPropertyChange valType="String">False</IsModifiedDueToExternalModelPropertyChange>
+          <IsModifiedDueToDesignPointSwitchDataChange valType="String">False</IsModifiedDueToDesignPointSwitchDataChange>
+          <ParameterValueModified valType="String">False</ParameterValueModified>
+          <AttachType valType="String">0</AttachType>
+          <value-keys valType="String">{"File": System.String, "FilePath": System.String, "AttentionRequired": System.Boolean, "IsModifiedDueToModelAssemblyPropertyChange": System.Boolean, "IsModifiedDueToExternalModelPropertyChange": System.Boolean, "IsModifiedDueToDesignPointSwitchDataChange": System.Boolean, "ParameterValueModified": System.Boolean, "AttachType": System.Int32}</value-keys>
+        </custom-data>
+      </Object>
+    </Container>
+    <Container Name="Setup" Version="1.0">
+      <container-type valType="String">Ansys.Simulation.Core.Addin:SimulationSetup</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">2428</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 2412, "Input": 2412, "Output": 2412}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "HpsContainer": 0, "PyAddinManager": 0, "Engineering Data": 2056, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0, "Geometry": 2313, "Model": 2377, "Setup": 0, "Solution": 0, "Results": 0}</last-update-regen-times>
+      <unique-system-dir valType="String">SYS</unique-system-dir>
+      <contains-significant-data valType="Boolean">true</contains-significant-data>
+      <Object Name="/Setup/MechanicalSystemType:SystemClass for Structural|Static|ANSYS" Version="1.0">
+        <class-type valType="String">MechanicalSystemType</class-type>
+        <object-name valType="String">SystemClass for Structural|Static|ANSYS</object-name>
+        <member-data valType="String">{"DisplayText": "SystemClass for Structural|Static|ANSYS", "PhysicsType": "Structural", "AnalysisType": "Static", "SolverType": "ANSYS", "PhysicsTypeDisplayString": "Structural", "AnalysisTypeDisplayString": "Static Structural", "SolverTypeDisplayString": "Mechanical APDL", "AMCustomSystemType": "NoSystemType", "SystemTypeCombination": "StructuralStaticANSYS", "DelimitedSystemTypeCominbation": "Structural|Static|ANSYS", "SetupEntityType": "SimulationSetup", "SolutionEntityType": "SimulationSolution", "ResultsEntityType": "SimulationResults", "SetupDataEntityType": "MechanicalSetup", "SolutionDataEntityType": "MechanicalSolution", "ResultsDataEntityType": "MechanicalResults", "Id": "Static Structural (ANSYS)", "SystemName": "SYS", "SystemID": "SYS"}</member-data>
+      </Object>
+      <Object Name="/Setup/MechanicalSetup:SetupData for Structural|Static|ANSYS" Version="1.0">
+        <class-type valType="String">Ansys.Simulation.Core.DataModel.DynamicSetupData, Ans.Simulation.Core</class-type>
+        <type-spec valType="String">{"SpecType": "Ansys.Core.DataModel.DataEntitySpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "JournalVariableName": "mechanicalSetup", "Methods": {"AcquireDataConnection": "Mechanical.AcquireSetupDataConnection", "RetrieveData": "Mechanical.RetrieveSimulationData", "ReleaseDataConnection": "Mechanical.ReleaseSimulationDataConnection"}, "Version": 1, "Members": {"DisplayText": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Label": "Display Text", "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": True}, "TransferType": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}}, "DataTypeHierarchy": "MechanicalSetup,DataEntity"}</type-spec>
+        <object-name valType="String">SetupData for Structural|Static|ANSYS</object-name>
+        <member-data valType="String">{"DisplayText": "SetupData for Structural|Static|ANSYS", "TransferType": None}</member-data>
+        <custom-data>
+          <dictionary-keys valType="String">[transferDataMap]</dictionary-keys>
+          <transferDataMap />
+        </custom-data>
+      </Object>
+      <Object Name="/Setup/SystemCouplingSetupData:Setup Coupling Data" Version="1.0">
+        <class-type valType="String">SystemCouplingSetupData</class-type>
+        <object-name valType="String">Setup Coupling Data</object-name>
+        <member-data valType="String">{"DisplayText": "Setup Coupling Data", "DataConnections": [], "TransferDataObject": None}</member-data>
+      </Object>
+      <Object Name="/Setup/DesignAssessmentSetupSettingsType:DesignAssessmentSetupSettingsType" Version="1.0">
+        <class-type valType="String">DesignAssessmentSetupSettingsType</class-type>
+        <object-name valType="String">DesignAssessmentSetupSettingsType</object-name>
+        <member-data valType="String">{"DisplayText": "DesignAssessmentSetupSettingsType", "SolverTarget": "", "UserAttributeFile": ""}</member-data>
+      </Object>
+      <Object Name="/Setup/ContainerConnections:ModelContainerConnections" Version="1.0">
+        <class-type valType="String">ContainerConnections</class-type>
+        <object-name valType="String">ModelContainerConnections</object-name>
+        <member-data valType="String">{"DisplayText": "ModelContainerConnections", "Connections": {}}</member-data>
+      </Object>
+      <Object Name="/Setup/SimulationSetup:SetupObject for Structural|Static|ANSYS" Version="1.0">
+        <class-type valType="String">Ansys.Simulation.Core.DataModel.DynamicSetupObject, Ans.Simulation.Core</class-type>
+        <type-spec valType="String">{"SpecType": "Ansys.Core.DataModel.DataEntitySpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "JournalVariableName": "simulationSetup", "Methods": {"AcquireDataConnection": "Mechanical.AcquireSetupDataConnection", "RetrieveData": "Mechanical.RetrieveSimulationData", "ReleaseDataConnection": "Mechanical.ReleaseSimulationDataConnection"}, "Version": 1, "Members": {"DisplayText": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Label": "Display Text", "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": True}, "EnvironmentId": {"SpecType": "Ansys.Core.DataSpecs.IntegerSpec`1[[System.Int32, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": -1, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "UndefinedValue": 2147483647}, "SolveHandlerName": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "IsCreating": {"SpecType": "Ansys.Core.DataSpecs.BooleanSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": False, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "SetupOnly": {"SpecType": "Ansys.Core.DataSpecs.BooleanSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": False, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "ConnectionGUID": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "IsModifiedDueToDataTransferOnlyChange": {"SpecType": "Ansys.Core.DataSpecs.BooleanSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": False, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "Attributes": {"SpecType": "Ansys.Core.DataSpecs.DictionarySpec`2[[System.String, mscorlib],[System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": {}, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "KeySpec": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.ListSpec`1[[System.String, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": [], "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "ElementSpec": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "MaxLength": 2147483647, "MinLength": 0}}}, "DataTypeHierarchy": "SimulationSetup,DataEntity"}</type-spec>
+        <object-name valType="String">SetupObject for Structural|Static|ANSYS</object-name>
+        <member-data valType="String">{"DisplayText": "SetupObject for Structural|Static|ANSYS", "EnvironmentId": 26, "SolveHandlerName": None, "IsCreating": False, "SetupOnly": False, "ConnectionGUID": None, "IsModifiedDueToDataTransferOnlyChange": False, "Attributes": {}}</member-data>
+        <custom-data>
+          <EnvironmentState valType="String">5</EnvironmentState>
+          <AttentionRequired valType="String">False</AttentionRequired>
+          <ParameterValueModified valType="String">False</ParameterValueModified>
+          <FutureIntent valType="String">False</FutureIntent>
+          <IsUsingDP0BasedWorkingDirectory valType="String">False</IsUsingDP0BasedWorkingDirectory>
+          <MechanicalBusyPendingChange valType="String">False</MechanicalBusyPendingChange>
+          <ModelContainerInputParameterValueWhichReallyAffectsTheSetupContainerHasBeenModified valType="String">False</ModelContainerInputParameterValueWhichReallyAffectsTheSetupContainerHasBeenModified>
+          <ExternalLoadsCount valType="String">0</ExternalLoadsCount>
+          <DesignAssessmentFileRef valType="String">null</DesignAssessmentFileRef>
+          <value-keys valType="String">{"EnvironmentState": System.Int32, "AttentionRequired": System.Boolean, "ParameterValueModified": System.Boolean, "FutureIntent": System.Boolean, "IsUsingDP0BasedWorkingDirectory": System.Boolean, "MechanicalBusyPendingChange": System.Boolean, "ModelContainerInputParameterValueWhichReallyAffectsTheSetupContainerHasBeenModified": System.Boolean, "ExternalLoadsCount": System.Int32, "DesignAssessmentFileRef": System.String}</value-keys>
+        </custom-data>
+      </Object>
+    </Container>
+    <Container Name="Solution" Version="1.0">
+      <container-type valType="String">Ansys.Simulation.Core.Addin:SimulationSolution</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">2429</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 2414, "Input": 2414, "Output": 2414}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "HpsContainer": 0, "PyAddinManager": 0, "Engineering Data": 2056, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0, "Geometry": 2313, "Model": 2377, "Setup": 2428, "Solution": 0, "Results": 0}</last-update-regen-times>
+      <unique-system-dir valType="String">SYS</unique-system-dir>
+      <contains-significant-data valType="Boolean">true</contains-significant-data>
+      <Object Name="/Solution/MechanicalSystemType:SystemClass for Structural|Static|ANSYS" Version="1.0">
+        <class-type valType="String">MechanicalSystemType</class-type>
+        <object-name valType="String">SystemClass for Structural|Static|ANSYS</object-name>
+        <member-data valType="String">{"DisplayText": "SystemClass for Structural|Static|ANSYS", "PhysicsType": "Structural", "AnalysisType": "Static", "SolverType": "ANSYS", "PhysicsTypeDisplayString": "Structural", "AnalysisTypeDisplayString": "Static Structural", "SolverTypeDisplayString": "Mechanical APDL", "AMCustomSystemType": "NoSystemType", "SystemTypeCombination": "StructuralStaticANSYS", "DelimitedSystemTypeCominbation": "Structural|Static|ANSYS", "SetupEntityType": "SimulationSetup", "SolutionEntityType": "SimulationSolution", "ResultsEntityType": "SimulationResults", "SetupDataEntityType": "MechanicalSetup", "SolutionDataEntityType": "MechanicalSolution", "ResultsDataEntityType": "MechanicalResults", "Id": "Static Structural (ANSYS)", "SystemName": "SYS", "SystemID": "SYS"}</member-data>
+      </Object>
+      <Object Name="/Solution/MechanicalSolution:SolutionData for Structural|Static|ANSYS" Version="1.0">
+        <class-type valType="String">Ansys.Simulation.Core.DataModel.DynamicSolutionData, Ans.Simulation.Core</class-type>
+        <type-spec valType="String">{"SpecType": "Ansys.Core.DataModel.DataEntitySpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "JournalVariableName": "mechanicalSolution", "Methods": {"AcquireDataConnection": "Mechanical.AcquireSimulationSolutionConnection", "RetrieveData": "Mechanical.RetrieveSimulationData", "ReleaseDataConnection": "Mechanical.ReleaseSimulationDataConnection"}, "Version": 1, "Members": {"DisplayText": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Label": "Display Text", "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": True}, "TransferType": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}}, "DataTypeHierarchy": "MechanicalSolution,DataEntity"}</type-spec>
+        <object-name valType="String">SolutionData for Structural|Static|ANSYS</object-name>
+        <member-data valType="String">{"DisplayText": "SolutionData for Structural|Static|ANSYS", "TransferType": None}</member-data>
+        <custom-data>
+          <dictionary-keys valType="String">[transferDataMap]</dictionary-keys>
+          <transferDataMap />
+        </custom-data>
+      </Object>
+      <Object Name="/Solution/SimulationSolutionDataInternal:SolutionDataInternal for Structural|Static|ANSYS" Version="1.0">
+        <class-type valType="String">Ansys.Simulation.Core.DataModel.DynamicSolutionDataInternal, Ans.Simulation.Core</class-type>
+        <type-spec valType="String">{"SpecType": "Ansys.Core.DataModel.DataEntitySpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "JournalVariableName": "simulationSolutionDataInternal", "Methods": {}, "Version": 1, "Members": {"DisplayText": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Label": "Display Text", "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": True}}, "DataTypeHierarchy": "SimulationSolutionDataInternal,DataEntity"}</type-spec>
+        <object-name valType="String">SolutionDataInternal for Structural|Static|ANSYS</object-name>
+        <member-data valType="String">{"DisplayText": "SolutionDataInternal for Structural|Static|ANSYS"}</member-data>
+      </Object>
+      <Object Name="/Solution/SimulationSolutionOutputProvider:SimulationSolutionOutputProvider" Version="1.0">
+        <class-type valType="String">SimulationSolutionOutputProvider</class-type>
+        <object-name valType="String">SimulationSolutionOutputProvider</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationSolutionOutputProvider", "DataConnections": {}}</member-data>
+      </Object>
+      <Object Name="/Solution/SimulationSolutionSettings:SimulationSolutionSettingsEntity" Version="1.0">
+        <class-type valType="String">SimulationSolutionSettings</class-type>
+        <object-name valType="String">SimulationSolutionSettingsEntity</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationSolutionSettingsEntity", "UpdateOption": "Use application default", "SolveProcessSetting": ""}</member-data>
+      </Object>
+      <Object Name="/Solution/SimulationHpsJobInformation:SimulationHpsJobInformation" Version="1.0">
+        <class-type valType="String">SimulationHpsJobInformation</class-type>
+        <object-name valType="String">SimulationHpsJobInformation</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationHpsJobInformation", "ServerUrl": None, "ProjectId": None, "SolveManager": None, "JobDefinitionId": None, "JobId": None, "TaskId": None, "DSId": 0}</member-data>
+      </Object>
+      <Object Name="/Solution/RemoteUpdateInformationStorage:RemoteUpdateInformationStorage" Version="1.0">
+        <class-type valType="String">RemoteUpdateInformationStorage</class-type>
+        <object-name valType="String">RemoteUpdateInformationStorage</object-name>
+        <member-data valType="String">{"DisplayText": "RemoteUpdateInformationStorage", "RemoteUpdateInformationMap": {}}</member-data>
+      </Object>
+      <Object Name="/Solution/SimulationSolutionToSpaceClaimObj:SimulationSolutionToSpaceClaimObj" Version="1.0">
+        <class-type valType="String">SimulationSolutionToSpaceClaimObj</class-type>
+        <object-name valType="String">SimulationSolutionToSpaceClaimObj</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationSolutionToSpaceClaimObj", "VersionNumber": 1}</member-data>
+        <custom-data>
+          <dictionary-keys valType="String">[transferDataMap]</dictionary-keys>
+          <transferDataMap />
+        </custom-data>
+      </Object>
+      <Object Name="/Solution/SimulationSolutionSpeosObj:SimulationSolutionSpeosObj" Version="1.0">
+        <class-type valType="String">SimulationSolutionSpeosObj</class-type>
+        <object-name valType="String">SimulationSolutionSpeosObj</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationSolutionSpeosObj", "DataConnections": [], "TransferDataObject": None, "VersionNumber": 2, "TransferFile": None}</member-data>
+      </Object>
+      <Object Name="/Solution/ExpertProperties:ExpertProperties" Version="1.0">
+        <class-type valType="String">ExpertProperties</class-type>
+        <object-name valType="String">ExpertProperties</object-name>
+        <member-data valType="String">{"DisplayText": "ExpertProperties", "ImportantNote": "These options are visible because a development environment variable is set", "ExpertPropertiesString": "", "EnableDebug": False, "EnableValidation": False, "EnableTesting": False, "EnableErrorReporting": False, "EnableWarningReporting": False, "EnableInfoReporting": False, "EnableFileBasedCommunication": False, "EnableSocketCommunication": False, "EnableFailureCauseReporting": True}</member-data>
+      </Object>
+      <Object Name="/Solution/ExtendedComponentSettingsForRsmDpUpdate:ExtendedComponentSettingsForRsmDpUpdate" Version="1.0">
+        <class-type valType="String">ExtendedComponentSettingsForRsmDpUpdate</class-type>
+        <object-name valType="String">ExtendedComponentSettingsForRsmDpUpdate</object-name>
+        <member-data valType="String">{"DisplayText": "ExtendedComponentSettingsForRsmDpUpdate", "SerialOnly": False, "UseLimitOnNumberOfCores": False, "LimitOnNumberOfCores": 2, "SharedMemoryParallel": False, "DistributedMemoryParallel": True, "HybridParallel": False, "LimitOnNumberOfThreadsPerProcess": 1}</member-data>
+      </Object>
+      <Object Name="/Solution/SimulationSolution:SolutionObject for Structural|Static|ANSYS" Version="1.0">
+        <class-type valType="String">Ansys.Simulation.Core.DataModel.DynamicSolutionObject, Ans.Simulation.Core</class-type>
+        <type-spec valType="String">{"SpecType": "Ansys.Core.DataModel.DataEntitySpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "JournalVariableName": "simulationSolution", "Methods": {}, "Version": 1, "Members": {"DisplayText": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Label": "Display Text", "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": True}, "Caption": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": "Solution", "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Label": "ID_Spec_Solution_Caption", "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}, "ResultId": {"SpecType": "Ansys.Core.DataSpecs.IntegerSpec`1[[System.Int32, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": -1, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "UndefinedValue": 2147483647}, "ShouldInvalidateSolutionOnNextMechanicalStart": {"SpecType": "Ansys.Core.DataSpecs.BooleanSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": False, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}}, "DataTypeHierarchy": "SimulationSolution,DataEntity"}</type-spec>
+        <object-name valType="String">SolutionObject for Structural|Static|ANSYS</object-name>
+        <member-data valType="String">{"DisplayText": "SolutionObject for Structural|Static|ANSYS", "Caption": "Solution", "ResultId": 27, "ShouldInvalidateSolutionOnNextMechanicalStart": False}</member-data>
+        <custom-data>
+          <AnalysisState valType="String">6</AnalysisState>
+          <ResultsDownloadRequired valType="String">False</ResultsDownloadRequired>
+          <AttentionRequired valType="String">False</AttentionRequired>
+          <value-keys valType="String">{"AnalysisState": System.Int32, "ResultsDownloadRequired": System.Boolean, "AttentionRequired": System.Boolean}</value-keys>
+        </custom-data>
+      </Object>
+    </Container>
+    <Container Name="Results" Version="1.0">
+      <container-type valType="String">Ansys.Simulation.Core.Addin:SimulationResults</container-type>
+      <storage-scheme-id valType="String">version-1-format</storage-scheme-id>
+      <deleted-sources valType="String">[]</deleted-sources>
+      <last-updated valType="Int64">2443</last-updated>
+      <last-modified-by-usage valType="String">{"Extrinsic": 2441, "Input": 2441, "Output": 2441}</last-modified-by-usage>
+      <outputs-generated-by-type valType="String">{}</outputs-generated-by-type>
+      <last-update-regen-times valType="String">{"Preferences": 0, "ToolbarExp": 0, "FileTypesContainer": 0, "FileContainer": 0, "Messages": 0, "Scopes": 0, "Parameters": 0, "Schematic": 0, "ReportDataContainer": 0, "Graphics": 0, "Units": 0, "HpsContainer": 0, "PyAddinManager": 0, "Engineering Data": 2056, "EngineeringDataGeneratedChartData": 0, "EngineeringDataCurveFit": 0, "EngineeringDataFavoriteItems": 0, "Geometry": 2313, "Model": 2377, "Setup": 2428, "Solution": 2429, "Results": 2430}</last-update-regen-times>
+      <unique-system-dir valType="String">SYS</unique-system-dir>
+      <contains-significant-data valType="Boolean">true</contains-significant-data>
+      <Object Name="/Results/MechanicalSystemType:SystemClass for Structural|Static|ANSYS" Version="1.0">
+        <class-type valType="String">MechanicalSystemType</class-type>
+        <object-name valType="String">SystemClass for Structural|Static|ANSYS</object-name>
+        <member-data valType="String">{"DisplayText": "SystemClass for Structural|Static|ANSYS", "PhysicsType": "Structural", "AnalysisType": "Static", "SolverType": "ANSYS", "PhysicsTypeDisplayString": "Structural", "AnalysisTypeDisplayString": "Static Structural", "SolverTypeDisplayString": "Mechanical APDL", "AMCustomSystemType": "NoSystemType", "SystemTypeCombination": "StructuralStaticANSYS", "DelimitedSystemTypeCominbation": "Structural|Static|ANSYS", "SetupEntityType": "SimulationSetup", "SolutionEntityType": "SimulationSolution", "ResultsEntityType": "SimulationResults", "SetupDataEntityType": "MechanicalSetup", "SolutionDataEntityType": "MechanicalSolution", "ResultsDataEntityType": "MechanicalResults", "Id": "Static Structural (ANSYS)", "SystemName": "SYS", "SystemID": "SYS"}</member-data>
+      </Object>
+      <Object Name="/Results/MechanicalResults:ResultsData for Structural|Static|ANSYS" Version="1.0">
+        <class-type valType="String">Ansys.Simulation.Core.DataModel.DynamicResultData, Ans.Simulation.Core</class-type>
+        <type-spec valType="String">{"SpecType": "Ansys.Core.DataModel.DataEntitySpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "JournalVariableName": "mechanicalResults", "Methods": {"AcquireDataConnection": "Mechanical.AcquireSimulationResultsConnection", "RetrieveData": "Mechanical.RetrieveSimulationData", "ReleaseDataConnection": "Mechanical.ReleaseSimulationDataConnection"}, "Version": 1, "Members": {"DisplayText": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Label": "Display Text", "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": True}, "TransferType": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False}}, "DataTypeHierarchy": "MechanicalResults,DataEntity"}</type-spec>
+        <object-name valType="String">ResultsData for Structural|Static|ANSYS</object-name>
+        <member-data valType="String">{"DisplayText": "ResultsData for Structural|Static|ANSYS", "TransferType": None}</member-data>
+        <custom-data>
+          <dictionary-keys valType="String">[transferDataMap]</dictionary-keys>
+          <transferDataMap />
+        </custom-data>
+      </Object>
+      <Object Name="/Results/SimulationResultsStlZip:SimulationResultsStlZip" Version="1.0">
+        <class-type valType="String">SimulationResultsStlZip</class-type>
+        <object-name valType="String">SimulationResultsStlZip</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationResultsStlZip", "DataConnections": [], "TransferDataObject": $$3726e1a1-a756-400e-95ac-286b4cc1c170, "VersionNumber": 1, "TransferFile": None, "ExportTopOptAction": "KExportInitialPmdbAndFinalObj"}</member-data>
+      </Object>
+      <Object Name="/Results/TopologyOptimizationResultsCDB:TopologyOptimizationResultsCDB" Version="1.0">
+        <class-type valType="String">TopologyOptimizationResultsCDB</class-type>
+        <object-name valType="String">TopologyOptimizationResultsCDB</object-name>
+        <member-data valType="String">{"DisplayText": "TopologyOptimizationResultsCDB", "DataConnections": [], "TransferDataObject": $$e6f5b923-e885-4656-bb1a-e7b70fa26292, "VersionNumber": 1, "Dsid": 0, "TransferFiles": {}, "ResultFileNames": None}</member-data>
+      </Object>
+      <Object Name="/Results/ExternalModelOutputProvider:ExternalModelOutputProvider" Version="1.0">
+        <class-type valType="String">ExternalModelOutputProvider</class-type>
+        <object-name valType="String">ExternalModelOutputProvider</object-name>
+        <member-data valType="String">{"DisplayText": "ExternalModelOutputProvider", "DataConnections": [], "TransferDataObject": $$eaf3b2d0-e035-4fd3-a571-68fccfad9b82, "SignalModifiedDuringAcquire": True}</member-data>
+      </Object>
+      <Object Name="/Results/ExternalModelOutput:ExternalModelOutput" Version="1.0">
+        <class-type valType="String">ExternalModelOutput</class-type>
+        <object-name valType="String">ExternalModelOutput</object-name>
+        <member-data valType="String">{"DisplayText": "ExternalModelOutput", "TransferFile": None, "InputFiles": [], "InputAssemblyFiles": []}</member-data>
+        <custom-data>
+          <CurrentVersion valType="String">1</CurrentVersion>
+          <value-keys valType="String">{"CurrentVersion": System.Int32}</value-keys>
+        </custom-data>
+      </Object>
+      <Object Name="/Results/SimulationImportOptionsForResult:SimulationImportOptionsForResult" Version="1.0">
+        <class-type valType="String">SimulationImportOptionsForResult</class-type>
+        <object-name valType="String">SimulationImportOptionsForResult</object-name>
+        <member-data valType="String">{"DisplayText": "SimulationImportOptionsForResult", "CurrentVersion": 1, "LengthUnit": "m", "NumberOfCopies": 0, "RenumberMeshElementsAutomatically": True, "RigidTransform": {"DisplayText": None, "TransformOriginal": False, "OriginX": "0 [m]", "OriginY": "0 [m]", "OriginZ": "0 [m]", "ThetaXY": "0 [radian]", "ThetaYZ": "0 [radian]", "ThetaZX": "0 [radian]"}, "Source": "Mechanical"}</member-data>
+      </Object>
+      <Object Name="/Results/StaticOptionsForCdb:StaticOptionsForCdb" Version="1.0">
+        <class-type valType="String">StaticOptionsForCdb</class-type>
+        <object-name valType="String">StaticOptionsForCdb</object-name>
+        <member-data valType="String">{"DisplayText": "StaticOptionsForCdb", "CurrentVersion": 1, "Time": 0, "ScaleFactor": 1}</member-data>
+      </Object>
+      <Object Name="/Results/SimulationResults:ResultsObject for Structural|Static|ANSYS" Version="1.0">
+        <class-type valType="String">Ansys.Simulation.Core.DataModel.DynamicResultsObject, Ans.Simulation.Core</class-type>
+        <type-spec valType="String">{"SpecType": "Ansys.Core.DataModel.DataEntitySpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "System", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "JournalVariableName": "simulationResults", "Methods": {}, "Version": 1, "Members": {"DisplayText": {"SpecType": "Ansys.Core.DataSpecs.StringSpec, Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Label": "Display Text", "Usage": "Extrinsic", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": True}, "AnswerSetId": {"SpecType": "Ansys.Core.DataSpecs.IntegerSpec`1[[System.Int32, mscorlib]], Ans.Core", "Access": "UserWritable", "CanUndoPropertyChanges": True, "Default": -1, "Exposure": "AnyUser", "IsOptional": False, "IsPersistent": True, "IsReadOnly": False, "Usage": "Input", "IsDesignPointInvariant": False, "IsParameterizable": False, "ReuseJournalVariables": False, "UndefinedValue": 2147483647}}, "DataTypeHierarchy": "SimulationResults,DataEntity"}</type-spec>
+        <object-name valType="String">ResultsObject for Structural|Static|ANSYS</object-name>
+        <member-data valType="String">{"DisplayText": "ResultsObject for Structural|Static|ANSYS", "AnswerSetId": 27}</member-data>
+        <custom-data>
+          <FindAnswersState valType="String">6</FindAnswersState>
+          <AttentionRequired valType="String">False</AttentionRequired>
+          <ParameterValueModified valType="String">False</ParameterValueModified>
+          <value-keys valType="String">{"FindAnswersState": System.Int32, "AttentionRequired": System.Boolean, "ParameterValueModified": System.Boolean}</value-keys>
+        </custom-data>
+      </Object>
+    </Container>
+  </Containers>
+</Storage>

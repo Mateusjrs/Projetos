@@ -1,0 +1,55 @@
+! Unit system DS_SOLV_NMM
+! GUID 6b18e5c4-18b1-4d9a-97de-eb69dce56c56
+! Material 1 = Structural Steel
+Temperature = 'TEMP' ! Temperature
+MP,DENS,1,7.85e-09,	! tonne mm^-3
+MP,ALPX,1,1.2e-05,	! C^-1
+MP,C,1,434000000,	! mm^2 s^-2 C^-1
+MP,KXX,1,60.5,	! tonne mm s^-3 C^-1
+MP,RSVX,1,0.00017,	! ohm mm
+MP,EX,1,200000,	! tonne s^-2 mm^-1
+MP,NUXY,1,0.3,
+MP,MURX,1,10000,
+MP,UVID,1,6b18e5c4-18b1-4d9a-97de-eb69dce56c56
+MP,UMID,1,59002a79-71c2-428e-906b-55d7dbee100e
+
+! GUID 7cd870da-af6f-4df9-b45c-e3bca2a1ceba
+! Material 2 = Epoxy Carbon UD (230 GPa) Prepreg
+MP,DENS,2,1.49e-09,	! tonne mm^-3
+MP,EX,2,121000,	! tonne s^-2 mm^-1
+MP,EY,2,8600,	! tonne s^-2 mm^-1
+MP,EZ,2,8600,	! tonne s^-2 mm^-1
+MP,PRXY,2,0.27,
+MP,PRYZ,2,0.4,
+MP,PRXZ,2,0.27,
+MP,GXY,2,4700,	! tonne s^-2 mm^-1
+MP,GYZ,2,3100,	! tonne s^-2 mm^-1
+MP,GXZ,2,4700,	! tonne s^-2 mm^-1
+
+TB,FCLI,2,1,9,2
+TBDATA,1,0.0167,-0.0108,0.0032,-0.0192,0.0032,-0.0192
+TBDATA,7,0.012,0.011
+MP,ALPX,2,-4.7e-07,	! C^-1
+MP,ALPY,2,3e-05,	! C^-1
+MP,ALPZ,2,3e-05,	! C^-1
+
+TB,FCLI,2,1,20,1
+TBDATA,1,2231
+TBDATA,2,-1082
+TBDATA,3,29
+TBDATA,4,-100
+TBDATA,5,29
+TBDATA,6,-100
+TBDATA,7,60
+TBDATA,8,32
+TBDATA,9,60
+TBDATA,10,-1
+TBDATA,11,-1
+TBDATA,12,-1
+TBDATA,13,0.35
+TBDATA,14,0.3
+TBDATA,15,0.25
+TBDATA,16,0.25
+MP,UVID,2,7cd870da-af6f-4df9-b45c-e3bca2a1ceba
+MP,UMID,2,e236c55c-e4b2-423c-8262-2cbd5ec4377b
+

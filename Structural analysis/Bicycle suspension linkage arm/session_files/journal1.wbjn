@@ -1,0 +1,70 @@
+# encoding: utf-8
+# 2026 R1
+SetScriptVersion(Version="26.1.174")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+engineeringData1 = system1.GetContainer(ComponentName="Engineering Data")
+matl1 = engineeringData1.CreateMaterial(Name="ASTM")
+matlProp1 = matl1.CreateProperty(
+    Name="Elasticity",
+    Behavior="Isotropic",
+    Qualifiers={"Definition": "", "Behavior": "Isotropic"})
+matlProp1.SetVariableProperty(
+    VariableName="Young's Modulus",
+    Property="Unit",
+    Value="GPa")
+matlProp1.SetData(
+    Index=-1,
+    Variables=["Young's Modulus"],
+    Values=[["200 [GPa]"]])
+matlProp1.SetData(
+    Variables=["Poisson's Ratio"],
+    Values=[["0.25"]])
+matlProp2 = matl1.CreateProperty(
+    Name="Tensile Yield Strength",
+    Qualifiers={"Definition": "", "Behavior": ""})
+matlProp2.SetVariableProperty(
+    VariableName="Tensile Yield Strength",
+    Property="Unit",
+    Value="MPa")
+matlProp2.SetData(
+    Index=-1,
+    Variables=["Tensile Yield Strength"],
+    Values=[["250 [MPa]"]])
+Save(Overwrite=True)
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.Edit(IsDiscoveryGeometry=True)
+geometry1.Exit()
+geometry1.Edit(IsDiscoveryGeometry=True)
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+Save(Overwrite=True)
+Reset()
+Extensions.UnloadExtension(
+    Id="5e7e01a6-8601-11e8-9f8c-28f10e13ffe6",
+    Version="2025.2",
+    Format="Binary")
+Extensions.UnloadExtension(
+    Id="5f463412-bd3e-484b-87e7-cbc0a665e474",
+    Version="2026.1",
+    Format="Binary")
+Extensions.UnloadExtension(
+    Id="ba012e44-4f35-4a97-aeff-8fe60efc33c9",
+    Version="26.1",
+    Format="Binary")
+Extensions.UnloadExtension(
+    Id="7b0e9e84-396d-4099-9602-2ced9dddc253",
+    Version="2026.1",
+    Format="Binary")
+Extensions.UnloadExtension(
+    Id="20180725-3f81-49eb-9f31-41364844c769",
+    Version="2026.1",
+    Format="Binary")
+Extensions.UnloadExtension(
+    Id="f3e3da52-fb02-4910-8cc9-980efd047bc6",
+    Version="2023.1",
+    Format="Binary")

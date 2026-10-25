@@ -1,0 +1,1029 @@
+ ANSYS
+      License feature : explicit_basic
+      License type    : Academic Student
+
+
+
+       AAAAAA   UU    UU  TTTTTTTT   OOOOOO   DDDDDDD   YY    YY  NN    NN  TM
+      AA    AA  UU    UU     TT     OO    OO  DD    DD   YY  YY   NNN   NN
+      AA    AA  UU    UU     TT     OO    OO  DD    DD    YYYY    NNNN  NN
+      AAAAAAAA  UU    UU     TT     OO    OO  DD    DD     YY     NN NN NN
+      AA    AA  UU    UU     TT     OO    OO  DD    DD     YY     NN  NNNN
+      AA    AA  UU    UU     TT     OO    OO  DD    DD     YY     NN   NNN
+      AA    AA   UUUUUU      TT      OOOOOO   DDDDDDD      YY     NN    NN
+
+
+
+
+           Copyright 2026, ANSYS, Inc.  All rights reserved.
+           Unauthorized use, distribution or duplication is prohibited.
+
+
+
+
+ 
+
+
+
+
+                                2026 R1
+                                   
+                 Point Releases and Patches installed:
+                                   
+                  Ansys, Inc. License Manager 2026 R1
+                   Discovery (full install) 2026 R1
+                         Core WB Files 2026 R1
+                       optiSLang Core UI 2026 R1
+                    CFX (includes CFD-Post) 2026 R1
+                            Chemkin 2026 R1
+                            EnSight 2026 R1
+                          FENSAP-ICE 2026 R1
+                  Fluent (includes CFD-Post) 2026 R1
+                 Polyflow (includes CFD-Post) 2026 R1
+                   Forte (includes EnSight) 2026 R1
+                             Rocky 2026 R1
+                           TurboGrid 2026 R1
+                    ACIS Geometry Interface 2026 R1
+                  AutoCAD Geometry Interface 2026 R1
+              Catia, Version 4 Geometry Interface 2026 R1
+              Catia, Version 5 Geometry Interface 2026 R1
+              Catia, Version 6 Geometry Interface 2026 R1
+       Creo Elements/Direct Modeling Geometry Interface 2026 R1
+              Creo Parametric Geometry Interface 2026 R1
+                  Inventor Geometry Interface 2026 R1
+                   JTOpen Geometry Interface 2026 R1
+                     NX Geometry Interface 2026 R1
+                 Parasolid Geometry Interface  2026 R1
+                 Solid Edge Geometry Interface 2026 R1
+                 SOLIDWORKS Geometry Interface 2026 R1
+                             Speos 2026 R1
+                          SpaceClaim 2026 R1
+                           Speos RPC 2026 R1
+                       Zemax OpticStudio 2026 R1
+                       Dynamic Reporting 2026 R1
+                             Aqwa 2026 R1
+                            Autodyn 2026 R1
+                   Material Calibration App 2026 R1
+                      Mechanical Products 2026 R1
+                            Motion 2026 R1
+                       Academic Student 2026 R1
+
+
+
+
+                            Solver :   EXPLICIT
+                             Build :   AUTODYN-3D Academic V-2026 R1           
+                Model File Version :   2026 R1
+                        Build Date :   20260113
+                 Current Date/Time :   20261020 15: 0 (-0300GMT)
+                          Platform :   64 bit
+                              Beta :   FALSE
+                   User Subroutine :   FALSE
+               MPI Library Version :   Intel(R) MPI Library 2021.14 for Windows* OS
+
+
+
+
+
+                             IDENT :   admodel                                                                                                                                                                                                                                                         
+                             Title :                                           
+                       Description :                                                                                                                                                                                                                                                                   
+                       Start Cycle :            0
+                        Start Time :  0.00000E+00
+                         Precision :   Double
+
+
+
+
+   UNITS
+
+                            Length :   millimeter
+                              Mass :   milligram 
+                              Time :   millisec. 
+
+
+
+
+   SYMMETRY PLANES
+
+             Symmetry plane at X=0 :   No        
+                               Y=0 :   No        
+                               Z=0 :   No        
+
+
+
+
+   WRAPUP PARAMETERS
+
+                       Cycle Limit :     10000000
+                        Time Limit :  2.19000E+02
+     Maximum Energy Error Fraction :  1.00000E-01
+            Energy Reference Cycle :            0
+
+
+
+
+   MULTIPLE LOADSTEP DEFINITION
+
+     Step    Type             Step End Time   Static Damping   Convergence Tol.  Max. Iterations
+
+        1    Standard         2.0000E+01      0.0000E+00
+        2    Standard         2.1000E+01      0.0000E+00
+        3    Standard         2.2000E+01      0.0000E+00
+        4    Standard         2.3000E+01      0.0000E+00
+        5    Standard         2.4000E+01      0.0000E+00
+        6    Standard         2.5000E+01      0.0000E+00
+        7    Standard         2.6000E+01      0.0000E+00
+        8    Standard         2.7000E+01      0.0000E+00
+        9    Standard         2.8000E+01      0.0000E+00
+       10    Standard         2.9000E+01      0.0000E+00
+       11    Standard         3.0000E+01      0.0000E+00
+       12    Standard         3.1000E+01      0.0000E+00
+       13    Standard         3.2000E+01      0.0000E+00
+       14    Standard         3.3000E+01      0.0000E+00
+       15    Standard         3.4000E+01      0.0000E+00
+       16    Standard         3.5000E+01      0.0000E+00
+       17    Standard         3.6000E+01      0.0000E+00
+       18    Standard         3.7000E+01      0.0000E+00
+       19    Standard         3.8000E+01      0.0000E+00
+       20    Standard         3.9000E+01      0.0000E+00
+       21    Standard         4.0000E+01      0.0000E+00
+       22    Standard         4.1000E+01      0.0000E+00
+       23    Standard         4.2000E+01      0.0000E+00
+       24    Standard         4.3000E+01      0.0000E+00
+       25    Standard         4.4000E+01      0.0000E+00
+       26    Standard         4.5000E+01      0.0000E+00
+       27    Standard         4.6000E+01      0.0000E+00
+       28    Standard         4.7000E+01      0.0000E+00
+       29    Standard         4.8000E+01      0.0000E+00
+       30    Standard         4.9000E+01      0.0000E+00
+       31    Standard         5.0000E+01      0.0000E+00
+       32    Standard         5.1000E+01      0.0000E+00
+       33    Standard         5.2000E+01      0.0000E+00
+       34    Standard         5.3000E+01      0.0000E+00
+       35    Standard         5.4000E+01      0.0000E+00
+       36    Standard         5.5000E+01      0.0000E+00
+       37    Standard         5.6000E+01      0.0000E+00
+       38    Standard         5.7000E+01      0.0000E+00
+       39    Standard         5.8000E+01      0.0000E+00
+       40    Standard         5.9000E+01      0.0000E+00
+       41    Standard         6.0000E+01      0.0000E+00
+       42    Standard         6.1000E+01      0.0000E+00
+       43    Standard         6.2000E+01      0.0000E+00
+       44    Standard         6.3000E+01      0.0000E+00
+       45    Standard         6.4000E+01      0.0000E+00
+       46    Standard         6.5000E+01      0.0000E+00
+       47    Standard         6.6000E+01      0.0000E+00
+       48    Standard         6.7000E+01      0.0000E+00
+       49    Standard         6.8000E+01      0.0000E+00
+       50    Standard         6.9000E+01      0.0000E+00
+       51    Standard         7.0000E+01      0.0000E+00
+       52    Standard         7.1000E+01      0.0000E+00
+       53    Standard         7.2000E+01      0.0000E+00
+       54    Standard         7.3000E+01      0.0000E+00
+       55    Standard         7.4000E+01      0.0000E+00
+       56    Standard         7.5000E+01      0.0000E+00
+       57    Standard         7.6000E+01      0.0000E+00
+       58    Standard         7.7000E+01      0.0000E+00
+       59    Standard         7.8000E+01      0.0000E+00
+       60    Standard         7.9000E+01      0.0000E+00
+       61    Standard         8.0000E+01      0.0000E+00
+       62    Standard         8.1000E+01      0.0000E+00
+       63    Standard         8.2000E+01      0.0000E+00
+       64    Standard         8.3000E+01      0.0000E+00
+       65    Standard         8.4000E+01      0.0000E+00
+       66    Standard         8.5000E+01      0.0000E+00
+       67    Standard         8.6000E+01      0.0000E+00
+       68    Standard         8.7000E+01      0.0000E+00
+       69    Standard         8.8000E+01      0.0000E+00
+       70    Standard         8.9000E+01      0.0000E+00
+       71    Standard         9.0000E+01      0.0000E+00
+       72    Standard         9.1000E+01      0.0000E+00
+       73    Standard         9.2000E+01      0.0000E+00
+       74    Standard         9.3000E+01      0.0000E+00
+       75    Standard         9.4000E+01      0.0000E+00
+       76    Standard         9.5000E+01      0.0000E+00
+       77    Standard         9.6000E+01      0.0000E+00
+       78    Standard         9.7000E+01      0.0000E+00
+       79    Standard         9.8000E+01      0.0000E+00
+       80    Standard         9.9000E+01      0.0000E+00
+       81    Standard         1.0000E+02      0.0000E+00
+       82    Standard         1.0100E+02      0.0000E+00
+       83    Standard         1.0200E+02      0.0000E+00
+       84    Standard         1.0300E+02      0.0000E+00
+       85    Standard         1.0400E+02      0.0000E+00
+       86    Standard         1.0500E+02      0.0000E+00
+       87    Standard         1.0600E+02      0.0000E+00
+       88    Standard         1.0700E+02      0.0000E+00
+       89    Standard         1.0800E+02      0.0000E+00
+       90    Standard         1.0900E+02      0.0000E+00
+       91    Standard         1.1000E+02      0.0000E+00
+       92    Standard         1.1100E+02      0.0000E+00
+       93    Standard         1.1200E+02      0.0000E+00
+       94    Standard         1.1300E+02      0.0000E+00
+       95    Standard         1.1400E+02      0.0000E+00
+       96    Standard         1.1500E+02      0.0000E+00
+       97    Standard         1.1600E+02      0.0000E+00
+       98    Standard         1.1700E+02      0.0000E+00
+       99    Standard         1.1800E+02      0.0000E+00
+      100    Standard         1.1900E+02      0.0000E+00
+      101    Standard         1.2000E+02      0.0000E+00
+      102    Standard         1.2100E+02      0.0000E+00
+      103    Standard         1.2200E+02      0.0000E+00
+      104    Standard         1.2300E+02      0.0000E+00
+      105    Standard         1.2400E+02      0.0000E+00
+      106    Standard         1.2500E+02      0.0000E+00
+      107    Standard         1.2600E+02      0.0000E+00
+      108    Standard         1.2700E+02      0.0000E+00
+      109    Standard         1.2800E+02      0.0000E+00
+      110    Standard         1.2900E+02      0.0000E+00
+      111    Standard         1.3000E+02      0.0000E+00
+      112    Standard         1.3100E+02      0.0000E+00
+      113    Standard         1.3200E+02      0.0000E+00
+      114    Standard         1.3300E+02      0.0000E+00
+      115    Standard         1.3400E+02      0.0000E+00
+      116    Standard         1.3500E+02      0.0000E+00
+      117    Standard         1.3600E+02      0.0000E+00
+      118    Standard         1.3700E+02      0.0000E+00
+      119    Standard         1.3800E+02      0.0000E+00
+      120    Standard         1.3900E+02      0.0000E+00
+      121    Standard         1.4000E+02      0.0000E+00
+      122    Standard         1.4100E+02      0.0000E+00
+      123    Standard         1.4200E+02      0.0000E+00
+      124    Standard         1.4300E+02      0.0000E+00
+      125    Standard         1.4400E+02      0.0000E+00
+      126    Standard         1.4500E+02      0.0000E+00
+      127    Standard         1.4600E+02      0.0000E+00
+      128    Standard         1.4700E+02      0.0000E+00
+      129    Standard         1.4800E+02      0.0000E+00
+      130    Standard         1.4900E+02      0.0000E+00
+      131    Standard         1.5000E+02      0.0000E+00
+      132    Standard         1.5100E+02      0.0000E+00
+      133    Standard         1.5200E+02      0.0000E+00
+      134    Standard         1.5300E+02      0.0000E+00
+      135    Standard         1.5400E+02      0.0000E+00
+      136    Standard         1.5500E+02      0.0000E+00
+      137    Standard         1.5600E+02      0.0000E+00
+      138    Standard         1.5700E+02      0.0000E+00
+      139    Standard         1.5800E+02      0.0000E+00
+      140    Standard         1.5900E+02      0.0000E+00
+      141    Standard         1.6000E+02      0.0000E+00
+      142    Standard         1.6100E+02      0.0000E+00
+      143    Standard         1.6200E+02      0.0000E+00
+      144    Standard         1.6300E+02      0.0000E+00
+      145    Standard         1.6400E+02      0.0000E+00
+      146    Standard         1.6500E+02      0.0000E+00
+      147    Standard         1.6600E+02      0.0000E+00
+      148    Standard         1.6700E+02      0.0000E+00
+      149    Standard         1.6800E+02      0.0000E+00
+      150    Standard         1.6900E+02      0.0000E+00
+      151    Standard         1.7000E+02      0.0000E+00
+      152    Standard         1.7100E+02      0.0000E+00
+      153    Standard         1.7200E+02      0.0000E+00
+      154    Standard         1.7300E+02      0.0000E+00
+      155    Standard         1.7400E+02      0.0000E+00
+      156    Standard         1.7500E+02      0.0000E+00
+      157    Standard         1.7600E+02      0.0000E+00
+      158    Standard         1.7700E+02      0.0000E+00
+      159    Standard         1.7800E+02      0.0000E+00
+      160    Standard         1.7900E+02      0.0000E+00
+      161    Standard         1.8000E+02      0.0000E+00
+      162    Standard         1.8100E+02      0.0000E+00
+      163    Standard         1.8200E+02      0.0000E+00
+      164    Standard         1.8300E+02      0.0000E+00
+      165    Standard         1.8400E+02      0.0000E+00
+      166    Standard         1.8500E+02      0.0000E+00
+      167    Standard         1.8600E+02      0.0000E+00
+      168    Standard         1.8700E+02      0.0000E+00
+      169    Standard         1.8800E+02      0.0000E+00
+      170    Standard         1.8900E+02      0.0000E+00
+      171    Standard         1.9000E+02      0.0000E+00
+      172    Standard         1.9100E+02      0.0000E+00
+      173    Standard         1.9200E+02      0.0000E+00
+      174    Standard         1.9300E+02      0.0000E+00
+      175    Standard         1.9400E+02      0.0000E+00
+      176    Standard         1.9500E+02      0.0000E+00
+      177    Standard         1.9600E+02      0.0000E+00
+      178    Standard         1.9700E+02      0.0000E+00
+      179    Standard         1.9800E+02      0.0000E+00
+      180    Standard         1.9900E+02      0.0000E+00
+      181    Standard         2.0000E+02      0.0000E+00
+      182    Standard         2.0100E+02      0.0000E+00
+      183    Standard         2.0200E+02      0.0000E+00
+      184    Standard         2.0300E+02      0.0000E+00
+      185    Standard         2.0400E+02      0.0000E+00
+      186    Standard         2.0500E+02      0.0000E+00
+      187    Standard         2.0600E+02      0.0000E+00
+      188    Standard         2.0700E+02      0.0000E+00
+      189    Standard         2.0800E+02      0.0000E+00
+      190    Standard         2.0900E+02      0.0000E+00
+      191    Standard         2.1000E+02      0.0000E+00
+      192    Standard         2.1100E+02      0.0000E+00
+      193    Standard         2.1200E+02      0.0000E+00
+      194    Standard         2.1300E+02      0.0000E+00
+      195    Standard         2.1400E+02      0.0000E+00
+      196    Standard         2.1500E+02      0.0000E+00
+      197    Standard         2.1600E+02      0.0000E+00
+      198    Standard         2.1700E+02      0.0000E+00
+      199    Standard         2.1800E+02      0.0000E+00
+      200    Standard         2.1900E+02      0.0000E+00
+
+
+
+
+   LOADSTEP OUTPUT CONTROLS
+
+     Step    Results       Value      Restarts       Value      Trackers      Value
+
+        1    Global          -         Global          -         Global          -     
+        2    Global          -         Global          -         Global          -     
+        3    Global          -         Global          -         Global          -     
+        4    Global          -         Global          -         Global          -     
+        5    Global          -         Global          -         Global          -     
+        6    Global          -         Global          -         Global          -     
+        7    Global          -         Global          -         Global          -     
+        8    Global          -         Global          -         Global          -     
+        9    Global          -         Global          -         Global          -     
+       10    Global          -         Global          -         Global          -     
+       11    Global          -         Global          -         Global          -     
+       12    Global          -         Global          -         Global          -     
+       13    Global          -         Global          -         Global          -     
+       14    Global          -         Global          -         Global          -     
+       15    Global          -         Global          -         Global          -     
+       16    Global          -         Global          -         Global          -     
+       17    Global          -         Global          -         Global          -     
+       18    Global          -         Global          -         Global          -     
+       19    Global          -         Global          -         Global          -     
+       20    Global          -         Global          -         Global          -     
+       21    Global          -         Global          -         Global          -     
+       22    Global          -         Global          -         Global          -     
+       23    Global          -         Global          -         Global          -     
+       24    Global          -         Global          -         Global          -     
+       25    Global          -         Global          -         Global          -     
+       26    Global          -         Global          -         Global          -     
+       27    Global          -         Global          -         Global          -     
+       28    Global          -         Global          -         Global          -     
+       29    Global          -         Global          -         Global          -     
+       30    Global          -         Global          -         Global          -     
+       31    Global          -         Global          -         Global          -     
+       32    Global          -         Global          -         Global          -     
+       33    Global          -         Global          -         Global          -     
+       34    Global          -         Global          -         Global          -     
+       35    Global          -         Global          -         Global          -     
+       36    Global          -         Global          -         Global          -     
+       37    Global          -         Global          -         Global          -     
+       38    Global          -         Global          -         Global          -     
+       39    Global          -         Global          -         Global          -     
+       40    Global          -         Global          -         Global          -     
+       41    Global          -         Global          -         Global          -     
+       42    Global          -         Global          -         Global          -     
+       43    Global          -         Global          -         Global          -     
+       44    Global          -         Global          -         Global          -     
+       45    Global          -         Global          -         Global          -     
+       46    Global          -         Global          -         Global          -     
+       47    Global          -         Global          -         Global          -     
+       48    Global          -         Global          -         Global          -     
+       49    Global          -         Global          -         Global          -     
+       50    Global          -         Global          -         Global          -     
+       51    Global          -         Global          -         Global          -     
+       52    Global          -         Global          -         Global          -     
+       53    Global          -         Global          -         Global          -     
+       54    Global          -         Global          -         Global          -     
+       55    Global          -         Global          -         Global          -     
+       56    Global          -         Global          -         Global          -     
+       57    Global          -         Global          -         Global          -     
+       58    Global          -         Global          -         Global          -     
+       59    Global          -         Global          -         Global          -     
+       60    Global          -         Global          -         Global          -     
+       61    Global          -         Global          -         Global          -     
+       62    Global          -         Global          -         Global          -     
+       63    Global          -         Global          -         Global          -     
+       64    Global          -         Global          -         Global          -     
+       65    Global          -         Global          -         Global          -     
+       66    Global          -         Global          -         Global          -     
+       67    Global          -         Global          -         Global          -     
+       68    Global          -         Global          -         Global          -     
+       69    Global          -         Global          -         Global          -     
+       70    Global          -         Global          -         Global          -     
+       71    Global          -         Global          -         Global          -     
+       72    Global          -         Global          -         Global          -     
+       73    Global          -         Global          -         Global          -     
+       74    Global          -         Global          -         Global          -     
+       75    Global          -         Global          -         Global          -     
+       76    Global          -         Global          -         Global          -     
+       77    Global          -         Global          -         Global          -     
+       78    Global          -         Global          -         Global          -     
+       79    Global          -         Global          -         Global          -     
+       80    Global          -         Global          -         Global          -     
+       81    Global          -         Global          -         Global          -     
+       82    Global          -         Global          -         Global          -     
+       83    Global          -         Global          -         Global          -     
+       84    Global          -         Global          -         Global          -     
+       85    Global          -         Global          -         Global          -     
+       86    Global          -         Global          -         Global          -     
+       87    Global          -         Global          -         Global          -     
+       88    Global          -         Global          -         Global          -     
+       89    Global          -         Global          -         Global          -     
+       90    Global          -         Global          -         Global          -     
+       91    Global          -         Global          -         Global          -     
+       92    Global          -         Global          -         Global          -     
+       93    Global          -         Global          -         Global          -     
+       94    Global          -         Global          -         Global          -     
+       95    Global          -         Global          -         Global          -     
+       96    Global          -         Global          -         Global          -     
+       97    Global          -         Global          -         Global          -     
+       98    Global          -         Global          -         Global          -     
+       99    Global          -         Global          -         Global          -     
+      100    Global          -         Global          -         Global          -     
+      101    Global          -         Global          -         Global          -     
+      102    Global          -         Global          -         Global          -     
+      103    Global          -         Global          -         Global          -     
+      104    Global          -         Global          -         Global          -     
+      105    Global          -         Global          -         Global          -     
+      106    Global          -         Global          -         Global          -     
+      107    Global          -         Global          -         Global          -     
+      108    Global          -         Global          -         Global          -     
+      109    Global          -         Global          -         Global          -     
+      110    Global          -         Global          -         Global          -     
+      111    Global          -         Global          -         Global          -     
+      112    Global          -         Global          -         Global          -     
+      113    Global          -         Global          -         Global          -     
+      114    Global          -         Global          -         Global          -     
+      115    Global          -         Global          -         Global          -     
+      116    Global          -         Global          -         Global          -     
+      117    Global          -         Global          -         Global          -     
+      118    Global          -         Global          -         Global          -     
+      119    Global          -         Global          -         Global          -     
+      120    Global          -         Global          -         Global          -     
+      121    Global          -         Global          -         Global          -     
+      122    Global          -         Global          -         Global          -     
+      123    Global          -         Global          -         Global          -     
+      124    Global          -         Global          -         Global          -     
+      125    Global          -         Global          -         Global          -     
+      126    Global          -         Global          -         Global          -     
+      127    Global          -         Global          -         Global          -     
+      128    Global          -         Global          -         Global          -     
+      129    Global          -         Global          -         Global          -     
+      130    Global          -         Global          -         Global          -     
+      131    Global          -         Global          -         Global          -     
+      132    Global          -         Global          -         Global          -     
+      133    Global          -         Global          -         Global          -     
+      134    Global          -         Global          -         Global          -     
+      135    Global          -         Global          -         Global          -     
+      136    Global          -         Global          -         Global          -     
+      137    Global          -         Global          -         Global          -     
+      138    Global          -         Global          -         Global          -     
+      139    Global          -         Global          -         Global          -     
+      140    Global          -         Global          -         Global          -     
+      141    Global          -         Global          -         Global          -     
+      142    Global          -         Global          -         Global          -     
+      143    Global          -         Global          -         Global          -     
+      144    Global          -         Global          -         Global          -     
+      145    Global          -         Global          -         Global          -     
+      146    Global          -         Global          -         Global          -     
+      147    Global          -         Global          -         Global          -     
+      148    Global          -         Global          -         Global          -     
+      149    Global          -         Global          -         Global          -     
+      150    Global          -         Global          -         Global          -     
+      151    Global          -         Global          -         Global          -     
+      152    Global          -         Global          -         Global          -     
+      153    Global          -         Global          -         Global          -     
+      154    Global          -         Global          -         Global          -     
+      155    Global          -         Global          -         Global          -     
+      156    Global          -         Global          -         Global          -     
+      157    Global          -         Global          -         Global          -     
+      158    Global          -         Global          -         Global          -     
+      159    Global          -         Global          -         Global          -     
+      160    Global          -         Global          -         Global          -     
+      161    Global          -         Global          -         Global          -     
+      162    Global          -         Global          -         Global          -     
+      163    Global          -         Global          -         Global          -     
+      164    Global          -         Global          -         Global          -     
+      165    Global          -         Global          -         Global          -     
+      166    Global          -         Global          -         Global          -     
+      167    Global          -         Global          -         Global          -     
+      168    Global          -         Global          -         Global          -     
+      169    Global          -         Global          -         Global          -     
+      170    Global          -         Global          -         Global          -     
+      171    Global          -         Global          -         Global          -     
+      172    Global          -         Global          -         Global          -     
+      173    Global          -         Global          -         Global          -     
+      174    Global          -         Global          -         Global          -     
+      175    Global          -         Global          -         Global          -     
+      176    Global          -         Global          -         Global          -     
+      177    Global          -         Global          -         Global          -     
+      178    Global          -         Global          -         Global          -     
+      179    Global          -         Global          -         Global          -     
+      180    Global          -         Global          -         Global          -     
+      181    Global          -         Global          -         Global          -     
+      182    Global          -         Global          -         Global          -     
+      183    Global          -         Global          -         Global          -     
+      184    Global          -         Global          -         Global          -     
+      185    Global          -         Global          -         Global          -     
+      186    Global          -         Global          -         Global          -     
+      187    Global          -         Global          -         Global          -     
+      188    Global          -         Global          -         Global          -     
+      189    Global          -         Global          -         Global          -     
+      190    Global          -         Global          -         Global          -     
+      191    Global          -         Global          -         Global          -     
+      192    Global          -         Global          -         Global          -     
+      193    Global          -         Global          -         Global          -     
+      194    Global          -         Global          -         Global          -     
+      195    Global          -         Global          -         Global          -     
+      196    Global          -         Global          -         Global          -     
+      197    Global          -         Global          -         Global          -     
+      198    Global          -         Global          -         Global          -     
+      199    Global          -         Global          -         Global          -     
+      200    Global          -         Global          -         Global          -     
+
+
+
+
+   TIME STEP INFORMATION
+
+                 Minimum Time Step :  1.98787E-04
+                 Maximum Time Step :  1.00000E+08
+                 Initial Time Step :  1.98787E-03
+           Time Step Safety Factor :  9.00000E-01
+                      Mass scaling :  OFF
+
+
+
+
+   GRAVITATIONAL CONSTANTS
+
+             Global X Gravity :  0.00000E+00
+             Global Y Gravity :  0.00000E+00
+             Global Z Gravity :  0.00000E+00
+
+
+
+
+   GRAVITATIONAL AND ACCELERATION CONSTANTS - SUM AT START CYCLE
+
+             Total  X Acceleration :  0.00000E+00
+             Total  Y Acceleration :  0.00000E+00
+             Total  Z Acceleration :  0.00000E+00
+
+
+
+
+
+ 
+   DAMPING CONSTANTS
+
+                 Hourglass Damping :  1.00000E-01
+                    Static Damping : Per loadstep
+
+
+
+
+   ARTIFICIAL VISCOSITY
+
+               Quadratic Viscosity :  1.00000E+00
+                  Linear Viscosity :  2.00000E-01
+     Apply Lin.vis. in exp. for HE :  No
+     Art. vis. in structured shells:  Yes
+
+
+
+
+   GLOBAL OUTPUT CONTROLS
+
+                    Save Results On  : Time
+                    Increments :        1.09500E+01
+                    Save Restarts On  : Time
+                    Increments :        4.38000E+01
+                    Save Trackers On : Cycles
+                    Increments :        1.00000E+00
+
+
+
+
+   CUTOFF VALUES
+
+                   Velocity Cutoff :  1.00000E-06
+                 Soundspeed Cutoff :  1.00000E-06
+                     Radius Cutoff :  1.00000E-03
+                  Maximum Velocity :  1.00000E+10
+               Maximum Temperature :  1.01000E+20
+                    Join Tolerance :  5.00000E-02
+
+
+
+
+   METHOD OF CALCULATING CHARACTERISTIC ZONE DIMENSION
+
+                     Method to Use :  Diagonals
+
+
+
+
+   METHOD OF UPDATING LAG/ALE CELL DENSITIES AND COMPRESSIONS
+
+                     Method to Use :  Automatic
+
+
+
+
+   USER VARIABLES
+
+     Fortran name  User name     Restart  Rezone
+
+     VAR01         VAR.1         N        N
+     VAR02         VAR.2         N        N
+     VAR03         VAR.3         N        N
+     VAR04         VAR.4         N        N
+     VAR05         VAR.5         N        N
+     VAR06         VAR.6         N        N
+     VAR07         VAR.7         N        N
+     VAR08         VAR.8         N        N
+     VAR09         VAR.9         N        N
+     VAR10         VAR.10        N        N
+     VAR11         VAR.11        N        N
+     VAR12         VAR.12        N        N
+     VAR13         VAR.13        N        N
+     VAR14         VAR.14        N        N
+     VAR15         VAR.15        N        N
+     VAR16         VAR.16        N        N
+     VAR17         VAR.17        N        N
+     VAR18         VAR.18        N        N
+     VAR19         VAR.19        N        N
+     VAR20         VAR.20        N        N
+
+
+
+
+
+ 
+   GLOBAL MATERIAL SETTINGS
+
+      Shell yield converg. accuracy:  High
+
+
+
+
+   MATERIALS
+
+
+
+                         MATERIAL NAME: Madeira                       
+
+
+                     Equation of State             Linear                                                                          
+
+          Reference density                      (g/cm3   ) 7.00000E-01
+          Bulk Modulus                           (kPa     ) 6.66667E+06
+          Reference Temperature                  (K       ) 2.95150E+02
+          Specific Heat                          (J/kgK   ) 0.00000E+00
+          Thermal Conductivity                   (J/mKs   ) 0.00000E+00
+
+
+                     Strength                      Elastic                                                                         
+
+          Shear Modulus                          (kPa     ) 3.07692E+06
+
+
+                     Failure                       None                                                                            
+
+
+
+                     Erosion                       None                                                                            
+
+
+
+                     Material Cutoffs              
+
+          Maximum Expansion                      (none    ) 1.00000E-01
+          Minimum Density Factor                 (none    ) 1.00000E-04
+          Minimum Density Factor (SPH)           (none    ) 2.00000E-01
+          Maximum Density Factor (SPH)           (none    ) 3.00000E+00
+          Minimum Soundspeed                     (m/s     ) 1.00000E-06
+          Maximum Soundspeed (SPH)               (m/s     ) 1.01000E+20
+          Maximum Temperature                    (K       ) 1.01000E+20
+
+
+           Reference: 
+                                                                                                                                                                                                                                                                
+
+
+           Notes: 
+                                                                                                                                                                                                                                                                
+
+
+
+
+
+
+
+
+
+ 
+   BOUNDARY CONDITIONS
+
+
+
+                     Fixed Support : General 3D Velocity                                             
+
+                  Constant X velocity  :  0.00000E+00
+                  Constant Y velocity  :  0.00000E+00
+                  Constant Z velocity  :  0.00000E+00
+           Constant ang. vel. about X  :  0.00000E+00
+           Constant ang. vel. about Y  :  0.00000E+00
+           Constant ang. vel. about Z  :  0.00000E+00
+
+
+
+
+
+
+
+
+
+ 
+     UNSTRUCTURED PARTS
+
+           PART                  NO. ELEMENTS         ELEMENT TYPE   ARTIFICIAL VISC.   HOURGLASS CONTROL     VISCOUS COEFF.   
+
+       1   SYS\Solid                      640            Hex 8            Yes           AD STANDARD            1.00000E-01
+
+           TOTAL NUMBER ELEMENTS:         640
+           TOTAL NUMBER NODES:           1025
+
+
+
+
+     BODY CONTROL SPECIFICATION
+
+            
+
+            
+
+       SOLID PART(S)
+
+           PART                  TET INTEGRATION TYPE         HEX INTEGRATION TYPE         HOURGLASS DAMPING        VISCOUS COEFF.    STIFFNESS COEFF.      PUSO STAB.   
+
+       1  SYS\Solid              N/A                                EXACT                  AD STANDARD               1.00000E-01         0.00000E+00        0.00000E+00
+            
+
+   PART ACTIVATION / DEACTIVATION TIMES
+
+           PART           ACTIVATION   DEACTIVATION
+                             TIME          TIME
+
+
+
+
+
+ 
+   EDITS
+
+       EDIT FREQUENCY
+       EDIT TYPE   HOW DONE          START           END     INCREMENT
+
+       SAVE        by times    0.00000E+00   2.19000E+02   4.38000E+01
+       GRIDVAR     Never     
+       ENERGYSUM   by times    0.00000E+00   2.19000E+02   4.38000E+01
+       CYCSUM      Never     
+       HISTORY     by cycles             0      10000000             1
+       USER        Never     
+       FIELD       Never     
+
+     Part Name       I-range             J-range             K-range
+     SYS\Solid                           Active
+
+     No coefficients of friction have been specified
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+CYCLE       0, TIME=  0.000E+00                                                                                  ENERGY SUMMARY EDIT
+ 
+
+
+ENERGY AND MOMENTUM PARTITIONING BY MATERIALS
+
+                                                         INTERNAL   KINETIC
+MATERIAL                                 MASS    VOLUME    ENERGY    ENERGY XMOMENTUM YMOMENTUM ZMOMENTUM
+
+Madeira                             7.257E+06 1.037E+07 2.157E+05 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+---------------------------------------------------------------------------------------------------------
+TOTALS                              7.257E+06 1.037E+07 2.157E+05 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+
+
+ENERGY AND MOMENTUM PARTITIONING BY PARTS
+
+                                                         INTERNAL   KINETIC                               HOURGLASS   CONTACT
+PART                                     MASS    VOLUME    ENERGY    ENERGY XMOMENTUM YMOMENTUM ZMOMENTUM    ENERGY    ENERGY
+
+SYS\Solid                           7.257E+06 1.037E+07 2.157E+05 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+-----------------------------------------------------------------------------------------------------------------------------
+TOTALS                              7.257E+06 1.037E+07 2.157E+05 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00 0.000E+00
+
+
+ENERGY AND MOMENTUM BALANCE
+
+INITIAL ENERGY  2.157E+05, X-MOM  0.000E+00, Y-MOM  0.000E+00, Z-MOM  0.000E+00
+EXTERNAL WORK   0.000E+00, X-IMP  0.000E+00, Y-IMP  0.000E+00, Z-IMP  0.000E+00
+CONTACT ENERGY  0.000E+00
+CURRENT ENERGY  2.157E+05, X-MOM  0.000E+00, Y-MOM  0.000E+00, Z-MOM  0.000E+00
+-------------------------------------------------------------------------------
+ERROR           0.000E+00         0.000E+00         0.000E+00         0.000E+00
+
+CYCLE   11019, TIME=  4.380E+01                                                                                  ENERGY SUMMARY EDIT
+ 
+
+
+ENERGY AND MOMENTUM PARTITIONING BY MATERIALS
+
+                                                         INTERNAL   KINETIC
+MATERIAL                                 MASS    VOLUME    ENERGY    ENERGY XMOMENTUM YMOMENTUM ZMOMENTUM
+
+Madeira                             7.257E+06 1.037E+07 8.935E+04 1.265E+05-1.799E-01 1.550E+04-1.104E+06
+---------------------------------------------------------------------------------------------------------
+TOTALS                              7.257E+06 1.037E+07 8.935E+04 1.265E+05-1.799E-01 1.550E+04-1.104E+06
+
+
+ENERGY AND MOMENTUM PARTITIONING BY PARTS
+
+                                                         INTERNAL   KINETIC                               HOURGLASS   CONTACT
+PART                                     MASS    VOLUME    ENERGY    ENERGY XMOMENTUM YMOMENTUM ZMOMENTUM    ENERGY    ENERGY
+
+SYS\Solid                           7.257E+06 1.037E+07 8.935E+04 1.265E+05-1.799E-01 1.550E+04-1.104E+06 2.174E+03 0.000E+00
+-----------------------------------------------------------------------------------------------------------------------------
+TOTALS                              7.257E+06 1.037E+07 8.935E+04 1.265E+05-1.799E-01 1.550E+04-1.104E+06 2.174E+03 0.000E+00
+
+
+ENERGY AND MOMENTUM BALANCE
+
+INITIAL ENERGY  2.157E+05, X-MOM  0.000E+00, Y-MOM  0.000E+00, Z-MOM  0.000E+00
+EXTERNAL WORK   0.000E+00, X-IMP -1.797E-01, Y-IMP  1.550E+04, Z-IMP -1.104E+06
+CONTACT ENERGY  0.000E+00
+CURRENT ENERGY  2.158E+05, X-MOM -1.799E-01, Y-MOM  1.550E+04, Z-MOM -1.104E+06
+-------------------------------------------------------------------------------
+ERROR           9.923E+01        -2.089E-04        -2.001E-11         6.985E-09
+
+CYCLE   22036, TIME=  8.760E+01                                                                                  ENERGY SUMMARY EDIT
+ 
+
+
+ENERGY AND MOMENTUM PARTITIONING BY MATERIALS
+
+                                                         INTERNAL   KINETIC
+MATERIAL                                 MASS    VOLUME    ENERGY    ENERGY XMOMENTUM YMOMENTUM ZMOMENTUM
+
+Madeira                             7.257E+06 1.037E+07 3.468E+04 1.810E+05-7.133E-02 6.087E+03-1.323E+06
+---------------------------------------------------------------------------------------------------------
+TOTALS                              7.257E+06 1.037E+07 3.468E+04 1.810E+05-7.133E-02 6.087E+03-1.323E+06
+
+
+ENERGY AND MOMENTUM PARTITIONING BY PARTS
+
+                                                         INTERNAL   KINETIC                               HOURGLASS   CONTACT
+PART                                     MASS    VOLUME    ENERGY    ENERGY XMOMENTUM YMOMENTUM ZMOMENTUM    ENERGY    ENERGY
+
+SYS\Solid                           7.257E+06 1.037E+07 3.468E+04 1.810E+05-7.133E-02 6.087E+03-1.323E+06 3.861E+03 0.000E+00
+-----------------------------------------------------------------------------------------------------------------------------
+TOTALS                              7.257E+06 1.037E+07 3.468E+04 1.810E+05-7.133E-02 6.087E+03-1.323E+06 3.861E+03 0.000E+00
+
+
+ENERGY AND MOMENTUM BALANCE
+
+INITIAL ENERGY  2.157E+05, X-MOM  0.000E+00, Y-MOM  0.000E+00, Z-MOM  0.000E+00
+EXTERNAL WORK   0.000E+00, X-IMP -7.109E-02, Y-IMP  6.087E+03, Z-IMP -1.323E+06
+CONTACT ENERGY  0.000E+00
+CURRENT ENERGY  2.156E+05, X-MOM -7.133E-02, Y-MOM  6.087E+03, Z-MOM -1.323E+06
+-------------------------------------------------------------------------------
+ERROR          -8.250E+01        -2.344E-04        -7.849E-07         6.985E-09
+
+CYCLE   33053, TIME=  1.314E+02                                                                                  ENERGY SUMMARY EDIT
+ 
+
+
+ENERGY AND MOMENTUM PARTITIONING BY MATERIALS
+
+                                                         INTERNAL   KINETIC
+MATERIAL                                 MASS    VOLUME    ENERGY    ENERGY XMOMENTUM YMOMENTUM ZMOMENTUM
+
+Madeira                             7.257E+06 1.037E+07 1.900E+05 2.562E+04 2.321E-01-7.195E+03-5.283E+05
+---------------------------------------------------------------------------------------------------------
+TOTALS                              7.257E+06 1.037E+07 1.900E+05 2.562E+04 2.321E-01-7.195E+03-5.283E+05
+
+
+ENERGY AND MOMENTUM PARTITIONING BY PARTS
+
+                                                         INTERNAL   KINETIC                               HOURGLASS   CONTACT
+PART                                     MASS    VOLUME    ENERGY    ENERGY XMOMENTUM YMOMENTUM ZMOMENTUM    ENERGY    ENERGY
+
+SYS\Solid                           7.257E+06 1.037E+07 1.900E+05 2.562E+04 2.321E-01-7.195E+03-5.283E+05 5.424E+03 0.000E+00
+-----------------------------------------------------------------------------------------------------------------------------
+TOTALS                              7.257E+06 1.037E+07 1.900E+05 2.562E+04 2.321E-01-7.195E+03-5.283E+05 5.424E+03 0.000E+00
+
+
+ENERGY AND MOMENTUM BALANCE
+
+INITIAL ENERGY  2.157E+05, X-MOM  0.000E+00, Y-MOM  0.000E+00, Z-MOM  0.000E+00
+EXTERNAL WORK  -6.181E-09, X-IMP  2.323E-01, Y-IMP -7.195E+03, Z-IMP -5.283E+05
+CONTACT ENERGY  0.000E+00
+CURRENT ENERGY  2.156E+05, X-MOM  2.321E-01, Y-MOM -7.195E+03, Z-MOM -5.283E+05
+-------------------------------------------------------------------------------
+ERROR          -9.223E+01        -2.403E-04        -4.780E-07        -9.446E-07
+
+CYCLE   44069, TIME=  1.752E+02                                                                                  ENERGY SUMMARY EDIT
+ 
+
+
+ENERGY AND MOMENTUM PARTITIONING BY MATERIALS
+
+                                                         INTERNAL   KINETIC
+MATERIAL                                 MASS    VOLUME    ENERGY    ENERGY XMOMENTUM YMOMENTUM ZMOMENTUM
+
+Madeira                             7.257E+06 1.037E+07 1.577E+05 5.815E+04 2.518E-02-8.127E+03 6.318E+05
+---------------------------------------------------------------------------------------------------------
+TOTALS                              7.257E+06 1.037E+07 1.577E+05 5.815E+04 2.518E-02-8.127E+03 6.318E+05
+
+
+ENERGY AND MOMENTUM PARTITIONING BY PARTS
+
+                                                         INTERNAL   KINETIC                               HOURGLASS   CONTACT
+PART                                     MASS    VOLUME    ENERGY    ENERGY XMOMENTUM YMOMENTUM ZMOMENTUM    ENERGY    ENERGY
+
+SYS\Solid                           7.257E+06 1.037E+07 1.577E+05 5.815E+04 2.518E-02-8.127E+03 6.318E+05 6.852E+03 0.000E+00
+-----------------------------------------------------------------------------------------------------------------------------
+TOTALS                              7.257E+06 1.037E+07 1.577E+05 5.815E+04 2.518E-02-8.127E+03 6.318E+05 6.852E+03 0.000E+00
+
+
+ENERGY AND MOMENTUM BALANCE
+
+INITIAL ENERGY  2.157E+05, X-MOM  0.000E+00, Y-MOM  0.000E+00, Z-MOM  0.000E+00
+EXTERNAL WORK  -6.181E-09, X-IMP  2.543E-02, Y-IMP -8.127E+03, Z-IMP  6.318E+05
+CONTACT ENERGY  0.000E+00
+CURRENT ENERGY  2.158E+05, X-MOM  2.518E-02, Y-MOM -8.127E+03, Z-MOM  6.318E+05
+-------------------------------------------------------------------------------
+ERROR           9.874E+01        -2.566E-04        -4.783E-07        -9.418E-07
+
+CYCLE   55086, TIME=  2.190E+02                                                                                  ENERGY SUMMARY EDIT
+ 
+
+
+ENERGY AND MOMENTUM PARTITIONING BY MATERIALS
+
+                                                         INTERNAL   KINETIC
+MATERIAL                                 MASS    VOLUME    ENERGY    ENERGY XMOMENTUM YMOMENTUM ZMOMENTUM
+
+Madeira                             7.257E+06 1.037E+07 2.395E+04 1.918E+05 9.955E-02 9.069E+02 1.236E+06
+---------------------------------------------------------------------------------------------------------
+TOTALS                              7.257E+06 1.037E+07 2.395E+04 1.918E+05 9.955E-02 9.069E+02 1.236E+06
+
+
+ENERGY AND MOMENTUM PARTITIONING BY PARTS
+
+                                                         INTERNAL   KINETIC                               HOURGLASS   CONTACT
+PART                                     MASS    VOLUME    ENERGY    ENERGY XMOMENTUM YMOMENTUM ZMOMENTUM    ENERGY    ENERGY
+
+SYS\Solid                           7.257E+06 1.037E+07 2.395E+04 1.918E+05 9.955E-02 9.069E+02 1.236E+06 8.279E+03 0.000E+00
+-----------------------------------------------------------------------------------------------------------------------------
+TOTALS                              7.257E+06 1.037E+07 2.395E+04 1.918E+05 9.955E-02 9.069E+02 1.236E+06 8.279E+03 0.000E+00
+
+
+ENERGY AND MOMENTUM BALANCE
+
+INITIAL ENERGY  2.157E+05, X-MOM  0.000E+00, Y-MOM  0.000E+00, Z-MOM  0.000E+00
+EXTERNAL WORK  -3.050E-08, X-IMP  9.982E-02, Y-IMP  9.069E+02, Z-IMP  1.236E+06
+CONTACT ENERGY  0.000E+00
+CURRENT ENERGY  2.157E+05, X-MOM  9.955E-02, Y-MOM  9.069E+02, Z-MOM  1.236E+06
+-------------------------------------------------------------------------------
+ERROR           1.211E+01        -2.648E-04        -7.008E-07        -9.425E-07
+ 
+ 
+SIMULATION ELAPSED TIME SUMMARY
+ 
+EXECUTION FROM CYCLE        0 TO    55086
+ELAPSED RUN TIME IN SOLVER  =      2.78207E+00 Minutes
+ELAPSED RUN TIME IN EDITS   =      7.47950E-01 Minutes
+TOTAL ELAPSED RUN TIME      =      3.53002E+00 Minutes
+ 
+AUTODYN RAN OVER     4 WORKERS
+AUTODYN RAN USING DECOMPOSITION AUTO    
+
+AUTODYN RAN ON THE FOLLOWING MACHINES;
+
+-----------------------------------------------------------------------
+|    MACHINE NAME                  |     MASTER     |    WORKER(S)    |
+-----------------------------------------------------------------------
+|    DESKTOP-T5VN2J0               |        1       |        4        |
+-----------------------------------------------------------------------
+

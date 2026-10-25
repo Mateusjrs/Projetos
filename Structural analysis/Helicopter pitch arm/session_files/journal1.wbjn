@@ -1,0 +1,43 @@
+# encoding: utf-8
+# 2026 R1
+SetScriptVersion(Version="26.1.174")
+template1 = GetTemplate(
+    TemplateName="Static Structural",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+geometry1 = system1.GetContainer(ComponentName="Geometry")
+geometry1.SetFile(FilePath="C:/Users/mateu/Downloads/HW01CommercialHelicopterPitchArm (1)/Original design.dsco")
+modelComponent1 = system1.GetComponent(Name="Model")
+modelComponent1.Refresh()
+model1 = system1.GetContainer(ComponentName="Model")
+model1.Edit()
+Save(Overwrite=True)
+model1.Exit()
+setup1 = system1.GetContainer(ComponentName="Setup")
+setup1.Edit()
+system1.DisplayText = "Raw Desing"
+system1.Copy(KeepConnections=True)
+system2 = GetSystem(Name="SYS 1")
+system2.DisplayText = "Engeneer Desing"
+system2.DisplayText = "Engineer Desing"
+geometry2 = system2.GetContainer(ComponentName="Geometry")
+geometry2.SetFile(FilePath="C:/Users/mateu/Downloads/HW01CommercialHelicopterPitchArm (1)/Engineer design.dsco")
+model2 = system2.GetContainer(ComponentName="Model")
+model2.Edit()
+Save(Overwrite=True)
+Save(Overwrite=True)
+model1.Exit()
+Save(Overwrite=True)
+model2.Exit()
+model2.Edit()
+model2.Exit()
+system2.Copy(KeepConnections=True)
+system3 = GetSystem(Name="SYS 2")
+system3.DisplayText = "Opitized"
+geometry3 = system3.GetContainer(ComponentName="Geometry")
+geometry3.SetFile(FilePath="C:/Users/mateu/Downloads/HW01CommercialHelicopterPitchArm (1)/Topology optimized design.dsco")
+modelComponent2 = system3.GetComponent(Name="Model")
+modelComponent2.Refresh()
+model3 = system3.GetContainer(ComponentName="Model")
+model3.Edit()
+Save(Overwrite=True)

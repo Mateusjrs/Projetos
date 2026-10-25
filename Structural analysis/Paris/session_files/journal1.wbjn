@@ -1,0 +1,19 @@
+# encoding: utf-8
+# 2026 R1
+SetScriptVersion(Version="26.1.174")
+template1 = GetTemplate(
+    TemplateName="Modal",
+    Solver="ANSYS")
+system1 = template1.CreateSystem()
+system1.DisplayText = "Dubai"
+engineeringData1 = system1.GetContainer(ComponentName="Engineering Data")
+matl1 = engineeringData1.CreateMaterial(Name="Steel")
+matlProp1 = matl1.CreateProperty(
+    Name="Elasticity",
+    Behavior="Isotropic",
+    Qualifiers={"Definition": "", "Behavior": "Isotropic"})
+matlProp1.SetData(
+    Index=-1,
+    Variables=["Young's Modulus"],
+    Values=[["2000000000 [Pa]"]])
+Save(Overwrite=True)
